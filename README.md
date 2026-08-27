@@ -194,7 +194,6 @@ hd-icons-cf/
 │   ├── index.html              # 主页面
 │   ├── style.css               # 样式（亮/暗双主题）
 │   └── app.js                  # 前端逻辑
-├── wrangler.toml              # Cloudflare Pages 配置
 ├── package.json
 └── README.md
 ```
