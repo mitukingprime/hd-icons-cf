@@ -41,6 +41,38 @@ const previewImage = $('#previewImage');
 const previewName = $('#previewName');
 const previewCopy = $('#previewCopy');
 const toast = $('#toast');
+const loginBtn = $('#loginBtn');
+const logoutBtn = $('#logoutBtn');
+const authUser = $('#authUser');
+const authUserBtn = $('#authUserBtn');
+const authUserName = $('#authUserName');
+const authDropdown = $('#authDropdown');
+const changePasswordBtn = $('#changePasswordBtn');
+const loginModal = $('#loginModal');
+const loginModalClose = $('#loginModalClose');
+const loginForm = $('#loginForm');
+const loginUsername = $('#loginUsername');
+const loginPassword = $('#loginPassword');
+const loginError = $('#loginError');
+const setupModal = $('#setupModal');
+const setupModalClose = $('#setupModalClose');
+const setupForm = $('#setupForm');
+const setupUsername = $('#setupUsername');
+const setupPassword = $('#setupPassword');
+const setupPasswordConfirm = $('#setupPasswordConfirm');
+const setupError = $('#setupError');
+const setupSkipBtn = $('#setupSkipBtn');
+const changePasswordModal = $('#changePasswordModal');
+const changePasswordModalClose = $('#changePasswordModalClose');
+const changePasswordForm = $('#changePasswordForm');
+const currentPassword = $('#currentPassword');
+const newPassword = $('#newPassword');
+const newPasswordConfirm = $('#newPasswordConfirm');
+const changePasswordError = $('#changePasswordError');
+const uploadAuthHint = document.querySelector('.upload-auth-hint');
+
+// Auth state
+let authState = { authenticated: false, needsSetup: false };
 
 // ---------------------------------------------------------------------------
 // Theme
@@ -72,11 +104,226 @@ function showToast(msg, type = 'success') {
 // ---------------------------------------------------------------------------
 // Auth
 // ---------------------------------------------------------------------------
-function handleAuthError() {
-  showToast('需要登录后才能执行此操作', 'error');
-  setTimeout(() => {
-    window.location.href = '/api/upload';
-  }, 1500);
+async function checkAuth() {
+  try {
+    const resp = await fetch('/api/check-auth', { credentials: 'include' });
+    authState = await resp.json();
+    updateAuthUI();
+
+    if (authState.needsSetup && !sessionStorage.getItem('setup-dismissed')) {
+      openSetupModal();
+    }
+  } catch {
+    authState = { authenticated: false, needsSetup: false };
+    updateAuthUI();
+  }
+}
+
+function updateAuthUI() {
+  const authConfigured = !authState.needsSetup;
+
+  if (authConfigured) {
+    loginBtn.style.display = authState.authenticated ? 'none' : '';
+    authUser.style.display = authState.authenticated ? '' : 'none';
+    if (authState.authenticated && authState.username) {
+      authUserName.textContent = authState.username;
+    }
+  } else {
+    loginBtn.style.display = 'none';
+    authUser.style.display = 'none';
+  }
+
+  if (uploadAuthHint) {
+    uploadAuthHint.style.display = authConfigured && !authState.authenticated ? '' : 'none';
+  }
+}
+
+function toggleAuthDropdown(show) {
+  if (show === undefined) {
+    authDropdown.classList.toggle('open');
+  } else if (show) {
+    authDropdown.classList.add('open');
+  } else {
+    authDropdown.classList.remove('open');
+  }
+}
+
+function openSetupModal() {
+  setupError.style.display = 'none';
+  setupError.textContent = '';
+  setupForm.reset();
+  setupModal.classList.add('open');
+  setTimeout(() => setupUsername.focus(), 100);
+}
+
+function closeSetupModal() {
+  setupModal.classList.remove('open');
+}
+
+function dismissSetupModal() {
+  sessionStorage.setItem('setup-dismissed', '1');
+  closeSetupModal();
+}
+
+function openLoginModal() {
+  loginError.style.display = 'none';
+  loginError.textContent = '';
+  loginForm.reset();
+  loginModal.classList.add('open');
+  setTimeout(() => loginUsername.focus(), 100);
+}
+
+function closeLoginModal() {
+  loginModal.classList.remove('open');
+}
+
+function openChangePasswordModal() {
+  toggleAuthDropdown(false);
+  changePasswordError.style.display = 'none';
+  changePasswordError.textContent = '';
+  changePasswordForm.reset();
+  changePasswordModal.classList.add('open');
+  setTimeout(() => currentPassword.focus(), 100);
+}
+
+function closeChangePasswordModal() {
+  changePasswordModal.classList.remove('open');
+}
+
+function handleAuthError(message) {
+  showToast(message || '需要登录后才能执行此操作', 'error');
+  openLoginModal();
+}
+
+async function handleLogin(e) {
+  e.preventDefault();
+  loginError.style.display = 'none';
+
+  try {
+    const resp = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: loginUsername.value,
+        password: loginPassword.value,
+      }),
+      credentials: 'include',
+    });
+
+    const data = await resp.json();
+
+    if (resp.ok && data.status === 'success') {
+      closeLoginModal();
+      showToast('登录成功');
+      await checkAuth();
+    } else {
+      loginError.textContent = data.message || '登录失败';
+      loginError.style.display = '';
+    }
+  } catch (err) {
+    loginError.textContent = '登录失败: ' + err.message;
+    loginError.style.display = '';
+  }
+}
+
+async function handleLogout() {
+  try {
+    await fetch('/api/logout', {
+      method: 'POST',
+      credentials: 'include',
+    });
+    toggleAuthDropdown(false);
+    showToast('已退出登录');
+    await checkAuth();
+  } catch {
+    showToast('退出失败', 'error');
+  }
+}
+
+async function handleSetup(e) {
+  e.preventDefault();
+  setupError.style.display = 'none';
+
+  if (setupPassword.value !== setupPasswordConfirm.value) {
+    setupError.textContent = '两次输入的密码不一致';
+    setupError.style.display = '';
+    return;
+  }
+
+  if (setupPassword.value.length < 6) {
+    setupError.textContent = '密码长度至少 6 个字符';
+    setupError.style.display = '';
+    return;
+  }
+
+  try {
+    const resp = await fetch('/api/setup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: setupUsername.value,
+        password: setupPassword.value,
+      }),
+      credentials: 'include',
+    });
+
+    const data = await resp.json();
+
+    if (resp.ok && data.status === 'success') {
+      sessionStorage.removeItem('setup-dismissed');
+      closeSetupModal();
+      showToast('设置成功');
+      await checkAuth();
+    } else {
+      setupError.textContent = data.message || '设置失败';
+      setupError.style.display = '';
+    }
+  } catch (err) {
+    setupError.textContent = '设置失败: ' + err.message;
+    setupError.style.display = '';
+  }
+}
+
+async function handleChangePassword(e) {
+  e.preventDefault();
+  changePasswordError.style.display = 'none';
+
+  if (newPassword.value !== newPasswordConfirm.value) {
+    changePasswordError.textContent = '两次输入的新密码不一致';
+    changePasswordError.style.display = '';
+    return;
+  }
+
+  if (newPassword.value.length < 6) {
+    changePasswordError.textContent = '新密码长度至少 6 个字符';
+    changePasswordError.style.display = '';
+    return;
+  }
+
+  try {
+    const resp = await fetch('/api/change-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        currentPassword: currentPassword.value,
+        newPassword: newPassword.value,
+      }),
+      credentials: 'include',
+    });
+
+    const data = await resp.json();
+
+    if (resp.ok && data.status === 'success') {
+      closeChangePasswordModal();
+      showToast('密码修改成功');
+    } else {
+      changePasswordError.textContent = data.message || '修改失败';
+      changePasswordError.style.display = '';
+    }
+  } catch (err) {
+    changePasswordError.textContent = '修改失败: ' + err.message;
+    changePasswordError.style.display = '';
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -321,7 +568,8 @@ async function handleUpload(files) {
     });
 
     if (resp.status === 401) {
-      handleAuthError();
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
       return;
     }
 
@@ -358,7 +606,8 @@ async function deleteIcon(icon) {
     });
 
     if (resp.status === 401) {
-      handleAuthError();
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
       return;
     }
 
@@ -386,11 +635,36 @@ function init() {
   uploadBtn.addEventListener('click', openUploadModal);
   uploadModalClose.addEventListener('click', () => uploadModal.classList.remove('open'));
   previewModalClose.addEventListener('click', () => previewModal.classList.remove('open'));
+  loginBtn.addEventListener('click', openLoginModal);
+  logoutBtn.addEventListener('click', handleLogout);
+  authUserBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleAuthDropdown();
+  });
+  changePasswordBtn.addEventListener('click', openChangePasswordModal);
+  loginModalClose.addEventListener('click', closeLoginModal);
+  loginForm.addEventListener('submit', handleLogin);
+  setupModalClose.addEventListener('click', dismissSetupModal);
+  setupSkipBtn.addEventListener('click', dismissSetupModal);
+  setupForm.addEventListener('submit', handleSetup);
+  changePasswordModalClose.addEventListener('click', closeChangePasswordModal);
+  changePasswordForm.addEventListener('submit', handleChangePassword);
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.auth-user-menu')) {
+      toggleAuthDropdown(false);
+    }
+  });
 
   // Close modals on overlay click
-  [uploadModal, previewModal].forEach((modal) => {
+  [uploadModal, previewModal, loginModal, setupModal, changePasswordModal].forEach((modal) => {
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('open');
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        if (modal === setupModal) {
+          sessionStorage.setItem('setup-dismissed', '1');
+        }
+      }
     });
   });
 
@@ -399,6 +673,13 @@ function init() {
     if (e.key === 'Escape') {
       uploadModal.classList.remove('open');
       previewModal.classList.remove('open');
+      loginModal.classList.remove('open');
+      changePasswordModal.classList.remove('open');
+      if (setupModal.classList.contains('open')) {
+        sessionStorage.setItem('setup-dismissed', '1');
+        setupModal.classList.remove('open');
+      }
+      toggleAuthDropdown(false);
     }
   });
 
@@ -452,6 +733,7 @@ function init() {
     }
   });
 
+  checkAuth();
   loadIcons();
 }
 

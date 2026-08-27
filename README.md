@@ -87,40 +87,13 @@ Fork 本项目到你的 GitHub 账号：
 
 > 域名需要已在 Cloudflare DNS 管理。添加后 Cloudflare 会自动配置 SSL 证书，无需额外操作。
 
-### 6.（可选）配置 Cloudflare Access 保护上传/删除
+### 6.（可选）配置登录保护
 
-Cloudflare Access 可以为上传和删除操作增加身份验证，同时保持图标浏览公开可用。未配置时，应用行为与之前完全一致（向后兼容）。
+部署完成后，首次访问站点会弹出"设置管理员账号"窗口，设置用户名和密码即可。设置后，上传和删除功能需要登录才能使用，浏览图标无需登录。
 
-#### 在 Zero Trust 中创建 Access 应用
+如果不需要登录保护，忽略设置窗口，直接关闭即可（上传和删除对所有人开放）。
 
-1. 打开 [Cloudflare Zero Trust Dashboard](https://one.dash.cloudflare.com/) → **Access** → **Applications**
-2. 点击 **Add an application** → 选择 **Self-hosted**
-3. 配置应用：
-   - **Application name**：如 `HD Icons Upload`
-   - **Session Duration**：按需设置（如 24 小时）
-   - **Application domain**：选择你的 Pages 域名（如 `icons.yourdomain.com` 或 `hd-icons.pages.dev`）
-   - **Path**：添加以下路径（各一条）：
-     - `/api/upload`
-     - `/api/delete`
-4. 在 **Policies** 中添加访问策略，例如允许特定邮箱：
-   - Policy name：`Allow admins`
-   - Action：`Allow`
-   - Include：`Emails` → 填入你的邮箱
-5. 保存应用后，在应用详情页复制 **Application Audience (AUD) Tag**
-
-#### 在 Cloudflare Pages 中配置环境变量
-
-1. 进入你的 Pages 项目 → **Settings** → **Environment variables**
-2. 添加以下变量（Production 和 Preview 均可按需配置）：
-
-| 变量名 | 值 | 说明 |
-|---|---|---|
-| `CF_ACCESS_TEAM_DOMAIN` | 你的 Team 域名 | Zero Trust 左侧边栏底部可见，如 `myteam`（不含 `.cloudflareaccess.com`） |
-| `CF_ACCESS_AUD` | Application Audience Tag | 上一步复制的 AUD 值 |
-
-3. 保存后重新部署使环境变量生效
-
-> **说明**：如果未设置 `CF_ACCESS_TEAM_DOMAIN` 和 `CF_ACCESS_AUD`，JWT 验证会被跳过，上传/删除无需登录即可使用。设置后，只有通过 Access 登录的用户才能上传或删除图标；浏览、搜索、复制图标地址仍对所有人开放。
+> 账号信息存储在 R2 存储桶中，可以在登录后修改密码。如需重置密码，在 R2 存储桶中删除 `_meta/auth.json` 文件即可重新设置。
 
 ### 7. 完成！
 
@@ -143,7 +116,12 @@ hd-icons-cf/
 ├── functions/                 # Pages Functions (API)
 │   ├── _middleware.js          # CORS 中间件
 │   ├── api/
-│   │   ├── _middleware.js      # Access JWT 验证（POST 请求）
+│   │   ├── _middleware.js      # JWT Cookie 验证（POST 请求）
+│   │   ├── check-auth.js       # GET /api/check-auth — 检查登录状态
+│   │   ├── setup.js            # POST /api/setup — 首次设置管理员账号
+│   │   ├── login.js            # POST /api/login — 登录
+│   │   ├── logout.js           # POST /api/logout — 退出登录
+│   │   ├── change-password.js  # POST /api/change-password — 修改密码
 │   │   ├── icons.js            # GET /api/icons — 图标列表
 │   │   ├── stats.js            # GET /api/stats — 分类统计
 │   │   ├── upload.js           # POST /api/upload — 上传图片

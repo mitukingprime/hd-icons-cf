@@ -1,10 +1,6 @@
 const AUTH_KEY = '_meta/auth.json';
 const COOKIE_NAME = 'hd_icons_token';
 
-function unauthorized(message = '需要登录后才能执行此操作') {
-  return Response.json({ status: 'error', message }, { status: 401 });
-}
-
 async function getAuthConfig(env) {
   const obj = await env.ICONS_BUCKET.get(AUTH_KEY);
   if (!obj) return null;
@@ -48,34 +44,23 @@ function getCookie(request, name) {
   return match ? match[1] : null;
 }
 
-export async function onRequest(context) {
+export async function onRequestGet(context) {
   const { request, env } = context;
-  const method = request.method;
-
-  if (method === 'GET' || method === 'OPTIONS') {
-    return context.next();
-  }
-
-  const url = new URL(request.url);
-  const publicPaths = ['/api/login', '/api/logout', '/api/setup', '/api/check-auth'];
-  if (publicPaths.includes(url.pathname)) {
-    return context.next();
-  }
 
   const authConfig = await getAuthConfig(env);
   if (!authConfig) {
-    return context.next();
+    return Response.json({ authenticated: false, needsSetup: true });
   }
 
   const token = getCookie(request, COOKIE_NAME);
   if (!token) {
-    return unauthorized();
+    return Response.json({ authenticated: false, needsSetup: false });
   }
 
   const valid = await verifyToken(token, authConfig.jwtSecret);
-  if (!valid) {
-    return unauthorized('登录已过期，请重新登录');
-  }
-
-  return context.next();
+  return Response.json({
+    authenticated: valid,
+    needsSetup: false,
+    username: valid ? authConfig.username : undefined,
+  });
 }
