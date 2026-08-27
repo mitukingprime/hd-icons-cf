@@ -1,5 +1,0 @@
-name = "hd-icons"
-pages_build_output_dir = "./public"
-
-# 存储绑定请在 Cloudflare Dashboard 上配置（Settings → Functions）
-# 不要在此文件中定义绑定，否则 Dashboard 无法管理
