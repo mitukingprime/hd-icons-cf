@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>HD Icons</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">
+        <span class="logo-icon">🎨</span>
+        <span>HD Icons</span>
+        <span class="badge" id="totalBadge">0</span>
+      </h1>
+      <div class="header-actions">
+        <button class="btn btn-icon" id="syncBtn" title="从 GitHub 同步">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+        </button>
+        <button class="btn btn-icon" id="uploadBtn" title="上传图标">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </button>
+        <button class="btn btn-icon" id="themeBtn" title="切换主题">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search & Filters -->
+  <div class="toolbar">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="搜索图标名称..." autocomplete="off" />
+      <span class="search-count" id="searchCount"></span>
+    </div>
+    <div class="filter-tabs">
+      <button class="tab active" data-type="all">全部</button>
+      <button class="tab" data-type="border-radius">圆角 <span class="tab-count" id="count-border-radius">0</span></button>
+      <button class="tab" data-type="circle">圆形 <span class="tab-count" id="count-circle">0</span></button>
+      <button class="tab" data-type="svg">矢量 <span class="tab-count" id="count-svg">0</span></button>
+      <button class="tab" data-type="upload">上传 <span class="tab-count" id="count-upload">0</span></button>
+    </div>
+  </div>
+
+  <!-- Icons Grid -->
+  <main class="grid-container">
+    <div class="grid" id="iconsGrid"></div>
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>加载中...</p>
+    </div>
+    <div class="empty" id="empty" style="display:none">
+      <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15h8"/><circle cx="9" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/></svg>
+      <p>没有找到图标</p>
+      <p class="empty-hint" id="emptyHint">请先点击右上角同步按钮从 GitHub 同步图标数据</p>
+    </div>
+  </main>
+
+  <!-- Upload Modal -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>上传图标</h2>
+        <button class="btn btn-icon modal-close" id="uploadModalClose">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="upload-zone" id="uploadZone">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <p>拖拽文件到此处，或点击选择</p>
+        <p class="upload-hint">支持 png, jpg, gif, svg, ico, webp 等格式</p>
+        <input type="file" id="fileInput" multiple accept="image/*" style="display:none" />
+      </div>
+      <div class="upload-progress" id="uploadProgress" style="display:none">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <p id="uploadStatus">上传中...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview Modal -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="modal modal-preview">
+      <button class="btn btn-icon modal-close" id="previewModalClose">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <img id="previewImage" src="" alt="" />
+      <div class="preview-info">
+        <span id="previewName"></span>
+        <button class="btn btn-sm" id="previewCopy">复制地址</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Back to top -->
+  <button class="btn btn-icon btn-float" id="backToTop" title="回到顶部" style="display:none">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <footer class="footer">
+    <p>
+      数据来源：<a href="https://github.com/xushier/HD-Icons" target="_blank">xushier/HD-Icons</a>
+      &nbsp;·&nbsp;
+      部署于 <a href="https://www.cloudflare.com/" target="_blank">Cloudflare</a>
+    </p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

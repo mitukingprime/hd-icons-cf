@@ -1,0 +1,17 @@
+name: Sync HD-Icons
+
+on:
+  schedule:
+    # UTC 4:00 = Beijing 12:00, daily
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger sync
+        run: |
+          curl -sf -X POST "${{ secrets.SITE_URL }}/api/sync" \
+            -H "Content-Type: application/json" \
+            || echo "Sync request sent"

@@ -1,0 +1,6 @@
+name = "hd-icons"
+pages_build_output_dir = "./public"
+
+[[r2_buckets]]
+binding = "ICONS_BUCKET"
+bucket_name = "hd-icons"

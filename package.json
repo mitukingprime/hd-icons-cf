@@ -1,0 +1,12 @@
+{
+  "name": "hd-icons-cf",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev public --r2 ICONS_BUCKET",
+    "deploy": "wrangler pages deploy public --project-name hd-icons"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
