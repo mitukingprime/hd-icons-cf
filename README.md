@@ -6,8 +6,6 @@
 
 **架构**：Cloudflare Pages（静态前端 + 内置图标）+ Pages Functions（API）+ R2（用户上传存储）
 
-![预览](preview.png)
-
 ## 功能
 
 - 浏览 1754+ 高清仪表盘图标（1024x1024）
