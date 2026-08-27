@@ -87,7 +87,42 @@ Fork 本项目到你的 GitHub 账号：
 
 > 域名需要已在 Cloudflare DNS 管理。添加后 Cloudflare 会自动配置 SSL 证书，无需额外操作。
 
-### 6. 完成！
+### 6.（可选）配置 Cloudflare Access 保护上传/删除
+
+Cloudflare Access 可以为上传和删除操作增加身份验证，同时保持图标浏览公开可用。未配置时，应用行为与之前完全一致（向后兼容）。
+
+#### 在 Zero Trust 中创建 Access 应用
+
+1. 打开 [Cloudflare Zero Trust Dashboard](https://one.dash.cloudflare.com/) → **Access** → **Applications**
+2. 点击 **Add an application** → 选择 **Self-hosted**
+3. 配置应用：
+   - **Application name**：如 `HD Icons Upload`
+   - **Session Duration**：按需设置（如 24 小时）
+   - **Application domain**：选择你的 Pages 域名（如 `icons.yourdomain.com` 或 `hd-icons.pages.dev`）
+   - **Path**：添加以下路径（各一条）：
+     - `/api/upload`
+     - `/api/delete`
+4. 在 **Policies** 中添加访问策略，例如允许特定邮箱：
+   - Policy name：`Allow admins`
+   - Action：`Allow`
+   - Include：`Emails` → 填入你的邮箱
+5. 保存应用后，在应用详情页复制 **Application Audience (AUD) Tag**
+
+#### 在 Cloudflare Pages 中配置环境变量
+
+1. 进入你的 Pages 项目 → **Settings** → **Environment variables**
+2. 添加以下变量（Production 和 Preview 均可按需配置）：
+
+| 变量名 | 值 | 说明 |
+|---|---|---|
+| `CF_ACCESS_TEAM_DOMAIN` | 你的 Team 域名 | Zero Trust 左侧边栏底部可见，如 `myteam`（不含 `.cloudflareaccess.com`） |
+| `CF_ACCESS_AUD` | Application Audience Tag | 上一步复制的 AUD 值 |
+
+3. 保存后重新部署使环境变量生效
+
+> **说明**：如果未设置 `CF_ACCESS_TEAM_DOMAIN` 和 `CF_ACCESS_AUD`，JWT 验证会被跳过，上传/删除无需登录即可使用。设置后，只有通过 Access 登录的用户才能上传或删除图标；浏览、搜索、复制图标地址仍对所有人开放。
+
+### 7. 完成！
 
 打开你的站点地址（如 `https://hd-icons.pages.dev` 或你绑定的自定义域名），即可看到全部 1754+ 图标。无需任何额外同步步骤，图标已内置在项目中。
 
@@ -108,6 +143,7 @@ hd-icons-cf/
 ├── functions/                 # Pages Functions (API)
 │   ├── _middleware.js          # CORS 中间件
 │   ├── api/
+│   │   ├── _middleware.js      # Access JWT 验证（POST 请求）
 │   │   ├── icons.js            # GET /api/icons — 图标列表
 │   │   ├── stats.js            # GET /api/stats — 分类统计
 │   │   ├── upload.js           # POST /api/upload — 上传图片

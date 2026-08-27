@@ -70,6 +70,16 @@ function showToast(msg, type = 'success') {
 }
 
 // ---------------------------------------------------------------------------
+// Auth
+// ---------------------------------------------------------------------------
+function handleAuthError() {
+  showToast('需要登录后才能执行此操作', 'error');
+  setTimeout(() => {
+    window.location.href = '/api/upload';
+  }, 1500);
+}
+
+// ---------------------------------------------------------------------------
 // URL helpers
 // ---------------------------------------------------------------------------
 function getDisplayUrl(icon) {
@@ -304,7 +314,17 @@ async function handleUpload(files) {
 
   try {
     progressFill.style.width = '50%';
-    const resp = await fetch('/api/upload', { method: 'POST', body: formData });
+    const resp = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData,
+      credentials: 'include',
+    });
+
+    if (resp.status === 401) {
+      handleAuthError();
+      return;
+    }
+
     const data = await resp.json();
 
     if (data.status === 'success') {
@@ -334,7 +354,14 @@ async function deleteIcon(icon) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: icon.name }),
+      credentials: 'include',
     });
+
+    if (resp.status === 401) {
+      handleAuthError();
+      return;
+    }
+
     const data = await resp.json();
 
     if (data.status === 'success') {

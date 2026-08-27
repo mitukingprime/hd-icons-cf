@@ -18,7 +18,7 @@
         <span class="badge" id="totalBadge">0</span>
       </h1>
       <div class="header-actions">
-        <button class="btn btn-icon" id="uploadBtn" title="上传图标">
+        <button class="btn btn-icon" id="uploadBtn" title="上传图标（需要登录）">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
         </button>
         <button class="btn btn-icon" id="themeBtn" title="切换主题">
@@ -72,6 +72,7 @@
         <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
         <p>拖拽文件到此处，或点击选择</p>
         <p class="upload-hint">支持 png, jpg, gif, svg, ico, webp 等格式</p>
+        <p class="upload-hint upload-auth-hint">🔒 需要登录后使用</p>
         <input type="file" id="fileInput" multiple accept="image/*" style="display:none" />
       </div>
       <div class="upload-progress" id="uploadProgress" style="display:none">
