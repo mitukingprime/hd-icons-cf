@@ -195,6 +195,7 @@ hd-icons-cf/
 │   ├── style.css               # 样式（亮/暗双主题）
 │   └── app.js                  # 前端逻辑
 ├── package.json
+├── LICENSE
 └── README.md
 ```
 
