@@ -33,8 +33,6 @@ Fork 本项目到你的 GitHub 账号：
 
 > **提示**：如果你不想公开部署代码，可以在 fork 后将仓库改为 **Private**（Settings → Danger Zone → Change visibility）。Cloudflare Pages 连接 GitHub 后可以正常访问私有仓库，不影响部署。
 
-
-
 ### 2. 选择存储方式
 
 项目支持两种存储后端，**只需配置其中一个**。系统会自动检测使用哪种存储。
@@ -47,8 +45,6 @@ Fork 本项目到你的 GitHub 账号：
 4. 输入名称：`hd-icons`
 5. 点击 **创建**
 
-
-
 #### 方式二：R2 存储桶（需要绑定信用卡）
 
 1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com)
@@ -56,8 +52,6 @@ Fork 本项目到你的 GitHub 账号：
 3. 点击 **创建存储桶**
 4. 输入存储桶名称：`hd-icons`
 5. 点击 **创建存储桶** 确认
-
-
 
 ### 3. 在 Cloudflare 连接 GitHub 部署
 
@@ -79,8 +73,6 @@ Fork 本项目到你的 GitHub 账号：
 1. 点击 **保存并部署**
 
 > **关键点**：构建命令 留空即可，构建输出命令 **必须** 填 `public`。Cloudflare 会自动识别项目中的 `functions/` 目录作为 Pages Functions（即 API 后端），无需额外配置。
-
-
 
 ### 4. 绑定存储
 
@@ -116,8 +108,6 @@ Fork 本项目到你的 GitHub 账号：
 
 > **重要**：变量名称 必须填 `ICONS_KV` 或 `ICONS_BUCKET`（与所选存储方式对应）。绑定后必须重新部署才能生效。
 
-
-
 ### 5.（可选）绑定自定义域名
 
 如果你有自己的域名，可以绑定到站点上：
@@ -128,8 +118,6 @@ Fork 本项目到你的 GitHub 账号：
 
 > 域名需要已在 Cloudflare DNS 管理。添加后 Cloudflare 会自动配置 SSL 证书，无需额外操作。
 
-
-
 ### 6.（可选）配置登录保护
 
 部署完成后，首次访问站点会弹出"设置管理员账号"窗口，设置用户名和密码即可。设置后，上传和删除功能需要登录才能使用，浏览图标无需登录。
@@ -138,15 +126,11 @@ Fork 本项目到你的 GitHub 账号：
 
 > 账号信息存储在所选存储后端（R2 或 KV）中，可以在登录后修改密码。如需重置密码，删除 `_meta/auth.json` 键即可重新设置（R2 在存储桶中删除该文件，KV 在 namespace 中删除该 key）。
 
-
-
 ### 7. 完成！
 
 打开你的站点地址（如 `https://hd-icons.pages.dev` 或你绑定的自定义域名），即可看到全部 1754+ 图标。无需任何额外同步步骤，图标已内置在项目中。
 
 > **提示**：如果有不需要的图标，可以到 `public/icons/` 对应的子目录下删除，提交后仓库会自动精简。删除后 Cloudflare 会自动重新部署。
-
-
 
 ## 本地开发
 
@@ -155,14 +139,6 @@ npm install
 npm run dev
 # 访问 http://localhost:8787
 ```
-
-本地开发时，`wrangler.toml` 中配置 R2 或 KV 二选一：
-
-- **R2**：取消注释 `[[r2_buckets]]` 段，运行 `npm run dev`（已内置 `--r2 ICONS_BUCKET`）
-- **KV**：注释掉 R2 段，取消注释 `[[kv_namespaces]]` 并填入 namespace id，运行：
-  ```bash
-  npx wrangler pages dev public --kv ICONS_KV
-  ```
 
 
 
@@ -201,8 +177,6 @@ hd-icons-cf/
 └── README.md
 ```
 
-
-
 ## Cloudflare 免费额度
 
 
@@ -221,13 +195,9 @@ hd-icons-cf/
 
 > **提示**：KV 免费额度无需信用卡；R2 免费额度更高但需绑定信用卡。个人/小型站点通常 KV 已足够。
 
-
-
 ## 鸣谢
 
 - [xushier/HD-Icons](https://github.com/xushier/HD-Icons) — 原始图标项目，提供了 1754+ 张高清仪表盘图标
-
-
 
 ## 📜 免责声明
 
