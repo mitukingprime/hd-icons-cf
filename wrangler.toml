@@ -1,14 +1,5 @@
 name = "hd-icons"
 pages_build_output_dir = "./public"
 
-# 存储方式二选一（R2 或 KV，只需配置其中一个）
-
-# 方式一：R2 存储桶（需要绑定信用卡）
-[[r2_buckets]]
-binding = "ICONS_BUCKET"
-bucket_name = "hd-icons"
-
-# 方式二：Workers KV（免费，无需信用卡）
-# [[kv_namespaces]]
-# binding = "ICONS_KV"
-# id = "your-kv-namespace-id"
+# 存储绑定请在 Cloudflare Dashboard 上配置（Settings → Functions）
+# 不要在此文件中定义绑定，否则 Dashboard 无法管理
