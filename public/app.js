@@ -2,9 +2,6 @@
    HD Icons — Cloudflare Edition — Frontend
    ======================================================================== */
 
-const JSDELIVR_PREFIX = 'https://cdn.jsdelivr.net/gh/mitukingprime/HD-Icons@main/';
-const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/mitukingprime/HD-Icons/main/';
-
 // ---------------------------------------------------------------------------
 // State
 // ---------------------------------------------------------------------------
@@ -28,7 +25,6 @@ const emptyHint = $('#emptyHint');
 const searchInput = $('#searchInput');
 const searchCount = $('#searchCount');
 const totalBadge = $('#totalBadge');
-const syncBtn = $('#syncBtn');
 const uploadBtn = $('#uploadBtn');
 const themeBtn = $('#themeBtn');
 const backToTop = $('#backToTop');
@@ -80,17 +76,14 @@ function getDisplayUrl(icon) {
   if (icon.type === 'upload') {
     return `${location.origin}/r2/upload/${icon.name}`;
   }
-  return icon.url.replace(GITHUB_RAW_PREFIX, JSDELIVR_PREFIX);
+  if (icon.url.startsWith('/')) {
+    return `${location.origin}${icon.url}`;
+  }
+  return icon.url;
 }
 
 function getThumbnailUrl(icon) {
-  if (icon.type === 'svg') {
-    return getDisplayUrl(icon);
-  }
-  if (icon.type === 'upload') {
-    return `${location.origin}/r2/upload/${icon.name}`;
-  }
-  return icon.url.replace(GITHUB_RAW_PREFIX, JSDELIVR_PREFIX);
+  return getDisplayUrl(icon);
 }
 
 function getCopyUrl(icon) {
@@ -123,7 +116,7 @@ async function loadIcons() {
     if (allIcons.length === 0) {
       loading.style.display = 'none';
       empty.style.display = '';
-      emptyHint.textContent = '请先点击右上角同步按钮从 GitHub 同步图标数据';
+      emptyHint.textContent = '暂无图标数据';
       return;
     }
 
@@ -289,30 +282,6 @@ function openPreview(icon) {
 }
 
 // ---------------------------------------------------------------------------
-// Sync
-// ---------------------------------------------------------------------------
-async function syncIcons() {
-  syncBtn.classList.add('syncing');
-  syncBtn.disabled = true;
-
-  try {
-    const resp = await fetch('/api/sync', { method: 'POST' });
-    const data = await resp.json();
-    if (data.status === 'success') {
-      showToast(`同步成功！共 ${data.total} 个图标`);
-      await loadIcons();
-    } else {
-      showToast(data.message || '同步失败', 'error');
-    }
-  } catch (e) {
-    showToast('同步失败: ' + e.message, 'error');
-  } finally {
-    syncBtn.classList.remove('syncing');
-    syncBtn.disabled = false;
-  }
-}
-
-// ---------------------------------------------------------------------------
 // Upload
 // ---------------------------------------------------------------------------
 function openUploadModal() {
@@ -387,7 +356,6 @@ function init() {
   initTheme();
 
   themeBtn.addEventListener('click', toggleTheme);
-  syncBtn.addEventListener('click', syncIcons);
   uploadBtn.addEventListener('click', openUploadModal);
   uploadModalClose.addEventListener('click', () => uploadModal.classList.remove('open'));
   previewModalClose.addEventListener('click', () => previewModal.classList.remove('open'));

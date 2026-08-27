@@ -1,6 +1,10 @@
-const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/mitukingprime/HD-Icons/main/';
-const META_KEY = '_meta/icons.json';
 const UPLOADS_KEY = '_meta/uploads.json';
+
+function parseBuiltinIcon(icon) {
+  const urlPath = icon.url.replace(/^\/icons\//, '');
+  const folder = urlPath.split('/')[0];
+  return { name: icon.name, type: folder, url: icon.url };
+}
 
 // GET /api/icons?type=all&search=xxx
 export async function onRequestGet(context) {
@@ -9,15 +13,11 @@ export async function onRequestGet(context) {
   const type = (url.searchParams.get('type') || 'all').toLowerCase();
   const search = (url.searchParams.get('search') || '').toLowerCase();
 
-  const meta = await env.ICONS_BUCKET.get(META_KEY);
   let icons = [];
-  if (meta) {
-    const data = await meta.json();
-    icons = (data.icons || []).map((icon) => {
-      const urlPath = icon.url.replace(GITHUB_RAW_PREFIX, '');
-      const folder = urlPath.split('/')[0];
-      return { name: icon.name, type: folder, url: icon.url };
-    });
+  const staticResp = await fetch(new URL('/icons.json', request.url));
+  if (staticResp.ok) {
+    const data = await staticResp.json();
+    icons = (data.icons || []).map(parseBuiltinIcon);
   }
 
   const uploads = await env.ICONS_BUCKET.get(UPLOADS_KEY);

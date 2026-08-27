@@ -4,14 +4,14 @@
 
 **Fork → 连接 Cloudflare → 自动部署。无需服务器，零费用。**
 
-**架构**：Cloudflare Pages（静态前端）+ Pages Functions（API）+ R2（对象存储）+ jsDelivr（图片 CDN）
+**架构**：Cloudflare Pages（静态前端 + 内置图标）+ Pages Functions（API）+ R2（用户上传存储）
 
 ## 功能
 
 - 浏览 1754+ 高清仪表盘图标（1024x1024）
 - 按分类筛选：圆角 / 圆形 / 矢量 / 上传
 - 搜索图标（Ctrl+K 快速聚焦）
-- 单击复制图标 CDN 地址
+- 单击复制图标地址
 - 放大预览
 - 自定义图标上传 / 删除
 - 日间 / 夜间模式
@@ -19,29 +19,19 @@
 
 ## 部署步骤
 
-### 1. Fork 两个仓库
+### 1. Fork 本项目
 
-你需要 fork 两个仓库到自己的 GitHub 账号下：
+Fork 本项目到你的 GitHub 账号：
 
 | 仓库 | 作用 | Fork 链接 |
 |---|---|---|
-| [xushier/HD-Icons](https://github.com/xushier/HD-Icons) | 图标源文件（1754+ 张高清图标） | [点击 Fork](https://github.com/xushier/HD-Icons/fork) |
-| [mitukingprime/hd-icons-cf](https://github.com/mitukingprime/hd-icons-cf) | 本项目（Cloudflare 部署代码） | [点击 Fork](https://github.com/mitukingprime/hd-icons-cf/fork) |
+| [mitukingprime/hd-icons-cf](https://github.com/mitukingprime/hd-icons-cf) | 本项目（含全部图标 + Cloudflare 部署代码） | [点击 Fork](https://github.com/mitukingprime/hd-icons-cf/fork) |
 
-Fork 完成后，你需要修改本项目中的 GitHub 用户名，让图标地址指向你自己的 fork。修改以下 4 个文件，将 `mitukingprime` 替换为**你的 GitHub 用户名**：
-
-- `public/app.js` — 第 5 行和第 6 行的 URL
-- `functions/api/sync.js` — 第 1 行的 URL
-- `functions/api/icons.js` — 第 1 行的 URL
-- `functions/api/stats.js` — 第 1 行的 URL
-
-> **重要**：HD-Icons 仓库必须设为 **Public**，否则 jsDelivr CDN 无法访问图标图片。
->
-> **提示**：如果你不想公开部署代码，可以在 fork 后将 `hd-icons-cf` 仓库改为 **Private**（Settings → Danger Zone → Change visibility）。Cloudflare Pages 连接 GitHub 后可以正常访问私有仓库，不影响部署。
+> **提示**：如果你不想公开部署代码，可以在 fork 后将仓库改为 **Private**（Settings → Danger Zone → Change visibility）。Cloudflare Pages 连接 GitHub 后可以正常访问私有仓库，不影响部署。
 
 ### 2. 创建 R2 存储桶
 
-在 Cloudflare Dashboard 上创建 R2 存储桶：
+在 Cloudflare Dashboard 上创建 R2 存储桶（用于存储用户上传的自定义图标）：
 
 1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com)
 2. 左侧菜单点击 **R2 Object Storage**
@@ -97,19 +87,9 @@ Fork 完成后，你需要修改本项目中的 GitHub 用户名，让图标地�
 
 > 域名需要已在 Cloudflare DNS 管理。添加后 Cloudflare 会自动配置 SSL 证书，无需额外操作。
 
-### 6. 首次同步图标数据
+### 6. 完成！
 
-打开你的站点地址（如 `https://hd-icons.pages.dev` 或你绑定的自定义域名）。
-
-点击页面右上角的 **同步按钮（🔄）**，从 GitHub 拉取图标数据。同步完成后刷新页面即可看到所有图标。
-
-也可以用命令行触发：
-
-```bash
-curl -X POST https://你的站点地址/api/sync
-```
-
-> 同步只需执行一次。图标数据会存储在 R2 中，后续访问无需再次同步。
+打开你的站点地址（如 `https://hd-icons.pages.dev` 或你绑定的自定义域名），即可看到全部 1754+ 图标。无需任何额外同步步骤，图标已内置在项目中。
 
 ## 本地开发
 
@@ -117,7 +97,6 @@ curl -X POST https://你的站点地址/api/sync
 npm install
 npm run dev
 # 访问 http://localhost:8787
-# 首次使用需点击同步按钮拉取图标数据
 ```
 
 ## 项目结构
@@ -129,12 +108,16 @@ hd-icons-cf/
 │   ├── api/
 │   │   ├── icons.js            # GET /api/icons — 图标列表
 │   │   ├── stats.js            # GET /api/stats — 分类统计
-│   │   ├── sync.js             # POST /api/sync — 从 GitHub 同步
 │   │   ├── upload.js           # POST /api/upload — 上传图片
 │   │   └── delete.js           # POST /api/delete — 删除图片
 │   └── r2/
 │       └── [[path]].js         # GET /r2/* — R2 图片访问
-├── public/                    # 静态前端
+├── public/                    # 静态前端 + 内置图标
+│   ├── icons/                  # 1754 张高清图标
+│   │   ├── border-radius/      # 圆角图标 (PNG)
+│   │   ├── circle/             # 圆形图标 (PNG)
+│   │   └── svg/                # 矢量图标 (SVG)
+│   ├── icons.json              # 图标元数据
 │   ├── index.html              # 主页面
 │   ├── style.css               # 样式（亮/暗双主题）
 │   └── app.js                  # 前端逻辑
@@ -149,7 +132,7 @@ hd-icons-cf/
 |---|---|---|
 | Pages 部署 | 500 次/月 | 每次 push 消耗 1 次 |
 | Pages Functions 请求 | 10 万次/天 | 远低于限额 |
-| R2 存储 | 10 GB/月 | < 1 MB（元数据）+ 上传图片 |
+| R2 存储 | 10 GB/月 | 用户上传图片 |
 | R2 读取 | 1000 万次/月 | 按访问量 |
 | 自定义域名 | 无限 | 按需 |
 | SSL 证书 | 自动 | 内置 |

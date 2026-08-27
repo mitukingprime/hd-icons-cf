@@ -137,10 +137,6 @@ a:hover { text-decoration: underline; }
 [data-theme="dark"] .icon-sun { display: block; }
 :not([data-theme]) .icon-moon { display: block; }
 
-/* Sync spinner animation */
-.btn.syncing svg { animation: spin 1s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
 /* ---- Toolbar ---- */
 .toolbar {
   max-width: 1400px;
