@@ -1,4 +1,4 @@
-const GITHUB_ICONS_JSON = 'https://raw.githubusercontent.com/xushier/HD-Icons/main/icons.json';
+const GITHUB_ICONS_JSON = 'https://raw.githubusercontent.com/mitukingprime/HD-Icons/main/icons.json';
 const META_KEY = '_meta/icons.json';
 
 // POST /api/sync

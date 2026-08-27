@@ -1,4 +1,4 @@
-const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/xushier/HD-Icons/main/';
+const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/mitukingprime/HD-Icons/main/';
 const META_KEY = '_meta/icons.json';
 const UPLOADS_KEY = '_meta/uploads.json';
 

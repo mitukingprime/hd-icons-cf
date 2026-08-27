@@ -2,8 +2,8 @@
    HD Icons — Cloudflare Edition — Frontend
    ======================================================================== */
 
-const JSDELIVR_PREFIX = 'https://cdn.jsdelivr.net/gh/xushier/HD-Icons@main/';
-const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/xushier/HD-Icons/main/';
+const JSDELIVR_PREFIX = 'https://cdn.jsdelivr.net/gh/mitukingprime/HD-Icons@main/';
+const GITHUB_RAW_PREFIX = 'https://raw.githubusercontent.com/mitukingprime/HD-Icons/main/';
 
 // ---------------------------------------------------------------------------
 // State
