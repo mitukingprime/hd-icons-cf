@@ -41,11 +41,9 @@ Fork 本项目到你的 GitHub 账号：
 
 1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com)
 2. 左侧菜单 **存储和数据库** →  **Workers** **KV**
-3. 点击 **Create a namespace**
+3. 点击 **创建命名空间**
 4. 输入名称：`hd-icons`
-5. 创建后记下 **Namespace ID**
-
-> **注意**：Namespace 名称建议使用 `hd-icons`，与项目配置一致。如果使用其他名称，绑定时的 Variable name 仍需填 `ICONS_KV`。
+5. 点击 **创建**
 
 
 
@@ -53,34 +51,32 @@ Fork 本项目到你的 GitHub 账号：
 
 1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com)
 2. 左侧菜单点击 **存储和数据库** →  **R2 对象存储**
-3. 点击 **创建存储桶（Create bucket）**
+3. 点击 **创建存储桶**
 4. 输入存储桶名称：`hd-icons`
-5. 点击 **创建存储桶（Create bucket）** 确认
-
-> **注意**：存储桶名称**必须**是 `hd-icons`，与项目配置文件 `wrangler.toml` 中的 `bucket_name` 一致。如果使用其他名称，需要同步修改 `wrangler.toml` 中的 `bucket_name` 字段。
+5. 点击 **创建存储桶** 确认
 
 
 
 ### 3. 在 Cloudflare 连接 GitHub 部署
 
-1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com) → 左侧菜单 **计算** → **Workers & Pages）**
-2. 点击 **创建应用程序（Create ）**→ 底部选择 **Pages** → 选择 **导入现有 Git 存储库（Connect to Git）**
+1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com) → 左侧菜单 **计算** → **Workers & Pages**
+2. 点击 **创建应用程序** → 底部选择 **Pages** → 选择 **导入现有 Git 存储库**
 3. 首次使用需授权 Cloudflare 访问你的 GitHub 账号，授权后选择你 fork 的 `hd-icons-cf` 仓库
-4. 配置构建设置（**Set up builds and deployments**）：
+4. 配置构建设置：
 
 
-| 配置项                                   | 值                | 说明               |
-| ------------------------------------- | ---------------- | ---------------- |
-| **项目名称****Project name**             | `hd-icons`（或自定义） | Cloudflare 上的项目名 |
-| **生产分支****Production branch**        | `main`           | 生产分支             |
-| **架构框架****Framework preset**         | `None`           | 不选任何框架           |
-| **构建命令****Build command**            | 留空               | 无需构建步骤           |
-| **构建输出命令****Build output directory** | `public`         | 静态文件目录           |
+| 配置项        | 值                | 说明               |
+| ---------- | ---------------- | ---------------- |
+| **项目名称**   | `hd-icons`（或自定义） | Cloudflare 上的项目名 |
+| **生产分支**   | `main`           | 生产分支             |
+| **架构框架**   | `None`           | 不选任何框架           |
+| **构建命令**   | 留空               | 无需构建步骤           |
+| **构建输出命令** | `public`         | 静态文件目录           |
 
 
-1. 点击 **保存并部署（Save and Deploy）**
+1. 点击 **保存并部署**
 
-> **关键点**：Build command 留空即可，Build output directory **必须**填 `public`。Cloudflare 会自动识别项目中的 `functions/` 目录作为 Pages Functions（即 API 后端），无需额外配置。
+> **关键点**：构建命令 留空即可，构建输出命令 **必须** 填 `public`。Cloudflare 会自动识别项目中的 `functions/` 目录作为 Pages Functions（即 API 后端），无需额外配置。
 
 
 
@@ -88,35 +84,35 @@ Fork 本项目到你的 GitHub 账号：
 
 首次部署完成后，Pages Functions 还无法访问存储，需要手动绑定（**只需配置 R2 或 KV 其中一个**）：
 
-1. 进入你的项目页面 → **设置（Settings ）**→ **绑定（Functions）**
+1. 进入你的项目页面 → **设置** → **绑定**
 
 **如果使用 KV：**
 
-1. 下拉找到 **KV namespace bindings** → 点击 **Add binding**
+1. 下拉找到 **KV 命名空间** → 点击
 2. 填写绑定信息：
 
 
-| 配置项               | 值             |
-| ----------------- | ------------- |
-| **Variable name** | `ICONS_KV`    |
-| **KV namespace**  | 选择 `hd-icons` |
+| 配置项         | 值             |
+| ----------- | ------------- |
+| **变量名称**    | `ICONS_KV`    |
+| **KV 命名空间** | 选择 `hd-icons` |
 
 
 **如果使用 R2：**
 
-1. 下拉找到 **R2 bucket bindings** → 点击 **Add binding**
+1. 下拉找到 **R2 存储桶** → 点击 
 2. 填写绑定信息：
 
 
-| 配置项               | 值              |
-| ----------------- | -------------- |
-| **Variable name** | `ICONS_BUCKET` |
-| **R2 bucket**     | 选择 `hd-icons`  |
+| 配置项        | 值              |
+| ---------- | -------------- |
+| **变量名称**   | `ICONS_BUCKET` |
+| **R2 存储桶** | 选择 `hd-icons`  |
 
 
-1. 保存后，回到 **Deployments** 页面，点击最新部署的 **Retry deployment**（重新部署使绑定生效）
+1. 保存后，回到 **部署** 页面，点击最新部署的 **重试部署**（重新部署使绑定生效）
 
-> **重要**：Variable name 必须填 `ICONS_KV` 或 `ICONS_BUCKET`（与所选存储方式对应）。绑定后必须重新部署才能生效。
+> **重要**：变量名称 必须填 `ICONS_KV` 或 `ICONS_BUCKET`（与所选存储方式对应）。绑定后必须重新部署才能生效。
 
 
 
@@ -124,8 +120,8 @@ Fork 本项目到你的 GitHub 账号：
 
 如果你有自己的域名，可以绑定到站点上：
 
-1. 在 Cloudflare Dashboard → **Workers & Pages** → 你的项目 → **Custom domains**
-2. 点击 **Add domain**，输入你的域名（如 `icons.yourdomain.com`）
+1. 在 Cloudflare Dashboard → **Workers & Pages** → 你的项目 → **自定义域**
+2. 点击 **设置自定义域**，输入你的域名（如 `icons.yourdomain.com`）
 3. 按提示完成 DNS 配置
 
 > 域名需要已在 Cloudflare DNS 管理。添加后 Cloudflare 会自动配置 SSL 证书，无需额外操作。
