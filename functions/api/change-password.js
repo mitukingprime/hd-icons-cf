@@ -1,10 +1,12 @@
+import { createStorage } from '../_lib/storage.js';
+
 const AUTH_KEY = '_meta/auth.json';
 const PBKDF2_ITERATIONS = 100000;
 
 async function getAuthConfig(env) {
-  const obj = await env.ICONS_BUCKET.get(AUTH_KEY);
-  if (!obj) return null;
-  return obj.json();
+  const storage = createStorage(env);
+  if (!storage) return null;
+  return storage.getJSON(AUTH_KEY);
 }
 
 function base64ToBytes(base64) {
@@ -50,6 +52,10 @@ async function verifyPassword(password, salt, passwordHash) {
 
 export async function onRequestPost(context) {
   const { env, request } = context;
+  const storage = createStorage(env);
+  if (!storage) {
+    return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
+  }
 
   const authConfig = await getAuthConfig(env);
   if (!authConfig) {
@@ -98,9 +104,7 @@ export async function onRequestPost(context) {
       jwtSecret: authConfig.jwtSecret,
     };
 
-    await env.ICONS_BUCKET.put(AUTH_KEY, JSON.stringify(updatedConfig), {
-      httpMetadata: { contentType: 'application/json' },
-    });
+    await storage.putJSON(AUTH_KEY, updatedConfig);
 
     return Response.json({ status: 'success' });
   } catch (e) {

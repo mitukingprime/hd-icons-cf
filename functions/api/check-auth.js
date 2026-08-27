@@ -1,10 +1,12 @@
+import { createStorage } from '../_lib/storage.js';
+
 const AUTH_KEY = '_meta/auth.json';
 const COOKIE_NAME = 'hd_icons_token';
 
 async function getAuthConfig(env) {
-  const obj = await env.ICONS_BUCKET.get(AUTH_KEY);
-  if (!obj) return null;
-  return obj.json();
+  const storage = createStorage(env);
+  if (!storage) return null;
+  return storage.getJSON(AUTH_KEY);
 }
 
 async function verifyToken(token, secret) {

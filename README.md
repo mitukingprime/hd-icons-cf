@@ -4,7 +4,7 @@
 
 **Fork → 连接 Cloudflare → 自动部署。无需服务器，零费用。**
 
-**架构**：Cloudflare Pages（静态前端 + 内置图标）+ Pages Functions（API）+ R2（用户上传存储）
+**架构**：Cloudflare Pages（静态前端 + 内置图标）+ Pages Functions（API）+ R2 或 Workers KV（用户上传存储，二选一）
 
 ## 功能
 
@@ -23,15 +23,31 @@
 
 Fork 本项目到你的 GitHub 账号：
 
-| 仓库 | 作用 | Fork 链接 |
-|---|---|---|
+
+| 仓库                                                                        | 作用                           | Fork 链接                                                      |
+| ------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
 | [mitukingprime/hd-icons-cf](https://github.com/mitukingprime/hd-icons-cf) | 本项目（含全部图标 + Cloudflare 部署代码） | [点击 Fork](https://github.com/mitukingprime/hd-icons-cf/fork) |
+
 
 > **提示**：如果你不想公开部署代码，可以在 fork 后将仓库改为 **Private**（Settings → Danger Zone → Change visibility）。Cloudflare Pages 连接 GitHub 后可以正常访问私有仓库，不影响部署。
 
-### 2. 创建 R2 存储桶
 
-在 Cloudflare Dashboard 上创建 R2 存储桶（用于存储用户上传的自定义图标）：
+
+### 2. 选择存储方式
+
+项目支持两种存储后端，**只需配置其中一个**。系统会自动检测使用哪种存储。
+
+#### 方式一：Workers KV（推荐新手，免费无需信用卡）
+
+1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com)
+2. 左侧菜单 **Workers & Pages** → **KV**
+3. 点击 **Create a namespace**
+4. 输入名称：`hd-icons`
+5. 创建后记下 **Namespace ID**
+
+> **注意**：Namespace 名称建议使用 `hd-icons`，与项目配置一致。如果使用其他名称，绑定时的 Variable name 仍需填 `ICONS_KV`。
+
+#### 方式二：R2 存储桶（需要绑定信用卡）
 
 1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com)
 2. 左侧菜单点击 **R2 Object Storage**
@@ -41,6 +57,8 @@ Fork 本项目到你的 GitHub 账号：
 
 > **注意**：存储桶名称**必须**是 `hd-icons`，与项目配置文件 `wrangler.toml` 中的 `bucket_name` 一致。如果使用其他名称，需要同步修改 `wrangler.toml` 中的 `bucket_name` 字段。
 
+
+
 ### 3. 在 Cloudflare 连接 GitHub 部署
 
 1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com) → 左侧菜单 **Workers & Pages**
@@ -48,34 +66,53 @@ Fork 本项目到你的 GitHub 账号：
 3. 首次使用需授权 Cloudflare 访问你的 GitHub 账号，授权后选择你 fork 的 `hd-icons-cf` 仓库
 4. 配置构建设置（**Set up builds and deployments**）：
 
-| 配置项 | 值 | 说明 |
-|---|---|---|
-| **Project name** | `hd-icons`（或自定义） | Cloudflare 上的项目名 |
-| **Production branch** | `main` | 生产分支 |
-| **Framework preset** | `None` | 不选任何框架 |
-| **Build command** | 留空 | 无需构建步骤 |
-| **Build output directory** | `public` | 静态文件目录 |
 
-5. 点击 **Save and Deploy**
+| 配置项                        | 值                | 说明               |
+| -------------------------- | ---------------- | ---------------- |
+| **Project name**           | `hd-icons`（或自定义） | Cloudflare 上的项目名 |
+| **Production branch**      | `main`           | 生产分支             |
+| **Framework preset**       | `None`           | 不选任何框架           |
+| **Build command**          | 留空               | 无需构建步骤           |
+| **Build output directory** | `public`         | 静态文件目录           |
+
+
+1. 点击 **Save and Deploy**
 
 > **关键点**：Build command 留空即可，Build output directory **必须**填 `public`。Cloudflare 会自动识别项目中的 `functions/` 目录作为 Pages Functions（即 API 后端），无需额外配置。
 
-### 4. 绑定 R2 存储桶
 
-首次部署完成后，Pages Functions 还无法访问 R2，需要手动绑定：
+
+### 4. 绑定存储
+
+首次部署完成后，Pages Functions 还无法访问存储，需要手动绑定（**只需配置 R2 或 KV 其中一个**）：
 
 1. 进入你的项目页面 → **Settings** → **Functions**
+
+**如果使用 KV：**
+
+2. 下拉找到 **KV namespace bindings** → 点击 **Add binding**
+3. 填写绑定信息：
+
+| 配置项               | 值              |
+| ----------------- | -------------- |
+| **Variable name** | `ICONS_KV`     |
+| **KV namespace**  | 选择 `hd-icons`  |
+
+**如果使用 R2：**
+
 2. 下拉找到 **R2 bucket bindings** → 点击 **Add binding**
 3. 填写绑定信息：
 
-| 配置项 | 值 |
-|---|---|
+| 配置项               | 值              |
+| ----------------- | -------------- |
 | **Variable name** | `ICONS_BUCKET` |
-| **R2 bucket** | 选择 `hd-icons` |
+| **R2 bucket**     | 选择 `hd-icons`  |
 
 4. 保存后，回到 **Deployments** 页面，点击最新部署的 **Retry deployment**（重新部署使绑定生效）
 
-> **重要**：Variable name **必须**填 `ICONS_BUCKET`，这与代码中的 `env.ICONS_BUCKET` 对应。绑定后必须重新部署才能生效。
+> **重要**：Variable name 必须填 `ICONS_KV` 或 `ICONS_BUCKET`（与所选存储方式对应）。绑定后必须重新部署才能生效。
+
+
 
 ### 5.（可选）绑定自定义域名
 
@@ -87,19 +124,25 @@ Fork 本项目到你的 GitHub 账号：
 
 > 域名需要已在 Cloudflare DNS 管理。添加后 Cloudflare 会自动配置 SSL 证书，无需额外操作。
 
+
+
 ### 6.（可选）配置登录保护
 
 部署完成后，首次访问站点会弹出"设置管理员账号"窗口，设置用户名和密码即可。设置后，上传和删除功能需要登录才能使用，浏览图标无需登录。
 
 如果不需要登录保护，忽略设置窗口，直接关闭即可（上传和删除对所有人开放）。
 
-> 账号信息存储在 R2 存储桶中，可以在登录后修改密码。如需重置密码，在 R2 存储桶中删除 `_meta/auth.json` 文件即可重新设置。
+> 账号信息存储在所选存储后端（R2 或 KV）中，可以在登录后修改密码。如需重置密码，删除 `_meta/auth.json` 键即可重新设置（R2 在存储桶中删除该文件，KV 在 namespace 中删除该 key）。
+
+
 
 ### 7. 完成！
 
 打开你的站点地址（如 `https://hd-icons.pages.dev` 或你绑定的自定义域名），即可看到全部 1754+ 图标。无需任何额外同步步骤，图标已内置在项目中。
 
 > **提示**：如果有不需要的图标，可以到 `public/icons/` 对应的子目录下删除，提交后仓库会自动精简。删除后 Cloudflare 会自动重新部署。
+
+
 
 ## 本地开发
 
@@ -109,11 +152,23 @@ npm run dev
 # 访问 http://localhost:8787
 ```
 
+本地开发时，`wrangler.toml` 中配置 R2 或 KV 二选一：
+
+- **R2**：取消注释 `[[r2_buckets]]` 段，运行 `npm run dev`（已内置 `--r2 ICONS_BUCKET`）
+- **KV**：注释掉 R2 段，取消注释 `[[kv_namespaces]]` 并填入 namespace id，运行：
+  ```bash
+  npx wrangler pages dev public --kv ICONS_KV
+  ```
+
+
+
 ## 项目结构
 
 ```
 hd-icons-cf/
 ├── functions/                 # Pages Functions (API)
+│   ├── _lib/
+│   │   └── storage.js          # R2 / KV 存储抽象层
 │   ├── _middleware.js          # CORS 中间件
 │   ├── api/
 │   │   ├── _middleware.js      # JWT Cookie 验证（POST 请求）
@@ -127,7 +182,7 @@ hd-icons-cf/
 │   │   ├── upload.js           # POST /api/upload — 上传图片
 │   │   └── delete.js           # POST /api/delete — 删除图片
 │   └── r2/
-│       └── [[path]].js         # GET /r2/* — R2 图片访问
+│       └── [[path]].js         # GET /r2/* — 用户上传图片访问（R2 或 KV）
 ├── public/                    # 静态前端 + 内置图标
 │   ├── icons/                  # 1754 张高清图标
 │   │   ├── border-radius/      # 圆角图标 (PNG)
@@ -142,20 +197,33 @@ hd-icons-cf/
 └── README.md
 ```
 
+
+
 ## Cloudflare 免费额度
 
-| 资源 | 免费额度 | 本项目预估用量 |
-|---|---|---|
-| Pages 部署 | 500 次/月 | 每次 push 消耗 1 次 |
-| Pages Functions 请求 | 10 万次/天 | 远低于限额 |
-| R2 存储 | 10 GB/月 | 用户上传图片 |
-| R2 读取 | 1000 万次/月 | 按访问量 |
-| 自定义域名 | 无限 | 按需 |
-| SSL 证书 | 自动 | 内置 |
+
+| 资源                 | 免费额度      | 本项目预估用量        |
+| ------------------ | --------- | -------------- |
+| Pages 部署           | 500 次/月   | 每次 push 消耗 1 次 |
+| Pages Functions 请求 | 10 万次/天   | 远低于限额          |
+| KV 读取              | 10 万次/天   | 按访问量           |
+| KV 写入              | 1000 次/天  | 上传/删除操作        |
+| KV 存储              | 1 GB      | 元数据 + 上传图片     |
+| R2 存储              | 10 GB/月   | 用户上传图片（R2 方案） |
+| R2 读取              | 1000 万次/月 | 按访问量（R2 方案）   |
+| 自定义域名              | 无限        | 按需             |
+| SSL 证书             | 自动        | 内置             |
+
+> **提示**：KV 免费额度无需信用卡；R2 免费额度更高但需绑定信用卡。个人/小型站点通常 KV 已足够。
+
+
+
 
 ## 鸣谢
 
 - [xushier/HD-Icons](https://github.com/xushier/HD-Icons) — 原始图标项目，提供了 1754+ 张高清仪表盘图标
+
+
 
 ## 📜 免责声明
 

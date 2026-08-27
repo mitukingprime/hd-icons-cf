@@ -1,3 +1,5 @@
+import { createStorage } from '../_lib/storage.js';
+
 const UPLOADS_KEY = '_meta/uploads.json';
 
 function parseBuiltinIcon(icon) {
@@ -9,6 +11,11 @@ function parseBuiltinIcon(icon) {
 // GET /api/icons?type=all&search=xxx
 export async function onRequestGet(context) {
   const { env, request } = context;
+  const storage = createStorage(env);
+  if (!storage) {
+    return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
+  }
+
   const url = new URL(request.url);
   const type = (url.searchParams.get('type') || 'all').toLowerCase();
   const search = (url.searchParams.get('search') || '').toLowerCase();
@@ -20,11 +27,7 @@ export async function onRequestGet(context) {
     icons = (data.icons || []).map(parseBuiltinIcon);
   }
 
-  const uploads = await env.ICONS_BUCKET.get(UPLOADS_KEY);
-  let uploadedIcons = [];
-  if (uploads) {
-    uploadedIcons = await uploads.json();
-  }
+  const uploadedIcons = (await storage.getJSON(UPLOADS_KEY)) || [];
 
   let all = [...icons, ...uploadedIcons.map((u) => ({ ...u, type: 'upload' }))];
 

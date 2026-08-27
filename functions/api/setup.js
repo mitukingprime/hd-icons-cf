@@ -1,3 +1,5 @@
+import { createStorage } from '../_lib/storage.js';
+
 const AUTH_KEY = '_meta/auth.json';
 const COOKIE_NAME = 'hd_icons_token';
 const PBKDF2_ITERATIONS = 100000;
@@ -70,8 +72,12 @@ function setAuthCookie(token) {
 
 export async function onRequestPost(context) {
   const { env, request } = context;
+  const storage = createStorage(env);
+  if (!storage) {
+    return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
+  }
 
-  const existing = await env.ICONS_BUCKET.get(AUTH_KEY);
+  const existing = await storage.getJSON(AUTH_KEY);
   if (existing) {
     return Response.json(
       { status: 'error', message: '管理员账号已设置，无法重复初始化' },
@@ -114,9 +120,7 @@ export async function onRequestPost(context) {
       jwtSecret,
     };
 
-    await env.ICONS_BUCKET.put(AUTH_KEY, JSON.stringify(authConfig), {
-      httpMetadata: { contentType: 'application/json' },
-    });
+    await storage.putJSON(AUTH_KEY, authConfig);
 
     const token = await createToken(jwtSecret, username);
 

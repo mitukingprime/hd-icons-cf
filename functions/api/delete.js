@@ -1,8 +1,14 @@
+import { createStorage } from '../_lib/storage.js';
+
 const UPLOADS_KEY = '_meta/uploads.json';
 
 // POST /api/delete  { "name": "xxx.png" }
 export async function onRequestPost(context) {
   const { env, request } = context;
+  const storage = createStorage(env);
+  if (!storage) {
+    return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
+  }
 
   try {
     const { name } = await request.json();
@@ -10,14 +16,11 @@ export async function onRequestPost(context) {
       return Response.json({ status: 'error', message: '缺少文件名' }, { status: 400 });
     }
 
-    await env.ICONS_BUCKET.delete(`upload/${name}`);
+    await storage.deleteFile(`upload/${name}`);
 
-    const existing = await env.ICONS_BUCKET.get(UPLOADS_KEY);
-    let list = existing ? await existing.json() : [];
+    let list = (await storage.getJSON(UPLOADS_KEY)) || [];
     list = list.filter((i) => i.name !== name);
-    await env.ICONS_BUCKET.put(UPLOADS_KEY, JSON.stringify(list), {
-      httpMetadata: { contentType: 'application/json' },
-    });
+    await storage.putJSON(UPLOADS_KEY, list);
 
     return Response.json({ status: 'success' });
   } catch (e) {
