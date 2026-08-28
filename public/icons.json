@@ -1,264 +1,992 @@
 {
     "name": "小迪的HD-Icons",
-    "description": "当前数量：2061，更新于：2026-08-28 14:14:06。不定期更新，有需求欢迎提交：github.com/xushier/HD-Icons",
+    "description": "当前数量：2061，更新于：2026-08-28 14:15:42。不定期更新，有需求欢迎提交：github.com/xushier/HD-Icons",
     "total_count": 2061,
-    "update_at": "2026-08-28 14:14:06",
+    "update_at": "2026-08-28 14:15:42",
     "icons": [
         {
             "name": "AI-Studio",
-            "url": "/icons/ai/AI-Studio.png"
+            "url": "/icons/AI/AI-Studio.png"
         },
         {
             "name": "Anthropic",
-            "url": "/icons/ai/Anthropic.png"
+            "url": "/icons/AI/Anthropic.png"
         },
         {
             "name": "Baichuan",
-            "url": "/icons/ai/Baichuan.png"
+            "url": "/icons/AI/Baichuan.png"
         },
         {
             "name": "BaiLian",
-            "url": "/icons/ai/BaiLian.png"
+            "url": "/icons/AI/BaiLian.png"
         },
         {
             "name": "ChatGPT-2",
-            "url": "/icons/ai/ChatGPT-2.png"
+            "url": "/icons/AI/ChatGPT-2.png"
         },
         {
             "name": "ChatGPT",
-            "url": "/icons/ai/ChatGPT.png"
+            "url": "/icons/AI/ChatGPT.png"
         },
         {
             "name": "Claude-Code",
-            "url": "/icons/ai/Claude-Code.png"
+            "url": "/icons/AI/Claude-Code.png"
         },
         {
             "name": "Claude",
-            "url": "/icons/ai/Claude.png"
+            "url": "/icons/AI/Claude.png"
         },
         {
             "name": "Cline",
-            "url": "/icons/ai/Cline.png"
+            "url": "/icons/AI/Cline.png"
         },
         {
             "name": "CodeBuddy",
-            "url": "/icons/ai/CodeBuddy.png"
+            "url": "/icons/AI/CodeBuddy.png"
         },
         {
             "name": "Codex",
-            "url": "/icons/ai/Codex.png"
+            "url": "/icons/AI/Codex.png"
         },
         {
             "name": "ComfyUI",
-            "url": "/icons/ai/ComfyUI.png"
+            "url": "/icons/AI/ComfyUI.png"
         },
         {
             "name": "CoPaw",
-            "url": "/icons/ai/CoPaw.png"
+            "url": "/icons/AI/CoPaw.png"
         },
         {
             "name": "Coze",
-            "url": "/icons/ai/Coze.png"
+            "url": "/icons/AI/Coze.png"
         },
         {
             "name": "CPAMC",
-            "url": "/icons/ai/CPAMC.png"
+            "url": "/icons/AI/CPAMC.png"
         },
         {
             "name": "Cursor",
-            "url": "/icons/ai/Cursor.png"
+            "url": "/icons/AI/Cursor.png"
         },
         {
             "name": "DeepSeek",
-            "url": "/icons/ai/DeepSeek.png"
+            "url": "/icons/AI/DeepSeek.png"
         },
         {
             "name": "Dify",
-            "url": "/icons/ai/Dify.png"
+            "url": "/icons/AI/Dify.png"
         },
         {
             "name": "Doubao",
-            "url": "/icons/ai/Doubao.png"
+            "url": "/icons/AI/Doubao.png"
         },
         {
             "name": "FastGPT",
-            "url": "/icons/ai/FastGPT.png"
+            "url": "/icons/AI/FastGPT.png"
         },
         {
             "name": "Gemini-2",
-            "url": "/icons/ai/Gemini-2.png"
+            "url": "/icons/AI/Gemini-2.png"
         },
         {
             "name": "Gemini",
-            "url": "/icons/ai/Gemini.png"
+            "url": "/icons/AI/Gemini.png"
         },
         {
             "name": "Gemma",
-            "url": "/icons/ai/Gemma.png"
+            "url": "/icons/AI/Gemma.png"
         },
         {
             "name": "Github-Copilot",
-            "url": "/icons/ai/Github-Copilot.png"
+            "url": "/icons/AI/Github-Copilot.png"
         },
         {
             "name": "GLM",
-            "url": "/icons/ai/GLM.png"
+            "url": "/icons/AI/GLM.png"
         },
         {
             "name": "Grok",
-            "url": "/icons/ai/Grok.png"
+            "url": "/icons/AI/Grok.png"
         },
         {
             "name": "Hailuo",
-            "url": "/icons/ai/Hailuo.png"
+            "url": "/icons/AI/Hailuo.png"
         },
         {
             "name": "Hermes-Agent",
-            "url": "/icons/ai/Hermes-Agent.png"
+            "url": "/icons/AI/Hermes-Agent.png"
         },
         {
             "name": "HuggingFace",
-            "url": "/icons/ai/HuggingFace.png"
+            "url": "/icons/AI/HuggingFace.png"
         },
         {
             "name": "Hunyuan",
-            "url": "/icons/ai/Hunyuan.png"
+            "url": "/icons/AI/Hunyuan.png"
         },
         {
             "name": "Jimeng",
-            "url": "/icons/ai/Jimeng.png"
+            "url": "/icons/AI/Jimeng.png"
         },
         {
             "name": "Kimi",
-            "url": "/icons/ai/Kimi.png"
+            "url": "/icons/AI/Kimi.png"
         },
         {
             "name": "Lightvela",
-            "url": "/icons/ai/Lightvela.png"
+            "url": "/icons/AI/Lightvela.png"
         },
         {
             "name": "LM-Studio",
-            "url": "/icons/ai/LM-Studio.png"
+            "url": "/icons/AI/LM-Studio.png"
         },
         {
             "name": "LobeChat",
-            "url": "/icons/ai/LobeChat.png"
+            "url": "/icons/AI/LobeChat.png"
         },
         {
             "name": "Manus",
-            "url": "/icons/ai/Manus.png"
+            "url": "/icons/AI/Manus.png"
         },
         {
             "name": "Mate",
-            "url": "/icons/ai/Mate.png"
+            "url": "/icons/AI/Mate.png"
         },
         {
             "name": "Microsoft-Copilot",
-            "url": "/icons/ai/Microsoft-Copilot.png"
+            "url": "/icons/AI/Microsoft-Copilot.png"
         },
         {
             "name": "Minimax",
-            "url": "/icons/ai/Minimax.png"
+            "url": "/icons/AI/Minimax.png"
         },
         {
             "name": "ModelScope",
-            "url": "/icons/ai/ModelScope.png"
+            "url": "/icons/AI/ModelScope.png"
         },
         {
             "name": "Moonshot",
-            "url": "/icons/ai/Moonshot.png"
+            "url": "/icons/AI/Moonshot.png"
         },
         {
             "name": "n8n",
-            "url": "/icons/ai/n8n.png"
+            "url": "/icons/AI/n8n.png"
         },
         {
             "name": "NextChat",
-            "url": "/icons/ai/NextChat.png"
+            "url": "/icons/AI/NextChat.png"
         },
         {
             "name": "NotebookLM",
-            "url": "/icons/ai/NotebookLM.png"
+            "url": "/icons/AI/NotebookLM.png"
         },
         {
             "name": "Nvidia",
-            "url": "/icons/ai/Nvidia.png"
+            "url": "/icons/AI/Nvidia.png"
         },
         {
             "name": "Ollama",
-            "url": "/icons/ai/Ollama.png"
+            "url": "/icons/AI/Ollama.png"
         },
         {
             "name": "oMLX",
-            "url": "/icons/ai/oMLX.png"
+            "url": "/icons/AI/oMLX.png"
         },
         {
             "name": "OpenClaw",
-            "url": "/icons/ai/OpenClaw.png"
+            "url": "/icons/AI/OpenClaw.png"
         },
         {
             "name": "OpenRouter",
-            "url": "/icons/ai/OpenRouter.png"
+            "url": "/icons/AI/OpenRouter.png"
         },
         {
             "name": "OpenWebUI",
-            "url": "/icons/ai/OpenWebUI.png"
+            "url": "/icons/AI/OpenWebUI.png"
         },
         {
             "name": "Perplexity",
-            "url": "/icons/ai/Perplexity.png"
+            "url": "/icons/AI/Perplexity.png"
         },
         {
             "name": "Qoder",
-            "url": "/icons/ai/Qoder.png"
+            "url": "/icons/AI/Qoder.png"
         },
         {
             "name": "Qwen",
-            "url": "/icons/ai/Qwen.png"
+            "url": "/icons/AI/Qwen.png"
         },
         {
             "name": "SiliconFlow",
-            "url": "/icons/ai/SiliconFlow.png"
+            "url": "/icons/AI/SiliconFlow.png"
         },
         {
             "name": "Sora",
-            "url": "/icons/ai/Sora.png"
+            "url": "/icons/AI/Sora.png"
         },
         {
             "name": "Sub2API",
-            "url": "/icons/ai/Sub2API.png"
+            "url": "/icons/AI/Sub2API.png"
         },
         {
             "name": "Vesa",
-            "url": "/icons/ai/Vesa.png"
+            "url": "/icons/AI/Vesa.png"
         },
         {
             "name": "vLLM",
-            "url": "/icons/ai/vLLM.png"
+            "url": "/icons/AI/vLLM.png"
         },
         {
             "name": "vscode",
-            "url": "/icons/ai/vscode.png"
+            "url": "/icons/AI/vscode.png"
         },
         {
             "name": "WorkBuddy",
-            "url": "/icons/ai/WorkBuddy.png"
+            "url": "/icons/AI/WorkBuddy.png"
         },
         {
             "name": "Xiaomi-MiMo-2",
-            "url": "/icons/ai/Xiaomi-MiMo-2.png"
+            "url": "/icons/AI/Xiaomi-MiMo-2.png"
         },
         {
             "name": "Xiaomi-MiMo",
-            "url": "/icons/ai/Xiaomi-MiMo.png"
+            "url": "/icons/AI/Xiaomi-MiMo.png"
         },
         {
             "name": "Yuanbao",
-            "url": "/icons/ai/Yuanbao.png"
+            "url": "/icons/AI/Yuanbao.png"
         },
         {
             "name": "Zhipu",
-            "url": "/icons/ai/Zhipu.png"
+            "url": "/icons/AI/Zhipu.png"
+        },
+        {
+            "name": "1panel-2",
+            "url": "/icons/Docker/1panel-2.png"
+        },
+        {
+            "name": "1panel-Pro",
+            "url": "/icons/Docker/1panel-Pro.png"
+        },
+        {
+            "name": "1panel",
+            "url": "/icons/Docker/1panel.png"
+        },
+        {
+            "name": "AdguardHome",
+            "url": "/icons/Docker/AdguardHome.png"
+        },
+        {
+            "name": "Alist",
+            "url": "/icons/Docker/Alist.png"
+        },
+        {
+            "name": "Apache",
+            "url": "/icons/Docker/Apache.png"
+        },
+        {
+            "name": "Aria2",
+            "url": "/icons/Docker/Aria2.png"
+        },
+        {
+            "name": "Bitwarden",
+            "url": "/icons/Docker/Bitwarden.png"
+        },
+        {
+            "name": "Chrome",
+            "url": "/icons/Docker/Chrome.png"
+        },
+        {
+            "name": "CloudDrive",
+            "url": "/icons/Docker/CloudDrive.png"
+        },
+        {
+            "name": "cookiecloud",
+            "url": "/icons/Docker/cookiecloud.png"
+        },
+        {
+            "name": "ddnsgo",
+            "url": "/icons/Docker/ddnsgo.png"
+        },
+        {
+            "name": "DDNSTO",
+            "url": "/icons/Docker/DDNSTO.png"
+        },
+        {
+            "name": "dnsmgr",
+            "url": "/icons/Docker/dnsmgr.png"
+        },
+        {
+            "name": "DockerCopilot-2",
+            "url": "/icons/Docker/DockerCopilot-2.png"
+        },
+        {
+            "name": "DockerCopilot-3",
+            "url": "/icons/Docker/DockerCopilot-3.png"
+        },
+        {
+            "name": "DockerCopilot",
+            "url": "/icons/Docker/DockerCopilot.png"
+        },
+        {
+            "name": "Dockge",
+            "url": "/icons/Docker/Dockge.png"
+        },
+        {
+            "name": "dos-lol",
+            "url": "/icons/Docker/dos-lol.png"
+        },
+        {
+            "name": "DPanel",
+            "url": "/icons/Docker/DPanel.png"
+        },
+        {
+            "name": "Draw",
+            "url": "/icons/Docker/Draw.png"
+        },
+        {
+            "name": "Duplicati",
+            "url": "/icons/Docker/Duplicati.png"
+        },
+        {
+            "name": "Emby",
+            "url": "/icons/Docker/Emby.png"
+        },
+        {
+            "name": "Excalidraw",
+            "url": "/icons/Docker/Excalidraw.png"
+        },
+        {
+            "name": "FileBrowser",
+            "url": "/icons/Docker/FileBrowser.png"
+        },
+        {
+            "name": "flare",
+            "url": "/icons/Docker/flare.png"
+        },
+        {
+            "name": "Flarum",
+            "url": "/icons/Docker/Flarum.png"
+        },
+        {
+            "name": "frpc",
+            "url": "/icons/Docker/frpc.png"
+        },
+        {
+            "name": "ftps",
+            "url": "/icons/Docker/ftps.png"
+        },
+        {
+            "name": "Gitea",
+            "url": "/icons/Docker/Gitea.png"
+        },
+        {
+            "name": "Grafana",
+            "url": "/icons/Docker/Grafana.png"
+        },
+        {
+            "name": "halo",
+            "url": "/icons/Docker/halo.png"
+        },
+        {
+            "name": "heimdall",
+            "url": "/icons/Docker/heimdall.png"
+        },
+        {
+            "name": "HivisionIDPhotos",
+            "url": "/icons/Docker/HivisionIDPhotos.png"
+        },
+        {
+            "name": "HomeAssistant",
+            "url": "/icons/Docker/HomeAssistant.png"
+        },
+        {
+            "name": "HomePage",
+            "url": "/icons/Docker/HomePage.png"
+        },
+        {
+            "name": "immich",
+            "url": "/icons/Docker/immich.png"
+        },
+        {
+            "name": "IYUU-2",
+            "url": "/icons/Docker/IYUU-2.png"
+        },
+        {
+            "name": "IYUU",
+            "url": "/icons/Docker/IYUU.png"
+        },
+        {
+            "name": "Jackett",
+            "url": "/icons/Docker/Jackett.png"
+        },
+        {
+            "name": "Jellyfin",
+            "url": "/icons/Docker/Jellyfin.png"
+        },
+        {
+            "name": "KMS",
+            "url": "/icons/Docker/KMS.png"
+        },
+        {
+            "name": "KodBox",
+            "url": "/icons/Docker/KodBox.png"
+        },
+        {
+            "name": "Komari",
+            "url": "/icons/Docker/Komari.png"
+        },
+        {
+            "name": "KSpeeder",
+            "url": "/icons/Docker/KSpeeder.png"
+        },
+        {
+            "name": "Lucky",
+            "url": "/icons/Docker/Lucky.png"
+        },
+        {
+            "name": "Lychee",
+            "url": "/icons/Docker/Lychee.png"
+        },
+        {
+            "name": "maomao",
+            "url": "/icons/Docker/maomao.png"
+        },
+        {
+            "name": "MariaDB",
+            "url": "/icons/Docker/MariaDB.png"
+        },
+        {
+            "name": "MaxKB",
+            "url": "/icons/Docker/MaxKB.png"
+        },
+        {
+            "name": "MediaSaber",
+            "url": "/icons/Docker/MediaSaber.png"
+        },
+        {
+            "name": "Memos",
+            "url": "/icons/Docker/Memos.png"
+        },
+        {
+            "name": "miaomiao",
+            "url": "/icons/Docker/miaomiao.png"
+        },
+        {
+            "name": "MinIO",
+            "url": "/icons/Docker/MinIO.png"
+        },
+        {
+            "name": "MongoDB-2",
+            "url": "/icons/Docker/MongoDB-2.png"
+        },
+        {
+            "name": "MongoDB",
+            "url": "/icons/Docker/MongoDB.png"
+        },
+        {
+            "name": "MoviePilot",
+            "url": "/icons/Docker/MoviePilot.png"
+        },
+        {
+            "name": "MT-Photos",
+            "url": "/icons/Docker/MT-Photos.png"
+        },
+        {
+            "name": "MySQL",
+            "url": "/icons/Docker/MySQL.png"
+        },
+        {
+            "name": "NAStool-2",
+            "url": "/icons/Docker/NAStool-2.png"
+        },
+        {
+            "name": "NAStool",
+            "url": "/icons/Docker/NAStool.png"
+        },
+        {
+            "name": "Navidrome",
+            "url": "/icons/Docker/Navidrome.png"
+        },
+        {
+            "name": "Nextcloud",
+            "url": "/icons/Docker/Nextcloud.png"
+        },
+        {
+            "name": "Nginx-2",
+            "url": "/icons/Docker/Nginx-2.png"
+        },
+        {
+            "name": "Nginx",
+            "url": "/icons/Docker/Nginx.png"
+        },
+        {
+            "name": "Node.js",
+            "url": "/icons/Docker/Node.js.png"
+        },
+        {
+            "name": "NPM",
+            "url": "/icons/Docker/NPM.png"
+        },
+        {
+            "name": "OpenList",
+            "url": "/icons/Docker/OpenList.png"
+        },
+        {
+            "name": "PHP",
+            "url": "/icons/Docker/PHP.png"
+        },
+        {
+            "name": "phpMyAdmin-2",
+            "url": "/icons/Docker/phpMyAdmin-2.png"
+        },
+        {
+            "name": "phpMyAdmin",
+            "url": "/icons/Docker/phpMyAdmin.png"
+        },
+        {
+            "name": "Plex-2",
+            "url": "/icons/Docker/Plex-2.png"
+        },
+        {
+            "name": "Plex",
+            "url": "/icons/Docker/Plex.png"
+        },
+        {
+            "name": "PostgreSQL",
+            "url": "/icons/Docker/PostgreSQL.png"
+        },
+        {
+            "name": "Python",
+            "url": "/icons/Docker/Python.png"
+        },
+        {
+            "name": "qBittorrent",
+            "url": "/icons/Docker/qBittorrent.png"
+        },
+        {
+            "name": "QD",
+            "url": "/icons/Docker/QD.png"
+        },
+        {
+            "name": "QingLong",
+            "url": "/icons/Docker/QingLong.png"
+        },
+        {
+            "name": "RustDesk",
+            "url": "/icons/Docker/RustDesk.png"
+        },
+        {
+            "name": "SiYuan",
+            "url": "/icons/Docker/SiYuan.png"
+        },
+        {
+            "name": "Sorayomi",
+            "url": "/icons/Docker/Sorayomi.png"
+        },
+        {
+            "name": "Stirling-PDF",
+            "url": "/icons/Docker/Stirling-PDF.png"
+        },
+        {
+            "name": "Sun-Panel",
+            "url": "/icons/Docker/Sun-Panel.png"
+        },
+        {
+            "name": "Syncthing",
+            "url": "/icons/Docker/Syncthing.png"
+        },
+        {
+            "name": "tachidesk",
+            "url": "/icons/Docker/tachidesk.png"
+        },
+        {
+            "name": "Tailscale",
+            "url": "/icons/Docker/Tailscale.png"
+        },
+        {
+            "name": "Transmission",
+            "url": "/icons/Docker/Transmission.png"
+        },
+        {
+            "name": "Typecho",
+            "url": "/icons/Docker/Typecho.png"
+        },
+        {
+            "name": "UPage",
+            "url": "/icons/Docker/UPage.png"
+        },
+        {
+            "name": "UpSnap",
+            "url": "/icons/Docker/UpSnap.png"
+        },
+        {
+            "name": "UptimeKuma",
+            "url": "/icons/Docker/UptimeKuma.png"
+        },
+        {
+            "name": "Vaultwarden",
+            "url": "/icons/Docker/Vaultwarden.png"
+        },
+        {
+            "name": "Vertex",
+            "url": "/icons/Docker/Vertex.png"
+        },
+        {
+            "name": "Wallos",
+            "url": "/icons/Docker/Wallos.png"
+        },
+        {
+            "name": "Wiki",
+            "url": "/icons/Docker/Wiki.png"
+        },
+        {
+            "name": "Wol",
+            "url": "/icons/Docker/Wol.png"
+        },
+        {
+            "name": "WordPress-2",
+            "url": "/icons/Docker/WordPress-2.png"
+        },
+        {
+            "name": "WordPress-3",
+            "url": "/icons/Docker/WordPress-3.png"
+        },
+        {
+            "name": "WordPress",
+            "url": "/icons/Docker/WordPress.png"
+        },
+        {
+            "name": "wxchat",
+            "url": "/icons/Docker/wxchat.png"
+        },
+        {
+            "name": "XunLei",
+            "url": "/icons/Docker/XunLei.png"
+        },
+        {
+            "name": "Alpine",
+            "url": "/icons/NAS/Alpine.png"
+        },
+        {
+            "name": "ArchLinux",
+            "url": "/icons/NAS/ArchLinux.png"
+        },
+        {
+            "name": "Asustor",
+            "url": "/icons/NAS/Asustor.png"
+        },
+        {
+            "name": "CasaOS",
+            "url": "/icons/NAS/CasaOS.png"
+        },
+        {
+            "name": "CentOS",
+            "url": "/icons/NAS/CentOS.png"
+        },
+        {
+            "name": "Debian-2",
+            "url": "/icons/NAS/Debian-2.png"
+        },
+        {
+            "name": "Debian",
+            "url": "/icons/NAS/Debian.png"
+        },
+        {
+            "name": "ESXI",
+            "url": "/icons/NAS/ESXI.png"
+        },
+        {
+            "name": "fnOS",
+            "url": "/icons/NAS/fnOS.png"
+        },
+        {
+            "name": "iKuai",
+            "url": "/icons/NAS/iKuai.png"
+        },
+        {
+            "name": "iStoreOS",
+            "url": "/icons/NAS/iStoreOS.png"
+        },
+        {
+            "name": "Linkease",
+            "url": "/icons/NAS/Linkease.png"
+        },
+        {
+            "name": "Linux",
+            "url": "/icons/NAS/Linux.png"
+        },
+        {
+            "name": "MacOS",
+            "url": "/icons/NAS/MacOS.png"
+        },
+        {
+            "name": "OMV",
+            "url": "/icons/NAS/OMV.png"
+        },
+        {
+            "name": "OpenWrt",
+            "url": "/icons/NAS/OpenWrt.png"
+        },
+        {
+            "name": "PVE",
+            "url": "/icons/NAS/PVE.png"
+        },
+        {
+            "name": "QTS",
+            "url": "/icons/NAS/QTS.png"
+        },
+        {
+            "name": "Synology",
+            "url": "/icons/NAS/Synology.png"
+        },
+        {
+            "name": "TOS",
+            "url": "/icons/NAS/TOS.png"
+        },
+        {
+            "name": "TrueNAS",
+            "url": "/icons/NAS/TrueNAS.png"
+        },
+        {
+            "name": "Ubuntu",
+            "url": "/icons/NAS/Ubuntu.png"
+        },
+        {
+            "name": "UGOS-PRO",
+            "url": "/icons/NAS/UGOS-PRO.png"
+        },
+        {
+            "name": "UGOS",
+            "url": "/icons/NAS/UGOS.png"
+        },
+        {
+            "name": "UNRAID-2",
+            "url": "/icons/NAS/UNRAID-2.png"
+        },
+        {
+            "name": "UNRAID-3",
+            "url": "/icons/NAS/UNRAID-3.png"
+        },
+        {
+            "name": "UNRAID",
+            "url": "/icons/NAS/UNRAID.png"
+        },
+        {
+            "name": "Vmware",
+            "url": "/icons/NAS/Vmware.png"
+        },
+        {
+            "name": "VNC",
+            "url": "/icons/NAS/VNC.png"
+        },
+        {
+            "name": "Windows10",
+            "url": "/icons/NAS/Windows10.png"
+        },
+        {
+            "name": "Windows11",
+            "url": "/icons/NAS/Windows11.png"
+        },
+        {
+            "name": "Windows7",
+            "url": "/icons/NAS/Windows7.png"
+        },
+        {
+            "name": "WinServer",
+            "url": "/icons/NAS/WinServer.png"
+        },
+        {
+            "name": "ZimaOS",
+            "url": "/icons/NAS/ZimaOS.png"
+        },
+        {
+            "name": "Zspace",
+            "url": "/icons/NAS/Zspace.png"
+        },
+        {
+            "name": "agsv",
+            "url": "/icons/PT/agsv.png"
+        },
+        {
+            "name": "Audiences",
+            "url": "/icons/PT/Audiences.png"
+        },
+        {
+            "name": "btschool",
+            "url": "/icons/PT/btschool.png"
+        },
+        {
+            "name": "carpt",
+            "url": "/icons/PT/carpt.png"
+        },
+        {
+            "name": "CHDbits",
+            "url": "/icons/PT/CHDbits.png"
+        },
+        {
+            "name": "cyanbug",
+            "url": "/icons/PT/cyanbug.png"
+        },
+        {
+            "name": "dajiao",
+            "url": "/icons/PT/dajiao.png"
+        },
+        {
+            "name": "dicmusic",
+            "url": "/icons/PT/dicmusic.png"
+        },
+        {
+            "name": "discfan",
+            "url": "/icons/PT/discfan.png"
+        },
+        {
+            "name": "FRDS",
+            "url": "/icons/PT/FRDS.png"
+        },
+        {
+            "name": "FSM",
+            "url": "/icons/PT/FSM.png"
+        },
+        {
+            "name": "gpw",
+            "url": "/icons/PT/gpw.png"
+        },
+        {
+            "name": "haidan",
+            "url": "/icons/PT/haidan.png"
+        },
+        {
+            "name": "hdarea",
+            "url": "/icons/PT/hdarea.png"
+        },
+        {
+            "name": "HDChina",
+            "url": "/icons/PT/HDChina.png"
+        },
+        {
+            "name": "hddolby",
+            "url": "/icons/PT/hddolby.png"
+        },
+        {
+            "name": "hdfans",
+            "url": "/icons/PT/hdfans.png"
+        },
+        {
+            "name": "HDHome",
+            "url": "/icons/PT/HDHome.png"
+        },
+        {
+            "name": "hdkyl",
+            "url": "/icons/PT/hdkyl.png"
+        },
+        {
+            "name": "HDsky",
+            "url": "/icons/PT/HDsky.png"
+        },
+        {
+            "name": "hdvideo",
+            "url": "/icons/PT/hdvideo.png"
+        },
+        {
+            "name": "HHCLUB",
+            "url": "/icons/PT/HHCLUB.png"
+        },
+        {
+            "name": "icc2022",
+            "url": "/icons/PT/icc2022.png"
+        },
+        {
+            "name": "leaves",
+            "url": "/icons/PT/leaves.png"
+        },
+        {
+            "name": "lemonhd",
+            "url": "/icons/PT/lemonhd.png"
+        },
+        {
+            "name": "M-Team",
+            "url": "/icons/PT/M-Team.png"
+        },
+        {
+            "name": "nicept",
+            "url": "/icons/PT/nicept.png"
+        },
+        {
+            "name": "Nvme",
+            "url": "/icons/PT/Nvme.png"
+        },
+        {
+            "name": "OpenCD",
+            "url": "/icons/PT/OpenCD.png"
+        },
+        {
+            "name": "OurBits",
+            "url": "/icons/PT/OurBits.png"
+        },
+        {
+            "name": "panda",
+            "url": "/icons/PT/panda.png"
+        },
+        {
+            "name": "Pter",
+            "url": "/icons/PT/Pter.png"
+        },
+        {
+            "name": "PTHOME",
+            "url": "/icons/PT/PTHOME.png"
+        },
+        {
+            "name": "ptsbao",
+            "url": "/icons/PT/ptsbao.png"
+        },
+        {
+            "name": "PTTime",
+            "url": "/icons/PT/PTTime.png"
+        },
+        {
+            "name": "ptvicomo",
+            "url": "/icons/PT/ptvicomo.png"
+        },
+        {
+            "name": "qingwapt",
+            "url": "/icons/PT/qingwapt.png"
+        },
+        {
+            "name": "rousi",
+            "url": "/icons/PT/rousi.png"
+        },
+        {
+            "name": "soulvoice",
+            "url": "/icons/PT/soulvoice.png"
+        },
+        {
+            "name": "tjupt",
+            "url": "/icons/PT/tjupt.png"
+        },
+        {
+            "name": "TTG",
+            "url": "/icons/PT/TTG.png"
+        },
+        {
+            "name": "UBits",
+            "url": "/icons/PT/UBits.png"
+        },
+        {
+            "name": "xingtan",
+            "url": "/icons/PT/xingtan.png"
+        },
+        {
+            "name": "ying",
+            "url": "/icons/PT/ying.png"
+        },
+        {
+            "name": "zhuque",
+            "url": "/icons/PT/zhuque.png"
+        },
+        {
+            "name": "zmpt",
+            "url": "/icons/PT/zmpt.png"
         },
         {
             "name": "115-drive-1",
@@ -5089,978 +5817,6 @@
             "url": "/icons/circle/youtube-dl-3.png"
         },
         {
-            "name": "acck",
-            "url": "/icons/cloud/acck.png"
-        },
-        {
-            "name": "akile",
-            "url": "/icons/cloud/akile.png"
-        },
-        {
-            "name": "alice",
-            "url": "/icons/cloud/alice.png"
-        },
-        {
-            "name": "Aliyun",
-            "url": "/icons/cloud/Aliyun.png"
-        },
-        {
-            "name": "Alphavps",
-            "url": "/icons/cloud/Alphavps.png"
-        },
-        {
-            "name": "AWS-2",
-            "url": "/icons/cloud/AWS-2.png"
-        },
-        {
-            "name": "AWS",
-            "url": "/icons/cloud/AWS.png"
-        },
-        {
-            "name": "Bandwagon",
-            "url": "/icons/cloud/Bandwagon.png"
-        },
-        {
-            "name": "Bero-host",
-            "url": "/icons/cloud/Bero-host.png"
-        },
-        {
-            "name": "BuyVM",
-            "url": "/icons/cloud/BuyVM.png"
-        },
-        {
-            "name": "ByteVirt",
-            "url": "/icons/cloud/ByteVirt.png"
-        },
-        {
-            "name": "Claw",
-            "url": "/icons/cloud/Claw.png"
-        },
-        {
-            "name": "CloudCone",
-            "url": "/icons/cloud/CloudCone.png"
-        },
-        {
-            "name": "coalcloud",
-            "url": "/icons/cloud/coalcloud.png"
-        },
-        {
-            "name": "ColoCrosSing",
-            "url": "/icons/cloud/ColoCrosSing.png"
-        },
-        {
-            "name": "Crunchbits",
-            "url": "/icons/cloud/Crunchbits.png"
-        },
-        {
-            "name": "CTyun",
-            "url": "/icons/cloud/CTyun.png"
-        },
-        {
-            "name": "DMIT",
-            "url": "/icons/cloud/DMIT.png"
-        },
-        {
-            "name": "EdgeOne",
-            "url": "/icons/cloud/EdgeOne.png"
-        },
-        {
-            "name": "Evoxt",
-            "url": "/icons/cloud/Evoxt.png"
-        },
-        {
-            "name": "ggy",
-            "url": "/icons/cloud/ggy.png"
-        },
-        {
-            "name": "GoMAMi",
-            "url": "/icons/cloud/GoMAMi.png"
-        },
-        {
-            "name": "GoogleCloud",
-            "url": "/icons/cloud/GoogleCloud.png"
-        },
-        {
-            "name": "Greencloud",
-            "url": "/icons/cloud/Greencloud.png"
-        },
-        {
-            "name": "Henghost",
-            "url": "/icons/cloud/Henghost.png"
-        },
-        {
-            "name": "herzner",
-            "url": "/icons/cloud/herzner.png"
-        },
-        {
-            "name": "Host-C",
-            "url": "/icons/cloud/Host-C.png"
-        },
-        {
-            "name": "HostDare",
-            "url": "/icons/cloud/HostDare.png"
-        },
-        {
-            "name": "Hosthatch",
-            "url": "/icons/cloud/Hosthatch.png"
-        },
-        {
-            "name": "Huawei",
-            "url": "/icons/cloud/Huawei.png"
-        },
-        {
-            "name": "ISIF",
-            "url": "/icons/cloud/ISIF.png"
-        },
-        {
-            "name": "Justhost",
-            "url": "/icons/cloud/Justhost.png"
-        },
-        {
-            "name": "kkidc",
-            "url": "/icons/cloud/kkidc.png"
-        },
-        {
-            "name": "Kurun",
-            "url": "/icons/cloud/Kurun.png"
-        },
-        {
-            "name": "Layer",
-            "url": "/icons/cloud/Layer.png"
-        },
-        {
-            "name": "Lightlayer",
-            "url": "/icons/cloud/Lightlayer.png"
-        },
-        {
-            "name": "Lisa",
-            "url": "/icons/cloud/Lisa.png"
-        },
-        {
-            "name": "Locvps",
-            "url": "/icons/cloud/Locvps.png"
-        },
-        {
-            "name": "NameCrane",
-            "url": "/icons/cloud/NameCrane.png"
-        },
-        {
-            "name": "Neburst",
-            "url": "/icons/cloud/Neburst.png"
-        },
-        {
-            "name": "netcup",
-            "url": "/icons/cloud/netcup.png"
-        },
-        {
-            "name": "nomao",
-            "url": "/icons/cloud/nomao.png"
-        },
-        {
-            "name": "Online",
-            "url": "/icons/cloud/Online.png"
-        },
-        {
-            "name": "Oracle",
-            "url": "/icons/cloud/Oracle.png"
-        },
-        {
-            "name": "OVH",
-            "url": "/icons/cloud/OVH.png"
-        },
-        {
-            "name": "Peekabo",
-            "url": "/icons/cloud/Peekabo.png"
-        },
-        {
-            "name": "Qcloud",
-            "url": "/icons/cloud/Qcloud.png"
-        },
-        {
-            "name": "RackNerd",
-            "url": "/icons/cloud/RackNerd.png"
-        },
-        {
-            "name": "RFCHOST",
-            "url": "/icons/cloud/RFCHOST.png"
-        },
-        {
-            "name": "Saltyfish",
-            "url": "/icons/cloud/Saltyfish.png"
-        },
-        {
-            "name": "serv00",
-            "url": "/icons/cloud/serv00.png"
-        },
-        {
-            "name": "Sharon",
-            "url": "/icons/cloud/Sharon.png"
-        },
-        {
-            "name": "Spartan",
-            "url": "/icons/cloud/Spartan.png"
-        },
-        {
-            "name": "V-PS",
-            "url": "/icons/cloud/V-PS.png"
-        },
-        {
-            "name": "vkvm",
-            "url": "/icons/cloud/vkvm.png"
-        },
-        {
-            "name": "Vmiss",
-            "url": "/icons/cloud/Vmiss.png"
-        },
-        {
-            "name": "WAP",
-            "url": "/icons/cloud/WAP.png"
-        },
-        {
-            "name": "Wawo",
-            "url": "/icons/cloud/Wawo.png"
-        },
-        {
-            "name": "WePC",
-            "url": "/icons/cloud/WePC.png"
-        },
-        {
-            "name": "YeCaoyun",
-            "url": "/icons/cloud/YeCaoyun.png"
-        },
-        {
-            "name": "YXVM",
-            "url": "/icons/cloud/YXVM.png"
-        },
-        {
-            "name": "1panel-2",
-            "url": "/icons/docker/1panel-2.png"
-        },
-        {
-            "name": "1panel-Pro",
-            "url": "/icons/docker/1panel-Pro.png"
-        },
-        {
-            "name": "1panel",
-            "url": "/icons/docker/1panel.png"
-        },
-        {
-            "name": "AdguardHome",
-            "url": "/icons/docker/AdguardHome.png"
-        },
-        {
-            "name": "Alist",
-            "url": "/icons/docker/Alist.png"
-        },
-        {
-            "name": "Apache",
-            "url": "/icons/docker/Apache.png"
-        },
-        {
-            "name": "Aria2",
-            "url": "/icons/docker/Aria2.png"
-        },
-        {
-            "name": "Bitwarden",
-            "url": "/icons/docker/Bitwarden.png"
-        },
-        {
-            "name": "Chrome",
-            "url": "/icons/docker/Chrome.png"
-        },
-        {
-            "name": "CloudDrive",
-            "url": "/icons/docker/CloudDrive.png"
-        },
-        {
-            "name": "cookiecloud",
-            "url": "/icons/docker/cookiecloud.png"
-        },
-        {
-            "name": "ddnsgo",
-            "url": "/icons/docker/ddnsgo.png"
-        },
-        {
-            "name": "DDNSTO",
-            "url": "/icons/docker/DDNSTO.png"
-        },
-        {
-            "name": "dnsmgr",
-            "url": "/icons/docker/dnsmgr.png"
-        },
-        {
-            "name": "DockerCopilot-2",
-            "url": "/icons/docker/DockerCopilot-2.png"
-        },
-        {
-            "name": "DockerCopilot-3",
-            "url": "/icons/docker/DockerCopilot-3.png"
-        },
-        {
-            "name": "DockerCopilot",
-            "url": "/icons/docker/DockerCopilot.png"
-        },
-        {
-            "name": "Dockge",
-            "url": "/icons/docker/Dockge.png"
-        },
-        {
-            "name": "dos-lol",
-            "url": "/icons/docker/dos-lol.png"
-        },
-        {
-            "name": "DPanel",
-            "url": "/icons/docker/DPanel.png"
-        },
-        {
-            "name": "Draw",
-            "url": "/icons/docker/Draw.png"
-        },
-        {
-            "name": "Duplicati",
-            "url": "/icons/docker/Duplicati.png"
-        },
-        {
-            "name": "Emby",
-            "url": "/icons/docker/Emby.png"
-        },
-        {
-            "name": "Excalidraw",
-            "url": "/icons/docker/Excalidraw.png"
-        },
-        {
-            "name": "FileBrowser",
-            "url": "/icons/docker/FileBrowser.png"
-        },
-        {
-            "name": "flare",
-            "url": "/icons/docker/flare.png"
-        },
-        {
-            "name": "Flarum",
-            "url": "/icons/docker/Flarum.png"
-        },
-        {
-            "name": "frpc",
-            "url": "/icons/docker/frpc.png"
-        },
-        {
-            "name": "ftps",
-            "url": "/icons/docker/ftps.png"
-        },
-        {
-            "name": "Gitea",
-            "url": "/icons/docker/Gitea.png"
-        },
-        {
-            "name": "Grafana",
-            "url": "/icons/docker/Grafana.png"
-        },
-        {
-            "name": "halo",
-            "url": "/icons/docker/halo.png"
-        },
-        {
-            "name": "heimdall",
-            "url": "/icons/docker/heimdall.png"
-        },
-        {
-            "name": "HivisionIDPhotos",
-            "url": "/icons/docker/HivisionIDPhotos.png"
-        },
-        {
-            "name": "HomeAssistant",
-            "url": "/icons/docker/HomeAssistant.png"
-        },
-        {
-            "name": "HomePage",
-            "url": "/icons/docker/HomePage.png"
-        },
-        {
-            "name": "immich",
-            "url": "/icons/docker/immich.png"
-        },
-        {
-            "name": "IYUU-2",
-            "url": "/icons/docker/IYUU-2.png"
-        },
-        {
-            "name": "IYUU",
-            "url": "/icons/docker/IYUU.png"
-        },
-        {
-            "name": "Jackett",
-            "url": "/icons/docker/Jackett.png"
-        },
-        {
-            "name": "Jellyfin",
-            "url": "/icons/docker/Jellyfin.png"
-        },
-        {
-            "name": "KMS",
-            "url": "/icons/docker/KMS.png"
-        },
-        {
-            "name": "KodBox",
-            "url": "/icons/docker/KodBox.png"
-        },
-        {
-            "name": "Komari",
-            "url": "/icons/docker/Komari.png"
-        },
-        {
-            "name": "KSpeeder",
-            "url": "/icons/docker/KSpeeder.png"
-        },
-        {
-            "name": "Lucky",
-            "url": "/icons/docker/Lucky.png"
-        },
-        {
-            "name": "Lychee",
-            "url": "/icons/docker/Lychee.png"
-        },
-        {
-            "name": "maomao",
-            "url": "/icons/docker/maomao.png"
-        },
-        {
-            "name": "MariaDB",
-            "url": "/icons/docker/MariaDB.png"
-        },
-        {
-            "name": "MaxKB",
-            "url": "/icons/docker/MaxKB.png"
-        },
-        {
-            "name": "MediaSaber",
-            "url": "/icons/docker/MediaSaber.png"
-        },
-        {
-            "name": "Memos",
-            "url": "/icons/docker/Memos.png"
-        },
-        {
-            "name": "miaomiao",
-            "url": "/icons/docker/miaomiao.png"
-        },
-        {
-            "name": "MinIO",
-            "url": "/icons/docker/MinIO.png"
-        },
-        {
-            "name": "MongoDB-2",
-            "url": "/icons/docker/MongoDB-2.png"
-        },
-        {
-            "name": "MongoDB",
-            "url": "/icons/docker/MongoDB.png"
-        },
-        {
-            "name": "MoviePilot",
-            "url": "/icons/docker/MoviePilot.png"
-        },
-        {
-            "name": "MT-Photos",
-            "url": "/icons/docker/MT-Photos.png"
-        },
-        {
-            "name": "MySQL",
-            "url": "/icons/docker/MySQL.png"
-        },
-        {
-            "name": "NAStool-2",
-            "url": "/icons/docker/NAStool-2.png"
-        },
-        {
-            "name": "NAStool",
-            "url": "/icons/docker/NAStool.png"
-        },
-        {
-            "name": "Navidrome",
-            "url": "/icons/docker/Navidrome.png"
-        },
-        {
-            "name": "Nextcloud",
-            "url": "/icons/docker/Nextcloud.png"
-        },
-        {
-            "name": "Nginx-2",
-            "url": "/icons/docker/Nginx-2.png"
-        },
-        {
-            "name": "Nginx",
-            "url": "/icons/docker/Nginx.png"
-        },
-        {
-            "name": "Node.js",
-            "url": "/icons/docker/Node.js.png"
-        },
-        {
-            "name": "NPM",
-            "url": "/icons/docker/NPM.png"
-        },
-        {
-            "name": "OpenList",
-            "url": "/icons/docker/OpenList.png"
-        },
-        {
-            "name": "PHP",
-            "url": "/icons/docker/PHP.png"
-        },
-        {
-            "name": "phpMyAdmin-2",
-            "url": "/icons/docker/phpMyAdmin-2.png"
-        },
-        {
-            "name": "phpMyAdmin",
-            "url": "/icons/docker/phpMyAdmin.png"
-        },
-        {
-            "name": "Plex-2",
-            "url": "/icons/docker/Plex-2.png"
-        },
-        {
-            "name": "Plex",
-            "url": "/icons/docker/Plex.png"
-        },
-        {
-            "name": "PostgreSQL",
-            "url": "/icons/docker/PostgreSQL.png"
-        },
-        {
-            "name": "Python",
-            "url": "/icons/docker/Python.png"
-        },
-        {
-            "name": "qBittorrent",
-            "url": "/icons/docker/qBittorrent.png"
-        },
-        {
-            "name": "QD",
-            "url": "/icons/docker/QD.png"
-        },
-        {
-            "name": "QingLong",
-            "url": "/icons/docker/QingLong.png"
-        },
-        {
-            "name": "RustDesk",
-            "url": "/icons/docker/RustDesk.png"
-        },
-        {
-            "name": "SiYuan",
-            "url": "/icons/docker/SiYuan.png"
-        },
-        {
-            "name": "Sorayomi",
-            "url": "/icons/docker/Sorayomi.png"
-        },
-        {
-            "name": "Stirling-PDF",
-            "url": "/icons/docker/Stirling-PDF.png"
-        },
-        {
-            "name": "Sun-Panel",
-            "url": "/icons/docker/Sun-Panel.png"
-        },
-        {
-            "name": "Syncthing",
-            "url": "/icons/docker/Syncthing.png"
-        },
-        {
-            "name": "tachidesk",
-            "url": "/icons/docker/tachidesk.png"
-        },
-        {
-            "name": "Tailscale",
-            "url": "/icons/docker/Tailscale.png"
-        },
-        {
-            "name": "Transmission",
-            "url": "/icons/docker/Transmission.png"
-        },
-        {
-            "name": "Typecho",
-            "url": "/icons/docker/Typecho.png"
-        },
-        {
-            "name": "UPage",
-            "url": "/icons/docker/UPage.png"
-        },
-        {
-            "name": "UpSnap",
-            "url": "/icons/docker/UpSnap.png"
-        },
-        {
-            "name": "UptimeKuma",
-            "url": "/icons/docker/UptimeKuma.png"
-        },
-        {
-            "name": "Vaultwarden",
-            "url": "/icons/docker/Vaultwarden.png"
-        },
-        {
-            "name": "Vertex",
-            "url": "/icons/docker/Vertex.png"
-        },
-        {
-            "name": "Wallos",
-            "url": "/icons/docker/Wallos.png"
-        },
-        {
-            "name": "Wiki",
-            "url": "/icons/docker/Wiki.png"
-        },
-        {
-            "name": "Wol",
-            "url": "/icons/docker/Wol.png"
-        },
-        {
-            "name": "WordPress-2",
-            "url": "/icons/docker/WordPress-2.png"
-        },
-        {
-            "name": "WordPress-3",
-            "url": "/icons/docker/WordPress-3.png"
-        },
-        {
-            "name": "WordPress",
-            "url": "/icons/docker/WordPress.png"
-        },
-        {
-            "name": "wxchat",
-            "url": "/icons/docker/wxchat.png"
-        },
-        {
-            "name": "XunLei",
-            "url": "/icons/docker/XunLei.png"
-        },
-        {
-            "name": "Alpine",
-            "url": "/icons/nas/Alpine.png"
-        },
-        {
-            "name": "ArchLinux",
-            "url": "/icons/nas/ArchLinux.png"
-        },
-        {
-            "name": "Asustor",
-            "url": "/icons/nas/Asustor.png"
-        },
-        {
-            "name": "CasaOS",
-            "url": "/icons/nas/CasaOS.png"
-        },
-        {
-            "name": "CentOS",
-            "url": "/icons/nas/CentOS.png"
-        },
-        {
-            "name": "Debian-2",
-            "url": "/icons/nas/Debian-2.png"
-        },
-        {
-            "name": "Debian",
-            "url": "/icons/nas/Debian.png"
-        },
-        {
-            "name": "ESXI",
-            "url": "/icons/nas/ESXI.png"
-        },
-        {
-            "name": "fnOS",
-            "url": "/icons/nas/fnOS.png"
-        },
-        {
-            "name": "iKuai",
-            "url": "/icons/nas/iKuai.png"
-        },
-        {
-            "name": "iStoreOS",
-            "url": "/icons/nas/iStoreOS.png"
-        },
-        {
-            "name": "Linkease",
-            "url": "/icons/nas/Linkease.png"
-        },
-        {
-            "name": "Linux",
-            "url": "/icons/nas/Linux.png"
-        },
-        {
-            "name": "MacOS",
-            "url": "/icons/nas/MacOS.png"
-        },
-        {
-            "name": "OMV",
-            "url": "/icons/nas/OMV.png"
-        },
-        {
-            "name": "OpenWrt",
-            "url": "/icons/nas/OpenWrt.png"
-        },
-        {
-            "name": "PVE",
-            "url": "/icons/nas/PVE.png"
-        },
-        {
-            "name": "QTS",
-            "url": "/icons/nas/QTS.png"
-        },
-        {
-            "name": "Synology",
-            "url": "/icons/nas/Synology.png"
-        },
-        {
-            "name": "TOS",
-            "url": "/icons/nas/TOS.png"
-        },
-        {
-            "name": "TrueNAS",
-            "url": "/icons/nas/TrueNAS.png"
-        },
-        {
-            "name": "Ubuntu",
-            "url": "/icons/nas/Ubuntu.png"
-        },
-        {
-            "name": "UGOS-PRO",
-            "url": "/icons/nas/UGOS-PRO.png"
-        },
-        {
-            "name": "UGOS",
-            "url": "/icons/nas/UGOS.png"
-        },
-        {
-            "name": "UNRAID-2",
-            "url": "/icons/nas/UNRAID-2.png"
-        },
-        {
-            "name": "UNRAID-3",
-            "url": "/icons/nas/UNRAID-3.png"
-        },
-        {
-            "name": "UNRAID",
-            "url": "/icons/nas/UNRAID.png"
-        },
-        {
-            "name": "Vmware",
-            "url": "/icons/nas/Vmware.png"
-        },
-        {
-            "name": "VNC",
-            "url": "/icons/nas/VNC.png"
-        },
-        {
-            "name": "Windows10",
-            "url": "/icons/nas/Windows10.png"
-        },
-        {
-            "name": "Windows11",
-            "url": "/icons/nas/Windows11.png"
-        },
-        {
-            "name": "Windows7",
-            "url": "/icons/nas/Windows7.png"
-        },
-        {
-            "name": "WinServer",
-            "url": "/icons/nas/WinServer.png"
-        },
-        {
-            "name": "ZimaOS",
-            "url": "/icons/nas/ZimaOS.png"
-        },
-        {
-            "name": "Zspace",
-            "url": "/icons/nas/Zspace.png"
-        },
-        {
-            "name": "agsv",
-            "url": "/icons/pt/agsv.png"
-        },
-        {
-            "name": "Audiences",
-            "url": "/icons/pt/Audiences.png"
-        },
-        {
-            "name": "btschool",
-            "url": "/icons/pt/btschool.png"
-        },
-        {
-            "name": "carpt",
-            "url": "/icons/pt/carpt.png"
-        },
-        {
-            "name": "CHDbits",
-            "url": "/icons/pt/CHDbits.png"
-        },
-        {
-            "name": "cyanbug",
-            "url": "/icons/pt/cyanbug.png"
-        },
-        {
-            "name": "dajiao",
-            "url": "/icons/pt/dajiao.png"
-        },
-        {
-            "name": "dicmusic",
-            "url": "/icons/pt/dicmusic.png"
-        },
-        {
-            "name": "discfan",
-            "url": "/icons/pt/discfan.png"
-        },
-        {
-            "name": "FRDS",
-            "url": "/icons/pt/FRDS.png"
-        },
-        {
-            "name": "FSM",
-            "url": "/icons/pt/FSM.png"
-        },
-        {
-            "name": "gpw",
-            "url": "/icons/pt/gpw.png"
-        },
-        {
-            "name": "haidan",
-            "url": "/icons/pt/haidan.png"
-        },
-        {
-            "name": "hdarea",
-            "url": "/icons/pt/hdarea.png"
-        },
-        {
-            "name": "HDChina",
-            "url": "/icons/pt/HDChina.png"
-        },
-        {
-            "name": "hddolby",
-            "url": "/icons/pt/hddolby.png"
-        },
-        {
-            "name": "hdfans",
-            "url": "/icons/pt/hdfans.png"
-        },
-        {
-            "name": "HDHome",
-            "url": "/icons/pt/HDHome.png"
-        },
-        {
-            "name": "hdkyl",
-            "url": "/icons/pt/hdkyl.png"
-        },
-        {
-            "name": "HDsky",
-            "url": "/icons/pt/HDsky.png"
-        },
-        {
-            "name": "hdvideo",
-            "url": "/icons/pt/hdvideo.png"
-        },
-        {
-            "name": "HHCLUB",
-            "url": "/icons/pt/HHCLUB.png"
-        },
-        {
-            "name": "icc2022",
-            "url": "/icons/pt/icc2022.png"
-        },
-        {
-            "name": "leaves",
-            "url": "/icons/pt/leaves.png"
-        },
-        {
-            "name": "lemonhd",
-            "url": "/icons/pt/lemonhd.png"
-        },
-        {
-            "name": "M-Team",
-            "url": "/icons/pt/M-Team.png"
-        },
-        {
-            "name": "nicept",
-            "url": "/icons/pt/nicept.png"
-        },
-        {
-            "name": "Nvme",
-            "url": "/icons/pt/Nvme.png"
-        },
-        {
-            "name": "OpenCD",
-            "url": "/icons/pt/OpenCD.png"
-        },
-        {
-            "name": "OurBits",
-            "url": "/icons/pt/OurBits.png"
-        },
-        {
-            "name": "panda",
-            "url": "/icons/pt/panda.png"
-        },
-        {
-            "name": "Pter",
-            "url": "/icons/pt/Pter.png"
-        },
-        {
-            "name": "PTHOME",
-            "url": "/icons/pt/PTHOME.png"
-        },
-        {
-            "name": "ptsbao",
-            "url": "/icons/pt/ptsbao.png"
-        },
-        {
-            "name": "PTTime",
-            "url": "/icons/pt/PTTime.png"
-        },
-        {
-            "name": "ptvicomo",
-            "url": "/icons/pt/ptvicomo.png"
-        },
-        {
-            "name": "qingwapt",
-            "url": "/icons/pt/qingwapt.png"
-        },
-        {
-            "name": "rousi",
-            "url": "/icons/pt/rousi.png"
-        },
-        {
-            "name": "soulvoice",
-            "url": "/icons/pt/soulvoice.png"
-        },
-        {
-            "name": "tjupt",
-            "url": "/icons/pt/tjupt.png"
-        },
-        {
-            "name": "TTG",
-            "url": "/icons/pt/TTG.png"
-        },
-        {
-            "name": "UBits",
-            "url": "/icons/pt/UBits.png"
-        },
-        {
-            "name": "xingtan",
-            "url": "/icons/pt/xingtan.png"
-        },
-        {
-            "name": "ying",
-            "url": "/icons/pt/ying.png"
-        },
-        {
-            "name": "zhuque",
-            "url": "/icons/pt/zhuque.png"
-        },
-        {
-            "name": "zmpt",
-            "url": "/icons/pt/zmpt.png"
-        },
-        {
             "name": "9kuai-1",
             "url": "/icons/svg/9kuai-1.svg"
         },
@@ -8247,6 +8003,250 @@
         {
             "name": "zulip-2",
             "url": "/icons/svg/zulip-2.svg"
+        },
+        {
+            "name": "acck",
+            "url": "/icons/云服务/acck.png"
+        },
+        {
+            "name": "akile",
+            "url": "/icons/云服务/akile.png"
+        },
+        {
+            "name": "alice",
+            "url": "/icons/云服务/alice.png"
+        },
+        {
+            "name": "Aliyun",
+            "url": "/icons/云服务/Aliyun.png"
+        },
+        {
+            "name": "Alphavps",
+            "url": "/icons/云服务/Alphavps.png"
+        },
+        {
+            "name": "AWS-2",
+            "url": "/icons/云服务/AWS-2.png"
+        },
+        {
+            "name": "AWS",
+            "url": "/icons/云服务/AWS.png"
+        },
+        {
+            "name": "Bandwagon",
+            "url": "/icons/云服务/Bandwagon.png"
+        },
+        {
+            "name": "Bero-host",
+            "url": "/icons/云服务/Bero-host.png"
+        },
+        {
+            "name": "BuyVM",
+            "url": "/icons/云服务/BuyVM.png"
+        },
+        {
+            "name": "ByteVirt",
+            "url": "/icons/云服务/ByteVirt.png"
+        },
+        {
+            "name": "Claw",
+            "url": "/icons/云服务/Claw.png"
+        },
+        {
+            "name": "CloudCone",
+            "url": "/icons/云服务/CloudCone.png"
+        },
+        {
+            "name": "coalcloud",
+            "url": "/icons/云服务/coalcloud.png"
+        },
+        {
+            "name": "ColoCrosSing",
+            "url": "/icons/云服务/ColoCrosSing.png"
+        },
+        {
+            "name": "Crunchbits",
+            "url": "/icons/云服务/Crunchbits.png"
+        },
+        {
+            "name": "CTyun",
+            "url": "/icons/云服务/CTyun.png"
+        },
+        {
+            "name": "DMIT",
+            "url": "/icons/云服务/DMIT.png"
+        },
+        {
+            "name": "EdgeOne",
+            "url": "/icons/云服务/EdgeOne.png"
+        },
+        {
+            "name": "Evoxt",
+            "url": "/icons/云服务/Evoxt.png"
+        },
+        {
+            "name": "ggy",
+            "url": "/icons/云服务/ggy.png"
+        },
+        {
+            "name": "GoMAMi",
+            "url": "/icons/云服务/GoMAMi.png"
+        },
+        {
+            "name": "GoogleCloud",
+            "url": "/icons/云服务/GoogleCloud.png"
+        },
+        {
+            "name": "Greencloud",
+            "url": "/icons/云服务/Greencloud.png"
+        },
+        {
+            "name": "Henghost",
+            "url": "/icons/云服务/Henghost.png"
+        },
+        {
+            "name": "herzner",
+            "url": "/icons/云服务/herzner.png"
+        },
+        {
+            "name": "Host-C",
+            "url": "/icons/云服务/Host-C.png"
+        },
+        {
+            "name": "HostDare",
+            "url": "/icons/云服务/HostDare.png"
+        },
+        {
+            "name": "Hosthatch",
+            "url": "/icons/云服务/Hosthatch.png"
+        },
+        {
+            "name": "Huawei",
+            "url": "/icons/云服务/Huawei.png"
+        },
+        {
+            "name": "ISIF",
+            "url": "/icons/云服务/ISIF.png"
+        },
+        {
+            "name": "Justhost",
+            "url": "/icons/云服务/Justhost.png"
+        },
+        {
+            "name": "kkidc",
+            "url": "/icons/云服务/kkidc.png"
+        },
+        {
+            "name": "Kurun",
+            "url": "/icons/云服务/Kurun.png"
+        },
+        {
+            "name": "Layer",
+            "url": "/icons/云服务/Layer.png"
+        },
+        {
+            "name": "Lightlayer",
+            "url": "/icons/云服务/Lightlayer.png"
+        },
+        {
+            "name": "Lisa",
+            "url": "/icons/云服务/Lisa.png"
+        },
+        {
+            "name": "Locvps",
+            "url": "/icons/云服务/Locvps.png"
+        },
+        {
+            "name": "NameCrane",
+            "url": "/icons/云服务/NameCrane.png"
+        },
+        {
+            "name": "Neburst",
+            "url": "/icons/云服务/Neburst.png"
+        },
+        {
+            "name": "netcup",
+            "url": "/icons/云服务/netcup.png"
+        },
+        {
+            "name": "nomao",
+            "url": "/icons/云服务/nomao.png"
+        },
+        {
+            "name": "Online",
+            "url": "/icons/云服务/Online.png"
+        },
+        {
+            "name": "Oracle",
+            "url": "/icons/云服务/Oracle.png"
+        },
+        {
+            "name": "OVH",
+            "url": "/icons/云服务/OVH.png"
+        },
+        {
+            "name": "Peekabo",
+            "url": "/icons/云服务/Peekabo.png"
+        },
+        {
+            "name": "Qcloud",
+            "url": "/icons/云服务/Qcloud.png"
+        },
+        {
+            "name": "RackNerd",
+            "url": "/icons/云服务/RackNerd.png"
+        },
+        {
+            "name": "RFCHOST",
+            "url": "/icons/云服务/RFCHOST.png"
+        },
+        {
+            "name": "Saltyfish",
+            "url": "/icons/云服务/Saltyfish.png"
+        },
+        {
+            "name": "serv00",
+            "url": "/icons/云服务/serv00.png"
+        },
+        {
+            "name": "Sharon",
+            "url": "/icons/云服务/Sharon.png"
+        },
+        {
+            "name": "Spartan",
+            "url": "/icons/云服务/Spartan.png"
+        },
+        {
+            "name": "V-PS",
+            "url": "/icons/云服务/V-PS.png"
+        },
+        {
+            "name": "vkvm",
+            "url": "/icons/云服务/vkvm.png"
+        },
+        {
+            "name": "Vmiss",
+            "url": "/icons/云服务/Vmiss.png"
+        },
+        {
+            "name": "WAP",
+            "url": "/icons/云服务/WAP.png"
+        },
+        {
+            "name": "Wawo",
+            "url": "/icons/云服务/Wawo.png"
+        },
+        {
+            "name": "WePC",
+            "url": "/icons/云服务/WePC.png"
+        },
+        {
+            "name": "YeCaoyun",
+            "url": "/icons/云服务/YeCaoyun.png"
+        },
+        {
+            "name": "YXVM",
+            "url": "/icons/云服务/YXVM.png"
         }
     ]
 }

@@ -11,7 +11,7 @@
 ## 功能
 
 - 浏览 2061+ 高清仪表盘图标（1024x1024）
-- 按分类筛选：圆角 / 圆形 / 矢量 / AI / Cloud / Docker / NAS / PT / 自定义分类
+- 按分类筛选：圆角 / 圆形 / 矢量 / AI / 云服务 / Docker / NAS / PT / 自定义分类
 - 自定义分类管理（创建 / 重命名 / 删除分类）
 - 批量选择图标，支持批量移动 / 批量删除
 - 搜索图标（Ctrl+K 快速聚焦）
@@ -173,11 +173,11 @@ hd-icons-cf/
 │   │   ├── border-radius/      # 圆角图标 (1083 PNG)
 │   │   ├── circle/             # 圆形图标 (124 PNG)
 │   │   ├── svg/                # 矢量图标 (547 SVG)
-│   │   ├── ai/                 # AI 相关图标 (64 PNG)
-│   │   ├── cloud/              # 云服务商图标 (61 PNG)
-│   │   ├── docker/             # Docker 应用图标 (101 PNG)
-│   │   ├── nas/                # NAS / 系统图标 (35 PNG)
-│   │   └── pt/                 # PT 站点图标 (46 PNG)
+│   │   ├── AI/                 # AI 相关图标 (64 PNG)
+│   │   ├── 云服务/              # 云服务商图标 (61 PNG)
+│   │   ├── Docker/             # Docker 应用图标 (101 PNG)
+│   │   ├── NAS/                # NAS / 系统图标 (35 PNG)
+│   │   └── PT/                 # PT 站点图标 (46 PNG)
 │   ├── icons.json              # 图标元数据
 │   ├── index.html              # 主页面
 │   ├── style.css               # 样式（亮/暗双主题）
