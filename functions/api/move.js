@@ -8,7 +8,7 @@ import {
 
 const CATEGORIES_KEY = '_meta/categories.json';
 const UPLOADS_KEY = '_meta/uploads.json';
-const BUILTIN = ['border-radius', 'circle', 'svg', 'AI', 'Docker', 'NAS', 'PT', '云服务'];
+const BUILTIN = ['border-radius', 'AI', 'Docker', 'NAS', 'PT', '云服务'];
 
 function getStorageKey(category, name) {
   if (category === 'upload' || !category) return `upload/${name}`;

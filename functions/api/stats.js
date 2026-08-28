@@ -12,7 +12,7 @@ export async function onRequestGet(context) {
     return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
   }
 
-  const counts = { 'border-radius': 0, circle: 0, svg: 0, AI: 0, Docker: 0, NAS: 0, PT: 0, '云服务': 0, upload: 0, total: 0 };
+  const counts = { 'border-radius': 0, AI: 0, Docker: 0, NAS: 0, PT: 0, '云服务': 0, upload: 0, total: 0 };
   const hiddenSet = new Set(await getHiddenList(storage));
 
   const staticResp = await fetch(new URL('/icons.json', request.url));

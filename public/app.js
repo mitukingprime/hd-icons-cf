@@ -25,8 +25,6 @@ let batchProcessing = false;
 
 const CATEGORY_LABELS = {
   'border-radius': '圆角',
-  circle: '圆形',
-  svg: '矢量',
   upload: '上传',
 };
 

@@ -3,7 +3,7 @@ import { createStorage } from '../_lib/storage.js';
 const CATEGORIES_KEY = '_meta/categories.json';
 const UPLOADS_KEY = '_meta/uploads.json';
 const LABELS_KEY = '_meta/category-labels.json';
-const BUILTIN = ['border-radius', 'circle', 'svg', 'AI', 'Docker', 'NAS', 'PT', '云服务'];
+const BUILTIN = ['border-radius', 'AI', 'Docker', 'NAS', 'PT', '云服务'];
 
 async function getLabels(storage) {
   return (await storage.getJSON(LABELS_KEY)) || {};
