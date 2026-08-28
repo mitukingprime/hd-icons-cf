@@ -563,12 +563,12 @@ function openBatchMoveModal() {
   pendingMoveIcon = null;
   populateCategorySelects();
 
-  const custom = getCustomCategories();
-  if (custom.length === 0) {
-    showToast('请先创建一个分类', 'error');
+  const available = allCategories.filter((c) => c.name !== 'upload');
+  if (available.length === 0) {
+    showToast('暂无可用分类', 'error');
     return;
   }
-  moveCategory.value = custom[0]?.name || '';
+  moveCategory.value = available[0]?.name || '';
   if (moveModalTitle) moveModalTitle.textContent = '批量移动到分类';
   moveModal.classList.add('open');
 }
@@ -730,13 +730,16 @@ function renderCategoryTabs() {
 }
 
 function populateCategorySelects() {
-  const custom = getCustomCategories();
-  const options = custom.map((c) =>
-    `<option value="${c.name}">${getCategoryLabel(c.name)}</option>`,
-  ).join('');
+  const options = allCategories
+    .filter((c) => c.name !== 'upload')
+    .map((c) => {
+      const label = (c.label && c.label !== c.name) ? c.label : getCategoryLabel(c.name);
+      return `<option value="${c.name}">${label}</option>`;
+    })
+    .join('');
 
-  uploadCategory.innerHTML = options || '<option value="" disabled>暂无自定义分类</option>';
-  moveCategory.innerHTML = options || '<option value="" disabled>暂无自定义分类</option>';
+  uploadCategory.innerHTML = options || '<option value="" disabled>暂无可用分类</option>';
+  moveCategory.innerHTML = options || '<option value="" disabled>暂无可用分类</option>';
 }
 
 function openCategoryModal() {
@@ -1099,10 +1102,9 @@ function openPreview(icon) {
 // ---------------------------------------------------------------------------
 function openUploadModal() {
   populateCategorySelects();
-  const custom = getCustomCategories();
-  if (custom.length === 0) {
-    showToast('请先创建一个分类', 'error');
-    openCategoryModal();
+  const available = allCategories.filter((c) => c.name !== 'upload');
+  if (available.length === 0) {
+    showToast('暂无可用分类', 'error');
     return;
   }
   uploadModal.classList.add('open');
@@ -1263,7 +1265,7 @@ function openMoveModal(icon) {
   pendingMoveIcon = icon;
   populateCategorySelects();
   const currentCat = icon.category || icon.type || 'upload';
-  moveCategory.value = getCustomCategories().find((c) => c.name !== currentCat)?.name || '';
+  moveCategory.value = allCategories.filter((c) => c.name !== 'upload').find((c) => c.name !== currentCat)?.name || '';
   if (moveModalTitle) moveModalTitle.textContent = '移动到分类';
   moveModal.classList.add('open');
 }

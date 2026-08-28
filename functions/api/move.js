@@ -8,7 +8,7 @@ import {
 
 const CATEGORIES_KEY = '_meta/categories.json';
 const UPLOADS_KEY = '_meta/uploads.json';
-const BUILTIN = ['border-radius', 'circle', 'svg'];
+const BUILTIN = ['border-radius', 'circle', 'svg', 'AI', 'Docker', 'NAS', 'PT', '云服务'];
 
 function getStorageKey(category, name) {
   if (category === 'upload' || !category) return `upload/${name}`;
@@ -52,9 +52,6 @@ export async function onRequestPost(context) {
     }
     if (from === to) {
       return Response.json({ status: 'error', message: '目标分类与当前分类相同' }, { status: 400 });
-    }
-    if (BUILTIN.includes(to)) {
-      return Response.json({ status: 'error', message: '不能移动到内置分类' }, { status: 400 });
     }
     if (!(await categoryExists(storage, to))) {
       return Response.json({ status: 'error', message: '目标分类不存在' }, { status: 404 });
