@@ -2,10 +2,15 @@ import { createStorage } from '../_lib/storage.js';
 
 const CATEGORIES_KEY = '_meta/categories.json';
 const UPLOADS_KEY = '_meta/uploads.json';
+const LABELS_KEY = '_meta/category-labels.json';
 const BUILTIN = ['border-radius', 'circle', 'svg', 'AI', 'Docker', 'NAS', 'PT', '云服务'];
 
-function getBuiltinCategories() {
-  return BUILTIN.map((name) => ({ name, builtin: true }));
+async function getLabels(storage) {
+  return (await storage.getJSON(LABELS_KEY)) || {};
+}
+
+function getBuiltinCategories(labels) {
+  return BUILTIN.map((name) => ({ name, builtin: true, label: labels[name] || name }));
 }
 
 async function getCustomCategories(storage) {
@@ -28,10 +33,11 @@ export async function onRequestGet(context) {
     return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
   }
 
+  const labels = await getLabels(storage);
   const custom = await getCustomCategories(storage);
   const categories = [
-    ...getBuiltinCategories(),
-    ...custom.map((name) => ({ name, builtin: false })),
+    ...getBuiltinCategories(labels),
+    ...custom.map((name) => ({ name, builtin: false, label: name })),
   ];
 
   return Response.json({ categories });
@@ -85,11 +91,17 @@ export async function onRequestPut(context) {
       return Response.json({ status: 'error', message: '分类名称不能为空' }, { status: 400 });
     }
     if (oldTrimmed === newTrimmed) {
-      return Response.json({ status: 'success', name: newTrimmed });
+      return Response.json({ status: 'success', name: oldTrimmed });
     }
+
+    // Built-in categories: only update display label, files stay in place
     if (isBuiltin(oldTrimmed)) {
-      return Response.json({ status: 'error', message: '不能重命名内置分类' }, { status: 400 });
+      const labels = await getLabels(storage);
+      labels[oldTrimmed] = newTrimmed;
+      await storage.putJSON(LABELS_KEY, labels);
+      return Response.json({ status: 'success', name: oldTrimmed, label: newTrimmed });
     }
+
     if (isBuiltin(newTrimmed)) {
       return Response.json({ status: 'error', message: '不能与内置分类重名' }, { status: 400 });
     }

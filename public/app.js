@@ -369,6 +369,8 @@ async function handleChangePassword(e) {
 }
 
 function getCategoryLabel(name) {
+  const cat = allCategories.find((c) => c.name === name);
+  if (cat && cat.label && cat.label !== cat.name) return cat.label;
   return CATEGORY_LABELS[name] || name;
 }
 
@@ -679,9 +681,10 @@ function renderCategoryTabs() {
     const tab = document.createElement('button');
     tab.className = 'tab' + (currentType === cat.name ? ' active' : '');
     tab.dataset.type = cat.name;
-    tab.innerHTML = `${getCategoryLabel(cat.name)} <span class="tab-count">${count}</span>`;
+    const label = (cat.label && cat.label !== cat.name) ? cat.label : getCategoryLabel(cat.name);
+    tab.innerHTML = `${label} <span class="tab-count">${count}</span>`;
 
-    if (!cat.builtin && cat.name !== 'upload') {
+    if (cat.name !== 'upload') {
       const actions = document.createElement('span');
       actions.className = 'tab-actions';
 
@@ -693,18 +696,20 @@ function renderCategoryTabs() {
         e.stopPropagation();
         openRenameCategoryModal(cat.name);
       });
-
-      const delBtn = document.createElement('span');
-      delBtn.className = 'tab-delete';
-      delBtn.title = '删除分类';
-      delBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
-      delBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        deleteCategory(cat.name);
-      });
-
       actions.appendChild(editBtn);
-      actions.appendChild(delBtn);
+
+      if (!cat.builtin) {
+        const delBtn = document.createElement('span');
+        delBtn.className = 'tab-delete';
+        delBtn.title = '删除分类';
+        delBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+        delBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          deleteCategory(cat.name);
+        });
+        actions.appendChild(delBtn);
+      }
+
       tab.appendChild(actions);
     }
 
@@ -814,7 +819,7 @@ async function deleteCategory(name) {
 
 function openRenameCategoryModal(name) {
   renamingCategory = name;
-  renameCategoryInput.value = name;
+  renameCategoryInput.value = getCategoryLabel(name);
   renameCategoryModal.classList.add('open');
   setTimeout(() => {
     renameCategoryInput.focus();
