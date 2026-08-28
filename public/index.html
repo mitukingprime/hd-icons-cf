@@ -102,12 +102,57 @@
         <label for="uploadCategory">上传到分类</label>
         <select id="uploadCategory"></select>
       </div>
+      <div class="upload-options">
+        <div class="upload-options-row">
+          <div class="form-group">
+            <label for="uploadSize">图片尺寸</label>
+            <select id="uploadSize">
+              <option value="512">512 × 512</option>
+              <option value="1024">1024 × 1024</option>
+              <option value="0">不处理（保持原尺寸）</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="uploadFit">填充方式</label>
+            <select id="uploadFit">
+              <option value="contain">留白适应</option>
+              <option value="cover">裁剪填满</option>
+            </select>
+          </div>
+        </div>
+        <div class="upload-options-row">
+          <div class="form-group">
+            <label for="uploadRadius">圆角</label>
+            <select id="uploadRadius">
+              <option value="0">无圆角</option>
+              <option value="12">小圆角 (12%)</option>
+              <option value="22">大圆角 (22%)</option>
+              <option value="50">圆形 (50%)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="uploadBg">背景色</label>
+            <select id="uploadBg">
+              <option value="transparent">透明</option>
+              <option value="#ffffff">白色</option>
+              <option value="#000000">黑色</option>
+              <option value="custom">自定义</option>
+            </select>
+            <input type="color" id="uploadBgColor" value="#ffffff" style="display:none" />
+          </div>
+        </div>
+      </div>
       <div class="upload-zone" id="uploadZone">
         <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
         <p>拖拽文件到此处，或点击选择</p>
         <p class="upload-hint">支持 png, jpg, gif, svg, ico, webp 等格式</p>
         <p class="upload-hint upload-auth-hint">🔒 需要登录后使用</p>
         <input type="file" id="fileInput" multiple accept="image/*" style="display:none" />
+      </div>
+      <div class="upload-preview-grid" id="uploadPreviewGrid" style="display:none"></div>
+      <div class="upload-preview-actions" id="uploadPreviewActions" style="display:none">
+        <button type="button" class="btn btn-secondary" id="uploadReselect">重新选择</button>
+        <button type="button" class="btn btn-primary" id="uploadConfirm">确认上传 (<span id="uploadFileCount">0</span> 个)</button>
       </div>
       <div class="upload-progress" id="uploadProgress" style="display:none">
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>

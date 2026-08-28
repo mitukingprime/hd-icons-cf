@@ -84,6 +84,17 @@ const newPassword = $('#newPassword');
 const newPasswordConfirm = $('#newPasswordConfirm');
 const changePasswordError = $('#changePasswordError');
 const uploadAuthHint = document.querySelector('.upload-auth-hint');
+const uploadSize = $('#uploadSize');
+const uploadFit = $('#uploadFit');
+const uploadRadius = $('#uploadRadius');
+const uploadBg = $('#uploadBg');
+const uploadBgColor = $('#uploadBgColor');
+const uploadPreviewGrid = $('#uploadPreviewGrid');
+const uploadPreviewActions = $('#uploadPreviewActions');
+const uploadReselect = $('#uploadReselect');
+const uploadConfirm = $('#uploadConfirm');
+const uploadFileCount = $('#uploadFileCount');
+let pendingFiles = [];
 const filterTabs = $('#filterTabs');
 const addCategoryBtn = $('#addCategoryBtn');
 const categoryModal = $('#categoryModal');
@@ -1096,6 +1107,100 @@ function openPreview(icon) {
 }
 
 // ---------------------------------------------------------------------------
+// Image processing (client-side Canvas)
+// ---------------------------------------------------------------------------
+function getProcessingOptions() {
+  const size = parseInt(uploadSize.value, 10);
+  const fit = uploadFit.value;
+  const radiusPct = parseInt(uploadRadius.value, 10);
+  let bg = uploadBg.value;
+  if (bg === 'custom') bg = uploadBgColor.value;
+  return { size, fit, radiusPct, bg };
+}
+
+function loadImage(file) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Failed to load image')); };
+    img.src = url;
+  });
+}
+
+function processImage(img, opts) {
+  const { size, fit, radiusPct, bg } = opts;
+  const target = size || Math.max(img.width, img.height);
+  const canvas = document.createElement('canvas');
+  canvas.width = target;
+  canvas.height = target;
+  const ctx = canvas.getContext('2d');
+
+  if (radiusPct > 0) {
+    const r = (radiusPct / 100) * target;
+    ctx.beginPath();
+    ctx.moveTo(r, 0);
+    ctx.lineTo(target - r, 0);
+    ctx.quadraticCurveTo(target, 0, target, r);
+    ctx.lineTo(target, target - r);
+    ctx.quadraticCurveTo(target, target, target - r, target);
+    ctx.lineTo(r, target);
+    ctx.quadraticCurveTo(0, target, 0, target - r);
+    ctx.lineTo(0, r);
+    ctx.quadraticCurveTo(0, 0, r, 0);
+    ctx.closePath();
+    ctx.clip();
+  }
+
+  if (bg && bg !== 'transparent') {
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, target, target);
+  }
+
+  let sx = 0, sy = 0, sw = img.width, sh = img.height;
+  let dx = 0, dy = 0, dw = target, dh = target;
+
+  if (fit === 'cover') {
+    const scale = Math.max(target / img.width, target / img.height);
+    const scaledW = img.width * scale;
+    const scaledH = img.height * scale;
+    dx = (target - scaledW) / 2;
+    dy = (target - scaledH) / 2;
+    dw = scaledW;
+    dh = scaledH;
+  } else {
+    const scale = Math.min(target / img.width, target / img.height);
+    const scaledW = img.width * scale;
+    const scaledH = img.height * scale;
+    dx = (target - scaledW) / 2;
+    dy = (target - scaledH) / 2;
+    dw = scaledW;
+    dh = scaledH;
+  }
+
+  ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
+  return canvas;
+}
+
+function canvasToBlob(canvas) {
+  return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+}
+
+async function processFile(file, opts) {
+  if (opts.size === 0 && opts.radiusPct === 0) return file;
+  try {
+    const img = await loadImage(file);
+    if (opts.size === 0 && opts.radiusPct === 0) return file;
+    const canvas = processImage(img, opts);
+    const blob = await canvasToBlob(canvas);
+    const ext = file.name.replace(/\.[^.]+$/, '');
+    return new File([blob], ext + '.png', { type: 'image/png' });
+  } catch {
+    return file;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Upload
 // ---------------------------------------------------------------------------
 function openUploadModal() {
@@ -1105,30 +1210,89 @@ function openUploadModal() {
     showToast('暂无可用分类', 'error');
     return;
   }
+  resetUploadModal();
   uploadModal.classList.add('open');
-  uploadProgress.style.display = 'none';
-  progressFill.style.width = '0%';
 }
 
-async function handleUpload(files) {
-  if (!files.length) return;
-
-  uploadProgress.style.display = '';
-  uploadStatus.textContent = `上传中 (0/${files.length})...`;
+function resetUploadModal() {
+  pendingFiles = [];
+  uploadPreviewGrid.innerHTML = '';
+  uploadPreviewGrid.style.display = 'none';
+  uploadPreviewActions.style.display = 'none';
+  uploadZone.style.display = '';
+  uploadProgress.style.display = 'none';
   progressFill.style.width = '0%';
+  fileInput.value = '';
+}
 
-  const formData = new FormData();
+async function handleFilesSelected(fileList) {
+  if (!fileList.length) return;
+  pendingFiles = Array.from(fileList);
+  await renderUploadPreviews();
+}
+
+async function renderUploadPreviews() {
+  const opts = getProcessingOptions();
+  uploadPreviewGrid.innerHTML = '';
+  uploadPreviewGrid.style.display = 'grid';
+  uploadPreviewActions.style.display = 'flex';
+  uploadZone.style.display = 'none';
+  uploadFileCount.textContent = pendingFiles.length;
+
+  for (let i = 0; i < pendingFiles.length; i++) {
+    const file = pendingFiles[i];
+    const item = document.createElement('div');
+    item.className = 'upload-preview-item';
+
+    const processed = await processFile(file, opts);
+    const url = URL.createObjectURL(processed);
+    item.innerHTML = `
+      <img src="${url}" alt="${file.name}" />
+      <span class="preview-name">${file.name}</span>
+      <button class="preview-remove" data-idx="${i}" title="移除">&times;</button>
+    `;
+    item.querySelector('.preview-remove').addEventListener('click', (e) => {
+      const idx = parseInt(e.currentTarget.dataset.idx, 10);
+      pendingFiles.splice(idx, 1);
+      if (pendingFiles.length === 0) {
+        resetUploadModal();
+        uploadModal.classList.add('open');
+      } else {
+        renderUploadPreviews();
+      }
+    });
+    uploadPreviewGrid.appendChild(item);
+  }
+}
+
+async function handleUpload() {
+  if (!pendingFiles.length) return;
+
   const category = uploadCategory.value;
   if (!category) {
     showToast('请选择上传分类', 'error');
     return;
   }
+
+  const opts = getProcessingOptions();
+  uploadProgress.style.display = '';
+  uploadPreviewActions.style.display = 'none';
+  uploadStatus.textContent = `处理中 (0/${pendingFiles.length})...`;
+  progressFill.style.width = '0%';
+
+  const formData = new FormData();
   formData.append('category', category);
-  for (const file of files) {
-    formData.append('file', file);
+
+  for (let i = 0; i < pendingFiles.length; i++) {
+    const processed = await processFile(pendingFiles[i], opts);
+    formData.append('file', processed);
+    const pct = Math.round(((i + 1) / pendingFiles.length) * 40);
+    progressFill.style.width = pct + '%';
+    uploadStatus.textContent = `处理中 (${i + 1}/${pendingFiles.length})...`;
   }
 
   try {
+    uploadStatus.textContent = '上传中...';
     progressFill.style.width = '50%';
     const resp = await fetch('/api/upload', {
       method: 'POST',
@@ -1429,7 +1593,7 @@ function init() {
 
   // Upload zone
   uploadZone.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', () => handleUpload(fileInput.files));
+  fileInput.addEventListener('change', () => handleFilesSelected(fileInput.files));
   uploadZone.addEventListener('dragover', (e) => {
     e.preventDefault();
     uploadZone.classList.add('dragover');
@@ -1438,8 +1602,25 @@ function init() {
   uploadZone.addEventListener('drop', (e) => {
     e.preventDefault();
     uploadZone.classList.remove('dragover');
-    handleUpload(e.dataTransfer.files);
+    handleFilesSelected(e.dataTransfer.files);
   });
+  uploadConfirm.addEventListener('click', handleUpload);
+  uploadReselect.addEventListener('click', () => {
+    pendingFiles = [];
+    uploadPreviewGrid.innerHTML = '';
+    uploadPreviewGrid.style.display = 'none';
+    uploadPreviewActions.style.display = 'none';
+    uploadZone.style.display = '';
+    fileInput.value = '';
+  });
+  uploadBg.addEventListener('change', () => {
+    uploadBgColor.style.display = uploadBg.value === 'custom' ? '' : 'none';
+    if (pendingFiles.length) renderUploadPreviews();
+  });
+  uploadBgColor.addEventListener('input', () => { if (pendingFiles.length) renderUploadPreviews(); });
+  uploadSize.addEventListener('change', () => { if (pendingFiles.length) renderUploadPreviews(); });
+  uploadFit.addEventListener('change', () => { if (pendingFiles.length) renderUploadPreviews(); });
+  uploadRadius.addEventListener('change', () => { if (pendingFiles.length) renderUploadPreviews(); });
 
   // Back to top
   window.addEventListener('scroll', () => {
