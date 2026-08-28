@@ -626,7 +626,6 @@ function createCard(icon) {
   card.dataset.name = icon.name;
 
   const thumbUrl = getThumbnailUrl(icon);
-  const uploaded = isUploadedIcon(icon);
   const typeLabel = getCategoryLabel(icon.type);
 
   card.innerHTML = `
@@ -638,16 +637,14 @@ function createCard(icon) {
       <button class="btn btn-icon preview-btn" title="放大预览">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
       </button>
-      ${uploaded ? `
-        <button class="btn btn-icon manage-btn" title="管理">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-        </button>
-        <div class="card-menu">
-          <button class="card-menu-item rename-btn">重命名</button>
-          <button class="card-menu-item move-btn">移动到...</button>
-          <button class="card-menu-item delete-btn card-menu-danger">删除</button>
-        </div>
-      ` : ''}
+      <button class="btn btn-icon manage-btn" title="管理">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </button>
+      <div class="card-menu">
+        <button class="card-menu-item rename-btn">重命名</button>
+        <button class="card-menu-item move-btn">移动到...</button>
+        <button class="card-menu-item delete-btn card-menu-danger">删除</button>
+      </div>
     </div>
     <img src="${thumbUrl}" alt="${icon.name}" loading="lazy" width="72" height="72" onerror="this.style.opacity='0.3'" />
     <span class="card-name" title="${icon.name}">${icon.name}</span>
@@ -665,36 +662,34 @@ function createCard(icon) {
     openPreview(icon);
   });
 
-  // Manage menu (uploaded icons only)
+  // Manage menu
   const manageBtn = card.querySelector('.manage-btn');
   const cardMenu = card.querySelector('.card-menu');
-  if (manageBtn && cardMenu) {
-    manageBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      document.querySelectorAll('.card-menu.open').forEach((m) => {
-        if (m !== cardMenu) m.classList.remove('open');
-      });
-      cardMenu.classList.toggle('open');
+  manageBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('.card-menu.open').forEach((m) => {
+      if (m !== cardMenu) m.classList.remove('open');
     });
+    cardMenu.classList.toggle('open');
+  });
 
-    card.querySelector('.rename-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      cardMenu.classList.remove('open');
-      openRenameModal(icon);
-    });
+  card.querySelector('.rename-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    cardMenu.classList.remove('open');
+    openRenameModal(icon);
+  });
 
-    card.querySelector('.move-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      cardMenu.classList.remove('open');
-      openMoveModal(icon);
-    });
+  card.querySelector('.move-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    cardMenu.classList.remove('open');
+    openMoveModal(icon);
+  });
 
-    card.querySelector('.delete-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      cardMenu.classList.remove('open');
-      deleteIcon(icon);
-    });
-  }
+  card.querySelector('.delete-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    cardMenu.classList.remove('open');
+    deleteIcon(icon);
+  });
 
   // Click card to copy
   card.addEventListener('click', () => {
@@ -824,12 +819,13 @@ async function deleteIcon(icon) {
   if (!confirm(`确定要删除 ${icon.name} 吗？`)) return;
 
   const category = icon.category || icon.type || 'upload';
+  const isBuiltin = icon.builtin === true;
 
   try {
     const resp = await fetch('/api/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: icon.name, category }),
+      body: JSON.stringify({ name: icon.name, category, builtin: isBuiltin }),
       credentials: 'include',
     });
 
@@ -880,6 +876,7 @@ async function handleRename(e) {
   const newName = renameInput.value.trim();
   const category = pendingRenameIcon.category || pendingRenameIcon.type || 'upload';
   const oldName = pendingRenameIcon.name;
+  const isBuiltin = pendingRenameIcon.builtin === true;
 
   if (!newName || newName === oldName) {
     closeRenameModal();
@@ -890,7 +887,7 @@ async function handleRename(e) {
     const resp = await fetch('/api/rename', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ category, oldName, newName }),
+      body: JSON.stringify({ category, oldName, newName, builtin: isBuiltin }),
       credentials: 'include',
     });
 
@@ -938,12 +935,13 @@ async function handleMove(e) {
 
   const fromCategory = pendingMoveIcon.category || pendingMoveIcon.type || 'upload';
   const name = pendingMoveIcon.name;
+  const isBuiltin = pendingMoveIcon.builtin === true;
 
   try {
     const resp = await fetch('/api/move', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, fromCategory, toCategory }),
+      body: JSON.stringify({ name, fromCategory, toCategory, builtin: isBuiltin }),
       credentials: 'include',
     });
 

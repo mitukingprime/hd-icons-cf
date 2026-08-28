@@ -1,4 +1,5 @@
 import { createStorage } from '../_lib/storage.js';
+import { getHiddenList } from '../_lib/hidden.js';
 
 const UPLOADS_KEY = '_meta/uploads.json';
 const CATEGORIES_KEY = '_meta/categories.json';
@@ -12,15 +13,18 @@ export async function onRequestGet(context) {
   }
 
   const counts = { 'border-radius': 0, circle: 0, svg: 0, upload: 0, total: 0 };
+  const hiddenSet = new Set(await getHiddenList(storage));
 
   const staticResp = await fetch(new URL('/icons.json', request.url));
   if (staticResp.ok) {
     const data = await staticResp.json();
     for (const icon of data.icons || []) {
-      const folder = icon.url.replace(/^\/icons\//, '').split('/')[0];
+      const path = icon.url.replace(/^\/icons\//, '');
+      if (hiddenSet.has(path)) continue;
+      const folder = path.split('/')[0];
       counts[folder] = (counts[folder] || 0) + 1;
+      counts.total += 1;
     }
-    counts.total += data.icons?.length || 0;
     counts.update_at = data.update_at;
   }
 

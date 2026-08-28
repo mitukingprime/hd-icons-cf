@@ -1,4 +1,5 @@
 import { createStorage } from '../_lib/storage.js';
+import { getHiddenList } from '../_lib/hidden.js';
 
 const UPLOADS_KEY = '_meta/uploads.json';
 
@@ -31,11 +32,18 @@ export async function onRequestGet(context) {
   const type = url.searchParams.get('type') || 'all';
   const search = (url.searchParams.get('search') || '').toLowerCase();
 
+  const hiddenSet = new Set(await getHiddenList(storage));
+
   let icons = [];
   const staticResp = await fetch(new URL('/icons.json', request.url));
   if (staticResp.ok) {
     const data = await staticResp.json();
-    icons = (data.icons || []).map(parseBuiltinIcon);
+    icons = (data.icons || [])
+      .filter((icon) => {
+        const path = icon.url.replace(/^\/icons\//, '');
+        return !hiddenSet.has(path);
+      })
+      .map(parseBuiltinIcon);
   }
 
   const uploadedIcons = (await storage.getJSON(UPLOADS_KEY)) || [];

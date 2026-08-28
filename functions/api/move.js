@@ -1,4 +1,10 @@
 import { createStorage } from '../_lib/storage.js';
+import {
+  addToHidden,
+  builtinPath,
+  fetchBuiltinIcon,
+  getVisibleBuiltinIcons,
+} from '../_lib/hidden.js';
 
 const CATEGORIES_KEY = '_meta/categories.json';
 const UPLOADS_KEY = '_meta/uploads.json';
@@ -15,7 +21,19 @@ async function categoryExists(storage, name) {
   return custom.includes(name);
 }
 
-// POST /api/move  { name, fromCategory, toCategory }
+function nameExistsInCategory(list, category, name) {
+  return list.some((i) => i.name === name && (i.category || 'upload') === category);
+}
+
+async function nameExistsAsVisibleBuiltin(request, storage, category, name) {
+  const builtins = await getVisibleBuiltinIcons(request, storage);
+  return builtins.some((icon) => {
+    const folder = icon.url.replace(/^\/icons\//, '').split('/')[0];
+    return folder === category && icon.name === name;
+  });
+}
+
+// POST /api/move  { name, fromCategory, toCategory, builtin? }
 export async function onRequestPost(context) {
   const { env, request } = context;
   const storage = createStorage(env);
@@ -24,7 +42,7 @@ export async function onRequestPost(context) {
   }
 
   try {
-    const { name, fromCategory, toCategory } = await request.json();
+    const { name, fromCategory, toCategory, builtin } = await request.json();
     const iconName = (name || '').trim();
     const from = fromCategory || 'upload';
     const to = toCategory || '';
@@ -46,8 +64,32 @@ export async function onRequestPost(context) {
     const idx = list.findIndex(
       (i) => i.name === iconName && (i.category || 'upload') === from,
     );
-    if (idx === -1) {
-      return Response.json({ status: 'error', message: '图标不存在' }, { status: 404 });
+
+    if (builtin || idx === -1) {
+      if (nameExistsInCategory(list, to, iconName)) {
+        return Response.json({ status: 'error', message: '目标分类下已存在同名文件' }, { status: 400 });
+      }
+      if (await nameExistsAsVisibleBuiltin(request, storage, to, iconName)) {
+        return Response.json({ status: 'error', message: '目标分类下已存在同名文件' }, { status: 400 });
+      }
+
+      const file = await fetchBuiltinIcon(request, from, iconName);
+      if (!file) {
+        return Response.json({ status: 'error', message: '图标不存在' }, { status: 404 });
+      }
+
+      const newKey = getStorageKey(to, iconName);
+      await storage.putFile(newKey, file.body, file.contentType);
+
+      list.push({
+        name: iconName,
+        category: to,
+        url: `__R2__/icons/${to}/${iconName}`,
+      });
+      await storage.putJSON(UPLOADS_KEY, list);
+      await addToHidden(storage, builtinPath(from, iconName));
+
+      return Response.json({ status: 'success', category: to });
     }
 
     const duplicate = list.find(
