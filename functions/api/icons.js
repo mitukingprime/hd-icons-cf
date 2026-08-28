@@ -5,7 +5,18 @@ const UPLOADS_KEY = '_meta/uploads.json';
 function parseBuiltinIcon(icon) {
   const urlPath = icon.url.replace(/^\/icons\//, '');
   const folder = urlPath.split('/')[0];
-  return { name: icon.name, type: folder, url: icon.url };
+  return { name: icon.name, type: folder, url: icon.url, builtin: true };
+}
+
+function parseUploadedIcon(icon) {
+  const category = icon.category || 'upload';
+  return {
+    name: icon.name,
+    type: category,
+    category,
+    url: icon.url,
+    builtin: false,
+  };
 }
 
 // GET /api/icons?type=all&search=xxx
@@ -17,7 +28,7 @@ export async function onRequestGet(context) {
   }
 
   const url = new URL(request.url);
-  const type = (url.searchParams.get('type') || 'all').toLowerCase();
+  const type = url.searchParams.get('type') || 'all';
   const search = (url.searchParams.get('search') || '').toLowerCase();
 
   let icons = [];
@@ -28,8 +39,7 @@ export async function onRequestGet(context) {
   }
 
   const uploadedIcons = (await storage.getJSON(UPLOADS_KEY)) || [];
-
-  let all = [...icons, ...uploadedIcons.map((u) => ({ ...u, type: 'upload' }))];
+  let all = [...icons, ...uploadedIcons.map(parseUploadedIcon)];
 
   if (type !== 'all') {
     all = all.filter((i) => i.type === type);

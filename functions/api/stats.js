@@ -1,6 +1,7 @@
 import { createStorage } from '../_lib/storage.js';
 
 const UPLOADS_KEY = '_meta/uploads.json';
+const CATEGORIES_KEY = '_meta/categories.json';
 
 // GET /api/stats
 export async function onRequestGet(context) {
@@ -25,9 +26,15 @@ export async function onRequestGet(context) {
 
   const list = await storage.getJSON(UPLOADS_KEY);
   if (list) {
-    counts.upload = list.length;
-    counts.total += list.length;
+    for (const icon of list) {
+      const cat = icon.category || 'upload';
+      counts[cat] = (counts[cat] || 0) + 1;
+      counts.total += 1;
+    }
   }
+
+  const customCategories = (await storage.getJSON(CATEGORIES_KEY)) || [];
+  counts.customCategories = customCategories;
 
   return Response.json(counts);
 }

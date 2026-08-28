@@ -2,7 +2,12 @@ import { createStorage } from '../_lib/storage.js';
 
 const UPLOADS_KEY = '_meta/uploads.json';
 
-// POST /api/delete  { "name": "xxx.png" }
+function getStorageKey(category, name) {
+  if (category === 'upload' || !category) return `upload/${name}`;
+  return `icons/${category}/${name}`;
+}
+
+// POST /api/delete  { name, category? }
 export async function onRequestPost(context) {
   const { env, request } = context;
   const storage = createStorage(env);
@@ -11,15 +16,26 @@ export async function onRequestPost(context) {
   }
 
   try {
-    const { name } = await request.json();
+    const { name, category } = await request.json();
     if (!name) {
       return Response.json({ status: 'error', message: '缺少文件名' }, { status: 400 });
     }
 
-    await storage.deleteFile(`upload/${name}`);
+    const cat = category || 'upload';
+    const key = getStorageKey(cat, name);
+    await storage.deleteFile(key);
+
+    // Backward compat: also try legacy upload path if category was not provided
+    if (!category) {
+      await storage.deleteFile(`upload/${name}`);
+    }
 
     let list = (await storage.getJSON(UPLOADS_KEY)) || [];
-    list = list.filter((i) => i.name !== name);
+    if (category) {
+      list = list.filter((i) => !(i.name === name && (i.category || 'upload') === cat));
+    } else {
+      list = list.filter((i) => i.name !== name);
+    }
     await storage.putJSON(UPLOADS_KEY, list);
 
     return Response.json({ status: 'success' });

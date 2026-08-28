@@ -287,6 +287,42 @@ a:hover { text-decoration: underline; }
   gap: 6px;
   flex-wrap: wrap;
 }
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tab-add {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tab-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity .15s, background .15s;
+}
+
+.tab-delete:hover {
+  opacity: 1;
+  background: rgba(239,68,68,.2);
+}
+
+.tab.active .tab-delete:hover {
+  background: rgba(255,255,255,.25);
+}
 .tab {
   padding: 6px 14px;
   border: 1px solid var(--border);
@@ -329,7 +365,7 @@ a:hover { text-decoration: underline; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
   transition: transform .15s, box-shadow .15s, border-color .15s;
   aspect-ratio: 1;
@@ -374,6 +410,7 @@ a:hover { text-decoration: underline; }
   gap: 2px;
   opacity: 0;
   transition: opacity .15s;
+  z-index: 2;
 }
 .card:hover .card-actions { opacity: 1; }
 
@@ -384,6 +421,55 @@ a:hover { text-decoration: underline; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 6px;
+}
+
+.card-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 120px;
+  background: var(--bg-modal);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  padding: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity .15s, transform .15s;
+  z-index: 10;
+}
+
+.card-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.card-menu-item {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background .15s;
+}
+
+.card-menu-item:hover {
+  background: var(--bg-hover);
+}
+
+.card-menu-danger {
+  color: var(--danger);
+}
+
+.card-menu-danger:hover {
+  background: rgba(239,68,68,.1);
 }
 
 .card-type-badge {
@@ -504,6 +590,36 @@ a:hover { text-decoration: underline; }
 }
 .upload-hint { font-size: 12px; color: var(--text-3); }
 .upload-auth-hint { color: var(--text-2); }
+
+.upload-category-select {
+  margin-bottom: 16px;
+}
+
+.upload-category-select select,
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.upload-category-select select:focus,
+.form-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 /* ---- Auth Forms ---- */
 .auth-form {

@@ -13,6 +13,17 @@ let renderedCount = 0;
 const BATCH_SIZE = 60;
 let isLoading = false;
 let observer = null;
+let allCategories = [];
+let statsData = {};
+let pendingRenameIcon = null;
+let pendingMoveIcon = null;
+
+const CATEGORY_LABELS = {
+  'border-radius': '圆角',
+  circle: '圆形',
+  svg: '矢量',
+  upload: '上传',
+};
 
 // ---------------------------------------------------------------------------
 // DOM refs
@@ -70,6 +81,21 @@ const newPassword = $('#newPassword');
 const newPasswordConfirm = $('#newPasswordConfirm');
 const changePasswordError = $('#changePasswordError');
 const uploadAuthHint = document.querySelector('.upload-auth-hint');
+const filterTabs = $('#filterTabs');
+const addCategoryBtn = $('#addCategoryBtn');
+const categoryModal = $('#categoryModal');
+const categoryModalClose = $('#categoryModalClose');
+const categoryForm = $('#categoryForm');
+const categoryNameInput = $('#categoryName');
+const uploadCategory = $('#uploadCategory');
+const renameModal = $('#renameModal');
+const renameModalClose = $('#renameModalClose');
+const renameForm = $('#renameForm');
+const renameInput = $('#renameInput');
+const moveModal = $('#moveModal');
+const moveModalClose = $('#moveModalClose');
+const moveForm = $('#moveForm');
+const moveCategory = $('#moveCategory');
 
 // Auth state
 let authState = { authenticated: false, needsSetup: false };
@@ -326,14 +352,24 @@ async function handleChangePassword(e) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// URL helpers
-// ---------------------------------------------------------------------------
+function getCategoryLabel(name) {
+  return CATEGORY_LABELS[name] || name;
+}
+
+function isUploadedIcon(icon) {
+  return icon.builtin === false || icon.url?.startsWith('__R2__/');
+}
+
+function getCustomCategories() {
+  return allCategories.filter((c) => !c.builtin);
+}
+
 function getDisplayUrl(icon) {
-  if (icon.type === 'upload') {
-    return `${location.origin}/r2/upload/${icon.name}`;
+  if (icon.url && icon.url.startsWith('__R2__/')) {
+    const path = icon.url.replace('__R2__/', '');
+    return `${location.origin}/r2/${path}`;
   }
-  if (icon.url.startsWith('/')) {
+  if (icon.url && icon.url.startsWith('/')) {
     return `${location.origin}${icon.url}`;
   }
   return icon.url;
@@ -345,6 +381,160 @@ function getThumbnailUrl(icon) {
 
 function getCopyUrl(icon) {
   return getDisplayUrl(icon);
+}
+
+// ---------------------------------------------------------------------------
+// Categories
+// ---------------------------------------------------------------------------
+async function loadCategories() {
+  try {
+    const resp = await fetch('/api/categories');
+    const data = await resp.json();
+    allCategories = data.categories || [];
+    renderCategoryTabs();
+    populateCategorySelects();
+  } catch (e) {
+    console.error('Failed to load categories:', e);
+  }
+}
+
+function renderCategoryTabs() {
+  const allTab = filterTabs.querySelector('[data-type="all"]');
+  filterTabs.innerHTML = '';
+  if (allTab) filterTabs.appendChild(allTab);
+
+  const categoriesToShow = [];
+
+  for (const cat of allCategories) {
+    categoriesToShow.push(cat);
+  }
+
+  // Show legacy "upload" tab if there are upload-category icons
+  if ((statsData.upload || 0) > 0 && !categoriesToShow.find((c) => c.name === 'upload')) {
+    categoriesToShow.push({ name: 'upload', builtin: false });
+  }
+
+  for (const cat of categoriesToShow) {
+    const count = statsData[cat.name] || 0;
+    const tab = document.createElement('button');
+    tab.className = 'tab' + (currentType === cat.name ? ' active' : '');
+    tab.dataset.type = cat.name;
+    tab.innerHTML = `${getCategoryLabel(cat.name)} <span class="tab-count">${count}</span>`;
+
+    if (!cat.builtin && cat.name !== 'upload') {
+      const delBtn = document.createElement('span');
+      delBtn.className = 'tab-delete';
+      delBtn.title = '删除分类';
+      delBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      delBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        deleteCategory(cat.name);
+      });
+      tab.appendChild(delBtn);
+    }
+
+    tab.addEventListener('click', () => {
+      filterTabs.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentType = cat.name;
+      applyFilter();
+    });
+
+    filterTabs.appendChild(tab);
+  }
+
+  if (currentType !== 'all' && !filterTabs.querySelector(`[data-type="${currentType}"]`)) {
+    currentType = 'all';
+    filterTabs.querySelector('[data-type="all"]')?.classList.add('active');
+  }
+}
+
+function populateCategorySelects() {
+  const custom = getCustomCategories();
+  const options = custom.map((c) =>
+    `<option value="${c.name}">${getCategoryLabel(c.name)}</option>`,
+  ).join('');
+
+  uploadCategory.innerHTML = options || '<option value="" disabled>暂无自定义分类</option>';
+  moveCategory.innerHTML = options || '<option value="" disabled>暂无自定义分类</option>';
+}
+
+function openCategoryModal() {
+  categoryNameInput.value = '';
+  categoryModal.classList.add('open');
+  setTimeout(() => categoryNameInput.focus(), 100);
+}
+
+function closeCategoryModal() {
+  categoryModal.classList.remove('open');
+}
+
+async function handleCreateCategory(e) {
+  e.preventDefault();
+  const name = categoryNameInput.value.trim();
+  if (!name) return;
+
+  try {
+    const resp = await fetch('/api/categories', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+      credentials: 'include',
+    });
+
+    if (resp.status === 401) {
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
+      return;
+    }
+
+    const data = await resp.json();
+    if (data.status === 'success') {
+      closeCategoryModal();
+      showToast('分类创建成功');
+      await loadCategories();
+      await loadIcons();
+    } else {
+      showToast(data.message || '创建失败', 'error');
+    }
+  } catch (err) {
+    showToast('创建失败: ' + err.message, 'error');
+  }
+}
+
+async function deleteCategory(name) {
+  const count = statsData[name] || 0;
+  const msg = count > 0
+    ? `确定要删除分类「${getCategoryLabel(name)}」吗？该分类下的 ${count} 个图标也会被删除。`
+    : `确定要删除分类「${getCategoryLabel(name)}」吗？`;
+  if (!confirm(msg)) return;
+
+  try {
+    const resp = await fetch('/api/categories', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+      credentials: 'include',
+    });
+
+    if (resp.status === 401) {
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
+      return;
+    }
+
+    const data = await resp.json();
+    if (data.status === 'success') {
+      showToast('分类已删除');
+      if (currentType === name) currentType = 'all';
+      await loadCategories();
+      await loadIcons();
+    } else {
+      showToast(data.message || '删除失败', 'error');
+    }
+  } catch (err) {
+    showToast('删除失败: ' + err.message, 'error');
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -363,12 +553,12 @@ async function loadIcons() {
     ]);
 
     const iconsData = await iconsResp.json();
-    const stats = await statsResp.json();
+    statsData = await statsResp.json();
 
     allIcons = iconsData.icons || [];
 
-    totalBadge.textContent = stats.total || allIcons.length;
-    updateCounts(stats);
+    totalBadge.textContent = statsData.total || allIcons.length;
+    renderCategoryTabs();
 
     if (allIcons.length === 0) {
       loading.style.display = 'none';
@@ -384,14 +574,6 @@ async function loadIcons() {
     empty.style.display = '';
     emptyHint.textContent = '加载失败，请刷新重试';
   }
-}
-
-function updateCounts(stats) {
-  const ids = ['border-radius', 'circle', 'svg', 'upload'];
-  ids.forEach((id) => {
-    const el = $(`#count-${id}`);
-    if (el) el.textContent = stats[id] || 0;
-  });
 }
 
 // ---------------------------------------------------------------------------
@@ -444,9 +626,11 @@ function createCard(icon) {
   card.dataset.name = icon.name;
 
   const thumbUrl = getThumbnailUrl(icon);
+  const uploaded = isUploadedIcon(icon);
+  const typeLabel = getCategoryLabel(icon.type);
 
   card.innerHTML = `
-    <span class="card-type-badge">${icon.type}</span>
+    <span class="card-type-badge">${typeLabel}</span>
     <div class="card-actions">
       <button class="btn btn-icon copy-btn" title="复制地址">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -454,9 +638,16 @@ function createCard(icon) {
       <button class="btn btn-icon preview-btn" title="放大预览">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
       </button>
-      ${icon.type === 'upload' ? `<button class="btn btn-icon btn-danger delete-btn" title="删除">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-      </button>` : ''}
+      ${uploaded ? `
+        <button class="btn btn-icon manage-btn" title="管理">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </button>
+        <div class="card-menu">
+          <button class="card-menu-item rename-btn">重命名</button>
+          <button class="card-menu-item move-btn">移动到...</button>
+          <button class="card-menu-item delete-btn card-menu-danger">删除</button>
+        </div>
+      ` : ''}
     </div>
     <img src="${thumbUrl}" alt="${icon.name}" loading="lazy" width="72" height="72" onerror="this.style.opacity='0.3'" />
     <span class="card-name" title="${icon.name}">${icon.name}</span>
@@ -474,11 +665,33 @@ function createCard(icon) {
     openPreview(icon);
   });
 
-  // Delete (upload only)
-  const delBtn = card.querySelector('.delete-btn');
-  if (delBtn) {
-    delBtn.addEventListener('click', (e) => {
+  // Manage menu (uploaded icons only)
+  const manageBtn = card.querySelector('.manage-btn');
+  const cardMenu = card.querySelector('.card-menu');
+  if (manageBtn && cardMenu) {
+    manageBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      document.querySelectorAll('.card-menu.open').forEach((m) => {
+        if (m !== cardMenu) m.classList.remove('open');
+      });
+      cardMenu.classList.toggle('open');
+    });
+
+    card.querySelector('.rename-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      cardMenu.classList.remove('open');
+      openRenameModal(icon);
+    });
+
+    card.querySelector('.move-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      cardMenu.classList.remove('open');
+      openMoveModal(icon);
+    });
+
+    card.querySelector('.delete-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      cardMenu.classList.remove('open');
       deleteIcon(icon);
     });
   }
@@ -542,6 +755,13 @@ function openPreview(icon) {
 // Upload
 // ---------------------------------------------------------------------------
 function openUploadModal() {
+  populateCategorySelects();
+  const custom = getCustomCategories();
+  if (custom.length === 0) {
+    showToast('请先创建一个分类', 'error');
+    openCategoryModal();
+    return;
+  }
   uploadModal.classList.add('open');
   uploadProgress.style.display = 'none';
   progressFill.style.width = '0%';
@@ -555,6 +775,12 @@ async function handleUpload(files) {
   progressFill.style.width = '0%';
 
   const formData = new FormData();
+  const category = uploadCategory.value;
+  if (!category) {
+    showToast('请选择上传分类', 'error');
+    return;
+  }
+  formData.append('category', category);
   for (const file of files) {
     formData.append('file', file);
   }
@@ -597,11 +823,13 @@ async function handleUpload(files) {
 async function deleteIcon(icon) {
   if (!confirm(`确定要删除 ${icon.name} 吗？`)) return;
 
+  const category = icon.category || icon.type || 'upload';
+
   try {
     const resp = await fetch('/api/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: icon.name }),
+      body: JSON.stringify({ name: icon.name, category }),
       credentials: 'include',
     });
 
@@ -615,13 +843,126 @@ async function deleteIcon(icon) {
 
     if (data.status === 'success') {
       showToast('删除成功');
-      allIcons = allIcons.filter((i) => i.name !== icon.name);
+      allIcons = allIcons.filter(
+        (i) => !(i.name === icon.name && (i.category || i.type) === category),
+      );
+      statsData[category] = Math.max(0, (statsData[category] || 1) - 1);
+      statsData.total = Math.max(0, (statsData.total || 1) - 1);
+      renderCategoryTabs();
       applyFilter();
     } else {
       showToast(data.message || '删除失败', 'error');
     }
   } catch (e) {
     showToast('删除失败: ' + e.message, 'error');
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Rename / Move
+// ---------------------------------------------------------------------------
+function openRenameModal(icon) {
+  pendingRenameIcon = icon;
+  renameInput.value = icon.name;
+  renameModal.classList.add('open');
+  setTimeout(() => renameInput.focus(), 100);
+}
+
+function closeRenameModal() {
+  pendingRenameIcon = null;
+  renameModal.classList.remove('open');
+}
+
+async function handleRename(e) {
+  e.preventDefault();
+  if (!pendingRenameIcon) return;
+
+  const newName = renameInput.value.trim();
+  const category = pendingRenameIcon.category || pendingRenameIcon.type || 'upload';
+  const oldName = pendingRenameIcon.name;
+
+  if (!newName || newName === oldName) {
+    closeRenameModal();
+    return;
+  }
+
+  try {
+    const resp = await fetch('/api/rename', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ category, oldName, newName }),
+      credentials: 'include',
+    });
+
+    if (resp.status === 401) {
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
+      return;
+    }
+
+    const data = await resp.json();
+    if (data.status === 'success') {
+      closeRenameModal();
+      showToast('重命名成功');
+      await loadIcons();
+    } else {
+      showToast(data.message || '重命名失败', 'error');
+    }
+  } catch (err) {
+    showToast('重命名失败: ' + err.message, 'error');
+  }
+}
+
+function openMoveModal(icon) {
+  pendingMoveIcon = icon;
+  populateCategorySelects();
+  const currentCat = icon.category || icon.type || 'upload';
+  moveCategory.value = getCustomCategories().find((c) => c.name !== currentCat)?.name || '';
+  moveModal.classList.add('open');
+}
+
+function closeMoveModal() {
+  pendingMoveIcon = null;
+  moveModal.classList.remove('open');
+}
+
+async function handleMove(e) {
+  e.preventDefault();
+  if (!pendingMoveIcon) return;
+
+  const toCategory = moveCategory.value;
+  if (!toCategory) {
+    showToast('请选择目标分类', 'error');
+    return;
+  }
+
+  const fromCategory = pendingMoveIcon.category || pendingMoveIcon.type || 'upload';
+  const name = pendingMoveIcon.name;
+
+  try {
+    const resp = await fetch('/api/move', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, fromCategory, toCategory }),
+      credentials: 'include',
+    });
+
+    if (resp.status === 401) {
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
+      return;
+    }
+
+    const data = await resp.json();
+    if (data.status === 'success') {
+      closeMoveModal();
+      showToast('移动成功');
+      await loadIcons();
+    } else {
+      showToast(data.message || '移动失败', 'error');
+    }
+  } catch (err) {
+    showToast('移动失败: ' + err.message, 'error');
   }
 }
 
@@ -649,21 +990,33 @@ function init() {
   setupForm.addEventListener('submit', handleSetup);
   changePasswordModalClose.addEventListener('click', closeChangePasswordModal);
   changePasswordForm.addEventListener('submit', handleChangePassword);
+  addCategoryBtn.addEventListener('click', openCategoryModal);
+  categoryModalClose.addEventListener('click', closeCategoryModal);
+  categoryForm.addEventListener('submit', handleCreateCategory);
+  renameModalClose.addEventListener('click', closeRenameModal);
+  renameForm.addEventListener('submit', handleRename);
+  moveModalClose.addEventListener('click', closeMoveModal);
+  moveForm.addEventListener('submit', handleMove);
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.auth-user-menu')) {
       toggleAuthDropdown(false);
     }
+    if (!e.target.closest('.card-actions')) {
+      document.querySelectorAll('.card-menu.open').forEach((m) => m.classList.remove('open'));
+    }
   });
 
   // Close modals on overlay click
-  [uploadModal, previewModal, loginModal, setupModal, changePasswordModal].forEach((modal) => {
+  [uploadModal, previewModal, loginModal, setupModal, changePasswordModal, categoryModal, renameModal, moveModal].forEach((modal) => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('open');
         if (modal === setupModal) {
           sessionStorage.setItem('setup-dismissed', '1');
         }
+        if (modal === renameModal) pendingRenameIcon = null;
+        if (modal === moveModal) pendingMoveIcon = null;
       }
     });
   });
@@ -675,6 +1028,11 @@ function init() {
       previewModal.classList.remove('open');
       loginModal.classList.remove('open');
       changePasswordModal.classList.remove('open');
+      categoryModal.classList.remove('open');
+      renameModal.classList.remove('open');
+      moveModal.classList.remove('open');
+      pendingRenameIcon = null;
+      pendingMoveIcon = null;
       if (setupModal.classList.contains('open')) {
         sessionStorage.setItem('setup-dismissed', '1');
         setupModal.classList.remove('open');
@@ -693,14 +1051,12 @@ function init() {
     }, 200);
   });
 
-  // Filter tabs
-  document.querySelectorAll('.tab').forEach((tab) => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
-      tab.classList.add('active');
-      currentType = tab.dataset.type;
-      applyFilter();
-    });
+  // Filter tabs — "全部" tab
+  filterTabs.querySelector('[data-type="all"]')?.addEventListener('click', () => {
+    filterTabs.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+    filterTabs.querySelector('[data-type="all"]').classList.add('active');
+    currentType = 'all';
+    applyFilter();
   });
 
   // Upload zone
@@ -734,7 +1090,7 @@ function init() {
   });
 
   checkAuth();
-  loadIcons();
+  loadCategories().then(() => loadIcons());
 }
 
 init();
