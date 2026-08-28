@@ -303,21 +303,45 @@ a:hover { text-decoration: underline; }
   flex-shrink: 0;
 }
 
+.tab-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  margin-left: 2px;
+  opacity: 0;
+  transition: opacity .15s;
+}
+
+.tab:hover .tab-actions,
+.tab.active .tab-actions {
+  opacity: 1;
+}
+
+.tab-edit,
 .tab-delete {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 16px;
   height: 16px;
-  margin-left: 2px;
   border-radius: 50%;
   opacity: 0.6;
   transition: opacity .15s, background .15s;
+  cursor: pointer;
+}
+
+.tab-edit:hover {
+  opacity: 1;
+  background: rgba(59,130,246,.2);
 }
 
 .tab-delete:hover {
   opacity: 1;
   background: rgba(239,68,68,.2);
+}
+
+.tab.active .tab-edit:hover {
+  background: rgba(255,255,255,.25);
 }
 
 .tab.active .tab-delete:hover {
@@ -472,19 +496,112 @@ a:hover { text-decoration: underline; }
   background: rgba(239,68,68,.1);
 }
 
-.card-type-badge {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  font-size: 9px;
-  padding: 1px 5px;
-  border-radius: 4px;
-  background: var(--bg-hover);
-  color: var(--text-3);
-  opacity: 0;
-  transition: opacity .15s;
+/* ---- Selection mode ---- */
+#selectBtn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
-.card:hover .card-type-badge { opacity: 1; }
+#selectBtn.active:hover {
+  background: var(--accent-hover);
+}
+
+body.selection-mode .card {
+  cursor: pointer;
+}
+body.selection-mode .card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+body.selection-mode .card-actions {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(59,130,246,.25);
+  transform: scale(1.02);
+}
+.card.selected:hover {
+  border-color: var(--accent);
+}
+
+.card-checkbox {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: background .15s, border-color .15s, transform .15s;
+  pointer-events: none;
+}
+body.selection-mode .card-checkbox {
+  display: flex;
+}
+.card-checkbox svg {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity .15s, transform .15s;
+}
+.card-checkbox.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.card-checkbox.checked svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Batch action bar ---- */
+.batch-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 -4px 20px rgba(0,0,0,.08);
+  transform: translateY(100%);
+  transition: transform .3s ease;
+}
+.batch-bar.visible {
+  transform: translateY(0);
+}
+.batch-count {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+.batch-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+body.selection-mode .btn-float {
+  bottom: 80px;
+}
 
 /* ---- Loading / Empty ---- */
 .loading, .empty {
@@ -752,6 +869,19 @@ a:hover { text-decoration: underline; }
 
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
+  .batch-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .batch-actions {
+    justify-content: stretch;
+  }
+  .batch-actions .btn {
+    flex: 1;
+    min-width: 0;
+  }
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 8px;

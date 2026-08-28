@@ -68,6 +68,74 @@ export async function onRequestPost(context) {
   }
 }
 
+// PUT /api/categories  { oldName, newName }
+export async function onRequestPut(context) {
+  const { env, request } = context;
+  const storage = createStorage(env);
+  if (!storage) {
+    return Response.json({ status: 'error', message: 'Storage not configured' }, { status: 500 });
+  }
+
+  try {
+    const { oldName, newName } = await request.json();
+    const oldTrimmed = (oldName || '').trim();
+    const newTrimmed = (newName || '').trim();
+
+    if (!oldTrimmed || !newTrimmed) {
+      return Response.json({ status: 'error', message: '分类名称不能为空' }, { status: 400 });
+    }
+    if (oldTrimmed === newTrimmed) {
+      return Response.json({ status: 'success', name: newTrimmed });
+    }
+    if (isBuiltin(oldTrimmed)) {
+      return Response.json({ status: 'error', message: '不能重命名内置分类' }, { status: 400 });
+    }
+    if (isBuiltin(newTrimmed)) {
+      return Response.json({ status: 'error', message: '不能与内置分类重名' }, { status: 400 });
+    }
+
+    const custom = await getCustomCategories(storage);
+    if (!custom.includes(oldTrimmed)) {
+      return Response.json({ status: 'error', message: '分类不存在' }, { status: 404 });
+    }
+    if (custom.includes(newTrimmed)) {
+      return Response.json({ status: 'error', message: '分类已存在' }, { status: 400 });
+    }
+
+    const uploads = (await storage.getJSON(UPLOADS_KEY)) || [];
+    const toMove = uploads.filter((i) => (i.category || 'upload') === oldTrimmed);
+
+    for (const icon of toMove) {
+      const oldKey = getStorageKey(oldTrimmed, icon.name);
+      const newKey = getStorageKey(newTrimmed, icon.name);
+
+      const file = await storage.getFile(oldKey);
+      if (file) {
+        await storage.putFile(newKey, file.body, file.contentType || 'application/octet-stream');
+        await storage.deleteFile(oldKey);
+      }
+    }
+
+    const updatedUploads = uploads.map((icon) => {
+      if ((icon.category || 'upload') !== oldTrimmed) return icon;
+      return {
+        ...icon,
+        category: newTrimmed,
+        url: `__R2__/icons/${newTrimmed}/${icon.name}`,
+      };
+    });
+
+    const updatedCustom = custom.map((c) => (c === oldTrimmed ? newTrimmed : c));
+
+    await storage.putJSON(UPLOADS_KEY, updatedUploads);
+    await storage.putJSON(CATEGORIES_KEY, updatedCustom);
+
+    return Response.json({ status: 'success', name: newTrimmed, moved: toMove.length });
+  } catch (e) {
+    return Response.json({ status: 'error', message: e.message }, { status: 500 });
+  }
+}
+
 export async function onRequestDelete(context) {
   const { env, request } = context;
   const storage = createStorage(env);

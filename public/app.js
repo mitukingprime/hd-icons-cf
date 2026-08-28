@@ -17,6 +17,11 @@ let allCategories = [];
 let statsData = {};
 let pendingRenameIcon = null;
 let pendingMoveIcon = null;
+let renamingCategory = null;
+let selectionMode = false;
+let selectedIcons = new Set();
+let batchMoveMode = false;
+let batchProcessing = false;
 
 const CATEGORY_LABELS = {
   'border-radius': '圆角',
@@ -96,6 +101,17 @@ const moveModal = $('#moveModal');
 const moveModalClose = $('#moveModalClose');
 const moveForm = $('#moveForm');
 const moveCategory = $('#moveCategory');
+const renameCategoryModal = $('#renameCategoryModal');
+const renameCategoryModalClose = $('#renameCategoryModalClose');
+const renameCategoryForm = $('#renameCategoryForm');
+const renameCategoryInput = $('#renameCategoryInput');
+const selectBtn = $('#selectBtn');
+const batchBar = $('#batchBar');
+const batchCount = $('#batchCount');
+const batchMoveBtn = $('#batchMoveBtn');
+const batchDeleteBtn = $('#batchDeleteBtn');
+const batchCancelBtn = $('#batchCancelBtn');
+const moveModalTitle = moveModal?.querySelector('.modal-header h2');
 
 // Auth state
 let authState = { authenticated: false, needsSetup: false };
@@ -383,6 +399,250 @@ function getCopyUrl(icon) {
   return getDisplayUrl(icon);
 }
 
+function getIconKey(icon) {
+  const category = icon.category || icon.type || 'upload';
+  return `${category}/${icon.name}`;
+}
+
+function findIconByKey(key) {
+  const [category, ...nameParts] = key.split('/');
+  const name = nameParts.join('/');
+  return allIcons.find(
+    (i) => i.name === name && (i.category || i.type || 'upload') === category,
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Selection mode
+// ---------------------------------------------------------------------------
+function toggleSelectionMode(forceOff) {
+  if (batchProcessing) return;
+
+  if (forceOff || selectionMode) {
+    selectionMode = false;
+    selectedIcons.clear();
+    document.body.classList.remove('selection-mode');
+    batchBar.style.display = 'none';
+    batchBar.classList.remove('visible');
+    selectBtn.classList.remove('active');
+    selectBtn.title = '批量选择';
+    selectBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    `;
+    syncAllCardSelectionUI();
+    return;
+  }
+
+  selectionMode = true;
+  document.body.classList.add('selection-mode');
+  batchBar.style.display = '';
+  requestAnimationFrame(() => batchBar.classList.add('visible'));
+  selectBtn.classList.add('active');
+  selectBtn.title = '取消选择';
+  selectBtn.innerHTML = `
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  `;
+  syncAllCardSelectionUI();
+  updateSelectionUI();
+}
+
+function toggleIconSelection(icon) {
+  const key = getIconKey(icon);
+  if (selectedIcons.has(key)) {
+    selectedIcons.delete(key);
+  } else {
+    selectedIcons.add(key);
+  }
+  updateCardSelectionUI(icon);
+  updateSelectionUI();
+}
+
+function updateSelectionUI() {
+  const count = selectedIcons.size;
+  if (!batchProcessing) {
+    batchCount.textContent = count > 0 ? `已选 ${count} 个图标` : '已选 0 个图标';
+  }
+  batchMoveBtn.disabled = count === 0 || batchProcessing;
+  batchDeleteBtn.disabled = count === 0 || batchProcessing;
+}
+
+function updateCardSelectionUI(icon) {
+  const key = getIconKey(icon);
+  const card = grid.querySelector(`.card[data-icon-key="${CSS.escape(key)}"]`);
+  if (!card) return;
+
+  const checkbox = card.querySelector('.card-checkbox');
+  const selected = selectedIcons.has(key);
+  card.classList.toggle('selected', selected);
+  checkbox?.classList.toggle('checked', selected);
+}
+
+function syncAllCardSelectionUI() {
+  grid.querySelectorAll('.card').forEach((card) => {
+    const key = card.dataset.iconKey;
+    const selected = selectedIcons.has(key);
+    card.classList.toggle('selected', selected);
+    card.querySelector('.card-checkbox')?.classList.toggle('checked', selected);
+  });
+}
+
+async function batchDelete() {
+  if (selectedIcons.size === 0 || batchProcessing) return;
+
+  const count = selectedIcons.size;
+  if (!confirm(`确定要删除选中的 ${count} 个图标吗？`)) return;
+
+  batchProcessing = true;
+  batchMoveBtn.disabled = true;
+  batchDeleteBtn.disabled = true;
+  batchCancelBtn.disabled = true;
+
+  let successCount = 0;
+  let failCount = 0;
+  const keys = [...selectedIcons];
+  const total = keys.length;
+
+  for (let i = 0; i < keys.length; i++) {
+    batchCount.textContent = `正在处理 ${i + 1}/${total}...`;
+    const icon = findIconByKey(keys[i]);
+    if (!icon) continue;
+
+    const category = icon.category || icon.type || 'upload';
+    const isBuiltin = icon.builtin === true;
+
+    try {
+      const resp = await fetch('/api/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: icon.name, category, builtin: isBuiltin }),
+        credentials: 'include',
+      });
+
+      if (resp.status === 401) {
+        const data = await resp.json().catch(() => ({}));
+        handleAuthError(data.message);
+        break;
+      }
+
+      const data = await resp.json();
+      if (data.status === 'success') {
+        successCount++;
+        selectedIcons.delete(keys[i]);
+      } else {
+        failCount++;
+      }
+    } catch {
+      failCount++;
+    }
+  }
+
+  batchProcessing = false;
+  batchCancelBtn.disabled = false;
+
+  if (successCount > 0) {
+    showToast(`已删除 ${successCount} 个图标${failCount > 0 ? `，${failCount} 个失败` : ''}`, failCount > 0 ? 'error' : 'success');
+    toggleSelectionMode(true);
+    await loadIcons();
+  } else if (failCount > 0) {
+    showToast('删除失败', 'error');
+    updateSelectionUI();
+  }
+}
+
+function openBatchMoveModal() {
+  if (selectedIcons.size === 0) return;
+
+  batchMoveMode = true;
+  pendingMoveIcon = null;
+  populateCategorySelects();
+
+  const custom = getCustomCategories();
+  if (custom.length === 0) {
+    showToast('请先创建一个分类', 'error');
+    return;
+  }
+  moveCategory.value = custom[0]?.name || '';
+  if (moveModalTitle) moveModalTitle.textContent = '批量移动到分类';
+  moveModal.classList.add('open');
+}
+
+async function batchMove(toCategory) {
+  if (!toCategory || selectedIcons.size === 0) return;
+
+  batchProcessing = true;
+  batchMoveBtn.disabled = true;
+  batchDeleteBtn.disabled = true;
+  batchCancelBtn.disabled = true;
+
+  let successCount = 0;
+  let failCount = 0;
+  const keys = [...selectedIcons];
+  const total = keys.length;
+
+  for (let i = 0; i < keys.length; i++) {
+    batchCount.textContent = `正在处理 ${i + 1}/${total}...`;
+    const icon = findIconByKey(keys[i]);
+    if (!icon) continue;
+
+    const fromCategory = icon.category || icon.type || 'upload';
+    if (fromCategory === toCategory) {
+      selectedIcons.delete(keys[i]);
+      successCount++;
+      continue;
+    }
+
+    const isBuiltin = icon.builtin === true;
+
+    try {
+      const resp = await fetch('/api/move', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: icon.name,
+          fromCategory,
+          toCategory,
+          builtin: isBuiltin,
+        }),
+        credentials: 'include',
+      });
+
+      if (resp.status === 401) {
+        const data = await resp.json().catch(() => ({}));
+        handleAuthError(data.message);
+        break;
+      }
+
+      const data = await resp.json();
+      if (data.status === 'success') {
+        successCount++;
+        selectedIcons.delete(keys[i]);
+      } else {
+        failCount++;
+      }
+    } catch {
+      failCount++;
+    }
+  }
+
+  batchProcessing = false;
+  batchCancelBtn.disabled = false;
+  closeMoveModal();
+
+  if (successCount > 0) {
+    showToast(`已移动 ${successCount} 个图标${failCount > 0 ? `，${failCount} 个失败` : ''}`, failCount > 0 ? 'error' : 'success');
+    toggleSelectionMode(true);
+    await loadIcons();
+  } else if (failCount > 0) {
+    showToast('移动失败', 'error');
+    updateSelectionUI();
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Categories
 // ---------------------------------------------------------------------------
@@ -422,6 +682,18 @@ function renderCategoryTabs() {
     tab.innerHTML = `${getCategoryLabel(cat.name)} <span class="tab-count">${count}</span>`;
 
     if (!cat.builtin && cat.name !== 'upload') {
+      const actions = document.createElement('span');
+      actions.className = 'tab-actions';
+
+      const editBtn = document.createElement('span');
+      editBtn.className = 'tab-edit';
+      editBtn.title = '重命名分类';
+      editBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>';
+      editBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openRenameCategoryModal(cat.name);
+      });
+
       const delBtn = document.createElement('span');
       delBtn.className = 'tab-delete';
       delBtn.title = '删除分类';
@@ -430,7 +702,10 @@ function renderCategoryTabs() {
         e.stopPropagation();
         deleteCategory(cat.name);
       });
-      tab.appendChild(delBtn);
+
+      actions.appendChild(editBtn);
+      actions.appendChild(delBtn);
+      tab.appendChild(actions);
     }
 
     tab.addEventListener('click', () => {
@@ -537,6 +812,62 @@ async function deleteCategory(name) {
   }
 }
 
+function openRenameCategoryModal(name) {
+  renamingCategory = name;
+  renameCategoryInput.value = name;
+  renameCategoryModal.classList.add('open');
+  setTimeout(() => {
+    renameCategoryInput.focus();
+    renameCategoryInput.select();
+  }, 100);
+}
+
+function closeRenameCategoryModal() {
+  renamingCategory = null;
+  renameCategoryModal.classList.remove('open');
+}
+
+async function handleRenameCategory(e) {
+  e.preventDefault();
+  if (!renamingCategory) return;
+
+  const newName = renameCategoryInput.value.trim();
+  const oldName = renamingCategory;
+
+  if (!newName || newName === oldName) {
+    closeRenameCategoryModal();
+    return;
+  }
+
+  try {
+    const resp = await fetch('/api/categories', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ oldName, newName }),
+      credentials: 'include',
+    });
+
+    if (resp.status === 401) {
+      const data = await resp.json().catch(() => ({}));
+      handleAuthError(data.message);
+      return;
+    }
+
+    const data = await resp.json();
+    if (data.status === 'success') {
+      closeRenameCategoryModal();
+      showToast('分类重命名成功');
+      if (currentType === oldName) currentType = newName;
+      await loadCategories();
+      await loadIcons();
+    } else {
+      showToast(data.message || '重命名失败', 'error');
+    }
+  } catch (err) {
+    showToast('重命名失败: ' + err.message, 'error');
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Load Icons
 // ---------------------------------------------------------------------------
@@ -622,14 +953,22 @@ function renderBatch() {
 
 function createCard(icon) {
   const card = document.createElement('div');
+  const iconKey = getIconKey(icon);
   card.className = 'card';
   card.dataset.name = icon.name;
+  card.dataset.iconKey = iconKey;
+
+  if (selectedIcons.has(iconKey)) {
+    card.classList.add('selected');
+  }
 
   const thumbUrl = getThumbnailUrl(icon);
-  const typeLabel = getCategoryLabel(icon.type);
+  const isSelected = selectedIcons.has(iconKey);
 
   card.innerHTML = `
-    <span class="card-type-badge">${typeLabel}</span>
+    <span class="card-checkbox${isSelected ? ' checked' : ''}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
     <div class="card-actions">
       <button class="btn btn-icon copy-btn" title="复制地址">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -691,9 +1030,13 @@ function createCard(icon) {
     deleteIcon(icon);
   });
 
-  // Click card to copy
+  // Click card — copy in normal mode, toggle selection in selection mode
   card.addEventListener('click', () => {
-    copyToClipboard(getCopyUrl(icon));
+    if (selectionMode) {
+      toggleIconSelection(icon);
+    } else {
+      copyToClipboard(getCopyUrl(icon));
+    }
   });
 
   return card;
@@ -911,27 +1254,37 @@ async function handleRename(e) {
 }
 
 function openMoveModal(icon) {
+  batchMoveMode = false;
   pendingMoveIcon = icon;
   populateCategorySelects();
   const currentCat = icon.category || icon.type || 'upload';
   moveCategory.value = getCustomCategories().find((c) => c.name !== currentCat)?.name || '';
+  if (moveModalTitle) moveModalTitle.textContent = '移动到分类';
   moveModal.classList.add('open');
 }
 
 function closeMoveModal() {
   pendingMoveIcon = null;
+  batchMoveMode = false;
   moveModal.classList.remove('open');
+  if (moveModalTitle) moveModalTitle.textContent = '移动到分类';
 }
 
 async function handleMove(e) {
   e.preventDefault();
-  if (!pendingMoveIcon) return;
 
   const toCategory = moveCategory.value;
   if (!toCategory) {
     showToast('请选择目标分类', 'error');
     return;
   }
+
+  if (batchMoveMode) {
+    await batchMove(toCategory);
+    return;
+  }
+
+  if (!pendingMoveIcon) return;
 
   const fromCategory = pendingMoveIcon.category || pendingMoveIcon.type || 'upload';
   const name = pendingMoveIcon.name;
@@ -971,6 +1324,10 @@ function init() {
   initTheme();
 
   themeBtn.addEventListener('click', toggleTheme);
+  selectBtn.addEventListener('click', () => toggleSelectionMode());
+  batchMoveBtn.addEventListener('click', openBatchMoveModal);
+  batchDeleteBtn.addEventListener('click', batchDelete);
+  batchCancelBtn.addEventListener('click', () => toggleSelectionMode(true));
   uploadBtn.addEventListener('click', openUploadModal);
   uploadModalClose.addEventListener('click', () => uploadModal.classList.remove('open'));
   previewModalClose.addEventListener('click', () => previewModal.classList.remove('open'));
@@ -991,6 +1348,8 @@ function init() {
   addCategoryBtn.addEventListener('click', openCategoryModal);
   categoryModalClose.addEventListener('click', closeCategoryModal);
   categoryForm.addEventListener('submit', handleCreateCategory);
+  renameCategoryModalClose.addEventListener('click', closeRenameCategoryModal);
+  renameCategoryForm.addEventListener('submit', handleRenameCategory);
   renameModalClose.addEventListener('click', closeRenameModal);
   renameForm.addEventListener('submit', handleRename);
   moveModalClose.addEventListener('click', closeMoveModal);
@@ -1006,7 +1365,7 @@ function init() {
   });
 
   // Close modals on overlay click
-  [uploadModal, previewModal, loginModal, setupModal, changePasswordModal, categoryModal, renameModal, moveModal].forEach((modal) => {
+  [uploadModal, previewModal, loginModal, setupModal, changePasswordModal, categoryModal, renameCategoryModal, renameModal, moveModal].forEach((modal) => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('open');
@@ -1014,7 +1373,8 @@ function init() {
           sessionStorage.setItem('setup-dismissed', '1');
         }
         if (modal === renameModal) pendingRenameIcon = null;
-        if (modal === moveModal) pendingMoveIcon = null;
+        if (modal === renameCategoryModal) renamingCategory = null;
+        if (modal === moveModal) closeMoveModal();
       }
     });
   });
@@ -1022,19 +1382,24 @@ function init() {
   // Close modals on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      uploadModal.classList.remove('open');
-      previewModal.classList.remove('open');
-      loginModal.classList.remove('open');
-      changePasswordModal.classList.remove('open');
-      categoryModal.classList.remove('open');
-      renameModal.classList.remove('open');
-      moveModal.classList.remove('open');
-      pendingRenameIcon = null;
-      pendingMoveIcon = null;
-      if (setupModal.classList.contains('open')) {
-        sessionStorage.setItem('setup-dismissed', '1');
-        setupModal.classList.remove('open');
+      const openModal = document.querySelector('.modal-overlay.open');
+      if (openModal) {
+        openModal.classList.remove('open');
+        if (openModal === setupModal) {
+          sessionStorage.setItem('setup-dismissed', '1');
+        }
+        if (openModal === renameModal) pendingRenameIcon = null;
+        if (openModal === renameCategoryModal) renamingCategory = null;
+        if (openModal === moveModal) closeMoveModal();
+        toggleAuthDropdown(false);
+        return;
       }
+
+      if (selectionMode && !batchProcessing) {
+        toggleSelectionMode(true);
+        return;
+      }
+
       toggleAuthDropdown(false);
     }
   });
