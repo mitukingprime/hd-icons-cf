@@ -1,9 +1,265 @@
 {
     "name": "小迪的HD-Icons",
-    "description": "当前数量：1754，更新于：2026-02-01 21:43:36。不定期更新，有需求欢迎提交：github.com/xushier/HD-Icons",
-    "total_count": 1754,
-    "update_at": "2026-02-01 21:43:36",
+    "description": "当前数量：2061，更新于：2026-08-28 14:14:06。不定期更新，有需求欢迎提交：github.com/xushier/HD-Icons",
+    "total_count": 2061,
+    "update_at": "2026-08-28 14:14:06",
     "icons": [
+        {
+            "name": "AI-Studio",
+            "url": "/icons/ai/AI-Studio.png"
+        },
+        {
+            "name": "Anthropic",
+            "url": "/icons/ai/Anthropic.png"
+        },
+        {
+            "name": "Baichuan",
+            "url": "/icons/ai/Baichuan.png"
+        },
+        {
+            "name": "BaiLian",
+            "url": "/icons/ai/BaiLian.png"
+        },
+        {
+            "name": "ChatGPT-2",
+            "url": "/icons/ai/ChatGPT-2.png"
+        },
+        {
+            "name": "ChatGPT",
+            "url": "/icons/ai/ChatGPT.png"
+        },
+        {
+            "name": "Claude-Code",
+            "url": "/icons/ai/Claude-Code.png"
+        },
+        {
+            "name": "Claude",
+            "url": "/icons/ai/Claude.png"
+        },
+        {
+            "name": "Cline",
+            "url": "/icons/ai/Cline.png"
+        },
+        {
+            "name": "CodeBuddy",
+            "url": "/icons/ai/CodeBuddy.png"
+        },
+        {
+            "name": "Codex",
+            "url": "/icons/ai/Codex.png"
+        },
+        {
+            "name": "ComfyUI",
+            "url": "/icons/ai/ComfyUI.png"
+        },
+        {
+            "name": "CoPaw",
+            "url": "/icons/ai/CoPaw.png"
+        },
+        {
+            "name": "Coze",
+            "url": "/icons/ai/Coze.png"
+        },
+        {
+            "name": "CPAMC",
+            "url": "/icons/ai/CPAMC.png"
+        },
+        {
+            "name": "Cursor",
+            "url": "/icons/ai/Cursor.png"
+        },
+        {
+            "name": "DeepSeek",
+            "url": "/icons/ai/DeepSeek.png"
+        },
+        {
+            "name": "Dify",
+            "url": "/icons/ai/Dify.png"
+        },
+        {
+            "name": "Doubao",
+            "url": "/icons/ai/Doubao.png"
+        },
+        {
+            "name": "FastGPT",
+            "url": "/icons/ai/FastGPT.png"
+        },
+        {
+            "name": "Gemini-2",
+            "url": "/icons/ai/Gemini-2.png"
+        },
+        {
+            "name": "Gemini",
+            "url": "/icons/ai/Gemini.png"
+        },
+        {
+            "name": "Gemma",
+            "url": "/icons/ai/Gemma.png"
+        },
+        {
+            "name": "Github-Copilot",
+            "url": "/icons/ai/Github-Copilot.png"
+        },
+        {
+            "name": "GLM",
+            "url": "/icons/ai/GLM.png"
+        },
+        {
+            "name": "Grok",
+            "url": "/icons/ai/Grok.png"
+        },
+        {
+            "name": "Hailuo",
+            "url": "/icons/ai/Hailuo.png"
+        },
+        {
+            "name": "Hermes-Agent",
+            "url": "/icons/ai/Hermes-Agent.png"
+        },
+        {
+            "name": "HuggingFace",
+            "url": "/icons/ai/HuggingFace.png"
+        },
+        {
+            "name": "Hunyuan",
+            "url": "/icons/ai/Hunyuan.png"
+        },
+        {
+            "name": "Jimeng",
+            "url": "/icons/ai/Jimeng.png"
+        },
+        {
+            "name": "Kimi",
+            "url": "/icons/ai/Kimi.png"
+        },
+        {
+            "name": "Lightvela",
+            "url": "/icons/ai/Lightvela.png"
+        },
+        {
+            "name": "LM-Studio",
+            "url": "/icons/ai/LM-Studio.png"
+        },
+        {
+            "name": "LobeChat",
+            "url": "/icons/ai/LobeChat.png"
+        },
+        {
+            "name": "Manus",
+            "url": "/icons/ai/Manus.png"
+        },
+        {
+            "name": "Mate",
+            "url": "/icons/ai/Mate.png"
+        },
+        {
+            "name": "Microsoft-Copilot",
+            "url": "/icons/ai/Microsoft-Copilot.png"
+        },
+        {
+            "name": "Minimax",
+            "url": "/icons/ai/Minimax.png"
+        },
+        {
+            "name": "ModelScope",
+            "url": "/icons/ai/ModelScope.png"
+        },
+        {
+            "name": "Moonshot",
+            "url": "/icons/ai/Moonshot.png"
+        },
+        {
+            "name": "n8n",
+            "url": "/icons/ai/n8n.png"
+        },
+        {
+            "name": "NextChat",
+            "url": "/icons/ai/NextChat.png"
+        },
+        {
+            "name": "NotebookLM",
+            "url": "/icons/ai/NotebookLM.png"
+        },
+        {
+            "name": "Nvidia",
+            "url": "/icons/ai/Nvidia.png"
+        },
+        {
+            "name": "Ollama",
+            "url": "/icons/ai/Ollama.png"
+        },
+        {
+            "name": "oMLX",
+            "url": "/icons/ai/oMLX.png"
+        },
+        {
+            "name": "OpenClaw",
+            "url": "/icons/ai/OpenClaw.png"
+        },
+        {
+            "name": "OpenRouter",
+            "url": "/icons/ai/OpenRouter.png"
+        },
+        {
+            "name": "OpenWebUI",
+            "url": "/icons/ai/OpenWebUI.png"
+        },
+        {
+            "name": "Perplexity",
+            "url": "/icons/ai/Perplexity.png"
+        },
+        {
+            "name": "Qoder",
+            "url": "/icons/ai/Qoder.png"
+        },
+        {
+            "name": "Qwen",
+            "url": "/icons/ai/Qwen.png"
+        },
+        {
+            "name": "SiliconFlow",
+            "url": "/icons/ai/SiliconFlow.png"
+        },
+        {
+            "name": "Sora",
+            "url": "/icons/ai/Sora.png"
+        },
+        {
+            "name": "Sub2API",
+            "url": "/icons/ai/Sub2API.png"
+        },
+        {
+            "name": "Vesa",
+            "url": "/icons/ai/Vesa.png"
+        },
+        {
+            "name": "vLLM",
+            "url": "/icons/ai/vLLM.png"
+        },
+        {
+            "name": "vscode",
+            "url": "/icons/ai/vscode.png"
+        },
+        {
+            "name": "WorkBuddy",
+            "url": "/icons/ai/WorkBuddy.png"
+        },
+        {
+            "name": "Xiaomi-MiMo-2",
+            "url": "/icons/ai/Xiaomi-MiMo-2.png"
+        },
+        {
+            "name": "Xiaomi-MiMo",
+            "url": "/icons/ai/Xiaomi-MiMo.png"
+        },
+        {
+            "name": "Yuanbao",
+            "url": "/icons/ai/Yuanbao.png"
+        },
+        {
+            "name": "Zhipu",
+            "url": "/icons/ai/Zhipu.png"
+        },
         {
             "name": "115-drive-1",
             "url": "/icons/border-radius/115-drive-1.png"
@@ -4337,7 +4593,7 @@
             "url": "/icons/border-radius/zulip-1.png"
         },
         {
-            "name": "actual-1-1",
+            "name": "actual-1",
             "url": "/icons/circle/actual-1.png"
         },
         {
@@ -4345,7 +4601,7 @@
             "url": "/icons/circle/actual-2.png"
         },
         {
-            "name": "apache-webdav-1-1",
+            "name": "apache-webdav-1",
             "url": "/icons/circle/apache-webdav-1.png"
         },
         {
@@ -4353,7 +4609,7 @@
             "url": "/icons/circle/ariang-1.png"
         },
         {
-            "name": "audiobook-shelf-1-1",
+            "name": "audiobook-shelf-1",
             "url": "/icons/circle/audiobook-shelf-1.png"
         },
         {
@@ -4361,59 +4617,59 @@
             "url": "/icons/circle/autobangumi-1.png"
         },
         {
-            "name": "bazarr-1-1",
+            "name": "bazarr-1",
             "url": "/icons/circle/bazarr-1.png"
         },
         {
-            "name": "bracket-1-1",
+            "name": "bracket-1",
             "url": "/icons/circle/bracket-1.png"
         },
         {
-            "name": "byte-muse-1-1",
+            "name": "byte-muse-1",
             "url": "/icons/circle/byte-muse-1.png"
         },
         {
-            "name": "caddy-1-1",
+            "name": "caddy-1",
             "url": "/icons/circle/caddy-1.png"
         },
         {
-            "name": "certimate-1-1",
+            "name": "certimate-1",
             "url": "/icons/circle/certimate-1.png"
         },
         {
-            "name": "chandao-1-1",
+            "name": "chandao-1",
             "url": "/icons/circle/chandao-1.png"
         },
         {
-            "name": "chandao-2-1",
+            "name": "chandao-2",
             "url": "/icons/circle/chandao-2.png"
         },
         {
-            "name": "channel-watch-1-1",
+            "name": "channel-watch-1",
             "url": "/icons/circle/channel-watch-1.png"
         },
         {
-            "name": "cloud-media-sync-1-1",
+            "name": "cloud-media-sync-1",
             "url": "/icons/circle/cloud-media-sync-1.png"
         },
         {
-            "name": "clouddrive2-1-1",
+            "name": "clouddrive2-1",
             "url": "/icons/circle/clouddrive2-1.png"
         },
         {
-            "name": "cloudflare-1-1",
+            "name": "cloudflare-1",
             "url": "/icons/circle/cloudflare-1.png"
         },
         {
-            "name": "cloudflare-2-1",
+            "name": "cloudflare-2",
             "url": "/icons/circle/cloudflare-2.png"
         },
         {
-            "name": "cloudreve-1-1",
+            "name": "cloudreve-1",
             "url": "/icons/circle/cloudreve-1.png"
         },
         {
-            "name": "cloudsaver-1-1",
+            "name": "cloudsaver-1",
             "url": "/icons/circle/cloudsaver-1.png"
         },
         {
@@ -4421,119 +4677,119 @@
             "url": "/icons/circle/compressarr-1.png"
         },
         {
-            "name": "daily-hot-1-1",
+            "name": "daily-hot-1",
             "url": "/icons/circle/daily-hot-1.png"
         },
         {
-            "name": "ddns-1-1",
+            "name": "ddns-1",
             "url": "/icons/circle/ddns-1.png"
         },
         {
-            "name": "dell-1-1",
+            "name": "dell-1",
             "url": "/icons/circle/dell-1.png"
         },
         {
-            "name": "docker-1-1",
+            "name": "docker-1",
             "url": "/icons/circle/docker-1.png"
         },
         {
-            "name": "docker-copilot-1-1",
+            "name": "docker-copilot-1",
             "url": "/icons/circle/docker-copilot-1.png"
         },
         {
-            "name": "docspell-1-1",
+            "name": "docspell-1",
             "url": "/icons/circle/docspell-1.png"
         },
         {
-            "name": "feishin-1-1",
+            "name": "feishin-1",
             "url": "/icons/circle/feishin-1.png"
         },
         {
-            "name": "fenrus-1-1",
+            "name": "fenrus-1",
             "url": "/icons/circle/fenrus-1.png"
         },
         {
-            "name": "file-browser-1-1",
+            "name": "file-browser-1",
             "url": "/icons/circle/file-browser-1.png"
         },
         {
-            "name": "flood-1-1",
+            "name": "flood-1",
             "url": "/icons/circle/flood-1.png"
         },
         {
-            "name": "fresh-rss-1-1",
+            "name": "fresh-rss-1",
             "url": "/icons/circle/fresh-rss-1.png"
         },
         {
-            "name": "gitee-1-1",
+            "name": "gitee-1",
             "url": "/icons/circle/gitee-1.png"
         },
         {
-            "name": "gopeed-1-1",
+            "name": "gopeed-1",
             "url": "/icons/circle/gopeed-1.png"
         },
         {
-            "name": "guacamole-1-1",
+            "name": "guacamole-1",
             "url": "/icons/circle/guacamole-1.png"
         },
         {
-            "name": "homebridge-1-1",
+            "name": "homebridge-1",
             "url": "/icons/circle/homebridge-1.png"
         },
         {
-            "name": "homer-1-1",
+            "name": "homer-1",
             "url": "/icons/circle/homer-1.png"
         },
         {
-            "name": "huntarr-1-1",
+            "name": "huntarr-1",
             "url": "/icons/circle/huntarr-1.png"
         },
         {
-            "name": "iceberg-1-1",
+            "name": "iceberg-1",
             "url": "/icons/circle/iceberg-1.png"
         },
         {
-            "name": "ipw-cn-1-1",
+            "name": "ipw-cn-1",
             "url": "/icons/circle/ipw-cn-1.png"
         },
         {
-            "name": "itdog-cn-1-1",
+            "name": "itdog-cn-1",
             "url": "/icons/circle/itdog-cn-1.png"
         },
         {
-            "name": "iyuu-1-1",
+            "name": "iyuu-1",
             "url": "/icons/circle/iyuu-1.png"
         },
         {
-            "name": "jellyseerr-1-1",
+            "name": "jellyseerr-1",
             "url": "/icons/circle/jellyseerr-1.png"
         },
         {
-            "name": "koshi-1-1",
+            "name": "koshi-1",
             "url": "/icons/circle/koshi-1.png"
         },
         {
-            "name": "librespeed-1-1",
+            "name": "librespeed-1",
             "url": "/icons/circle/librespeed-1.png"
         },
         {
-            "name": "lidarr-1-1",
+            "name": "lidarr-1",
             "url": "/icons/circle/lidarr-1.png"
         },
         {
-            "name": "linkding-1-1",
+            "name": "linkding-1",
             "url": "/icons/circle/linkding-1.png"
         },
         {
-            "name": "listmonk-1-1",
+            "name": "listmonk-1",
             "url": "/icons/circle/listmonk-1.png"
         },
         {
-            "name": "loggit-1-1",
+            "name": "loggit-1",
             "url": "/icons/circle/loggit-1.png"
         },
         {
-            "name": "macos-1-1",
+            "name": "macos-1",
             "url": "/icons/circle/macos-1.png"
         },
         {
@@ -4565,59 +4821,59 @@
             "url": "/icons/circle/macos-sierra-1.png"
         },
         {
-            "name": "mastodon-1-1",
+            "name": "mastodon-1",
             "url": "/icons/circle/mastodon-1.png"
         },
         {
-            "name": "minio-1-1",
+            "name": "minio-1",
             "url": "/icons/circle/minio-1.png"
         },
         {
-            "name": "musicn-1-1",
+            "name": "musicn-1",
             "url": "/icons/circle/musicn-1.png"
         },
         {
-            "name": "navidrome-1-1",
+            "name": "navidrome-1",
             "url": "/icons/circle/navidrome-1.png"
         },
         {
-            "name": "nexterm-1-1",
+            "name": "nexterm-1",
             "url": "/icons/circle/nexterm-1.png"
         },
         {
-            "name": "notemark-1-1",
+            "name": "notemark-1",
             "url": "/icons/circle/notemark-1.png"
         },
         {
-            "name": "ombi-1-1",
+            "name": "ombi-1",
             "url": "/icons/circle/ombi-1.png"
         },
         {
-            "name": "omnivore-1-1",
+            "name": "omnivore-1",
             "url": "/icons/circle/omnivore-1.png"
         },
         {
-            "name": "open-webui-1-1",
+            "name": "open-webui-1",
             "url": "/icons/circle/open-webui-1.png"
         },
         {
-            "name": "orb-net-1-1",
+            "name": "orb-net-1",
             "url": "/icons/circle/orb-net-1.png"
         },
         {
-            "name": "overseerr-1-1",
+            "name": "overseerr-1",
             "url": "/icons/circle/overseerr-1.png"
         },
         {
-            "name": "photo-prism-1-1",
+            "name": "photo-prism-1",
             "url": "/icons/circle/photo-prism-1.png"
         },
         {
-            "name": "photo-prism-2-1",
+            "name": "photo-prism-2",
             "url": "/icons/circle/photo-prism-2.png"
         },
         {
-            "name": "photo-prism-3-1",
+            "name": "photo-prism-3",
             "url": "/icons/circle/photo-prism-3.png"
         },
         {
@@ -4633,135 +4889,135 @@
             "url": "/icons/circle/photo-prism-6.png"
         },
         {
-            "name": "photo-structure-1-1",
+            "name": "photo-structure-1",
             "url": "/icons/circle/photo-structure-1.png"
         },
         {
-            "name": "prowlarr-1-1",
+            "name": "prowlarr-1",
             "url": "/icons/circle/prowlarr-1.png"
         },
         {
-            "name": "pt-helper-1-1",
+            "name": "pt-helper-1",
             "url": "/icons/circle/pt-helper-1.png"
         },
         {
-            "name": "pulsarr-1-1",
+            "name": "pulsarr-1",
             "url": "/icons/circle/pulsarr-1.png"
         },
         {
-            "name": "pve-1-1",
+            "name": "pve-1",
             "url": "/icons/circle/pve-1.png"
         },
         {
-            "name": "pve-2-1",
+            "name": "pve-2",
             "url": "/icons/circle/pve-2.png"
         },
         {
-            "name": "qbittorrent-1-1",
+            "name": "qbittorrent-1",
             "url": "/icons/circle/qbittorrent-1.png"
         },
         {
-            "name": "qbittorrent-2-1",
+            "name": "qbittorrent-2",
             "url": "/icons/circle/qbittorrent-2.png"
         },
         {
-            "name": "qinglong-1-1",
+            "name": "qinglong-1",
             "url": "/icons/circle/qinglong-1.png"
         },
         {
-            "name": "readarr-1-1",
+            "name": "readarr-1",
             "url": "/icons/circle/readarr-1.png"
         },
         {
-            "name": "redia-1-1",
+            "name": "redia-1",
             "url": "/icons/circle/redia-1.png"
         },
         {
-            "name": "rocky-1-1",
+            "name": "rocky-1",
             "url": "/icons/circle/rocky-1.png"
         },
         {
-            "name": "rocky-2-1",
+            "name": "rocky-2",
             "url": "/icons/circle/rocky-2.png"
         },
         {
-            "name": "rosy-1-1",
+            "name": "rosy-1",
             "url": "/icons/circle/rosy-1.png"
         },
         {
-            "name": "selectdb-1-1",
+            "name": "selectdb-1",
             "url": "/icons/circle/selectdb-1.png"
         },
         {
-            "name": "semaphore-1-1",
+            "name": "semaphore-1",
             "url": "/icons/circle/semaphore-1.png"
         },
         {
-            "name": "shiori-1-1",
+            "name": "shiori-1",
             "url": "/icons/circle/shiori-1.png"
         },
         {
-            "name": "slack-1-1",
+            "name": "slack-1",
             "url": "/icons/circle/slack-1.png"
         },
         {
-            "name": "slash-1-1",
+            "name": "slash-1",
             "url": "/icons/circle/slash-1.png"
         },
         {
-            "name": "sonarr-1-1",
+            "name": "sonarr-1",
             "url": "/icons/circle/sonarr-1.png"
         },
         {
-            "name": "speedtest-1-1",
+            "name": "speedtest-1",
             "url": "/icons/circle/speedtest-1.png"
         },
         {
-            "name": "squoosh-1-1",
+            "name": "squoosh-1",
             "url": "/icons/circle/squoosh-1.png"
         },
         {
-            "name": "sshwifty-1-1",
+            "name": "sshwifty-1",
             "url": "/icons/circle/sshwifty-1.png"
         },
         {
-            "name": "subplayer-1-1",
+            "name": "subplayer-1",
             "url": "/icons/circle/subplayer-1.png"
         },
         {
-            "name": "swing-music-1-1",
+            "name": "swing-music-1",
             "url": "/icons/circle/swing-music-1.png"
         },
         {
-            "name": "syncthing-1-1",
+            "name": "syncthing-1",
             "url": "/icons/circle/syncthing-1.png"
         },
         {
-            "name": "tandoor-1-1",
+            "name": "tandoor-1",
             "url": "/icons/circle/tandoor-1.png"
         },
         {
-            "name": "tautulli-1-1",
+            "name": "tautulli-1",
             "url": "/icons/circle/tautulli-1.png"
         },
         {
-            "name": "tdarr-1-1",
+            "name": "tdarr-1",
             "url": "/icons/circle/tdarr-1.png"
         },
         {
-            "name": "team-pass-1-1",
+            "name": "team-pass-1",
             "url": "/icons/circle/team-pass-1.png"
         },
         {
-            "name": "telegram-1-1",
+            "name": "telegram-1",
             "url": "/icons/circle/telegram-1.png"
         },
         {
-            "name": "termix-1-1",
+            "name": "termix-1",
             "url": "/icons/circle/termix-1.png"
         },
         {
-            "name": "time-machine-1-1",
+            "name": "time-machine-1",
             "url": "/icons/circle/time-machine-1.png"
         },
         {
@@ -4773,75 +5029,1047 @@
             "url": "/icons/circle/trakt-1.png"
         },
         {
-            "name": "trilium-1-1",
+            "name": "trilium-1",
             "url": "/icons/circle/trilium-1.png"
         },
         {
-            "name": "unlock-music-1-1",
+            "name": "unlock-music-1",
             "url": "/icons/circle/unlock-music-1.png"
         },
         {
-            "name": "verysync-1-1",
+            "name": "verysync-1",
             "url": "/icons/circle/verysync-1.png"
         },
         {
-            "name": "vscodium-1-1",
+            "name": "vscodium-1",
             "url": "/icons/circle/vscodium-1.png"
         },
         {
-            "name": "watchtower-1-1",
+            "name": "watchtower-1",
             "url": "/icons/circle/watchtower-1.png"
         },
         {
-            "name": "webdav-1-1",
+            "name": "webdav-1",
             "url": "/icons/circle/webdav-1.png"
         },
         {
-            "name": "whisparr-1-1",
+            "name": "whisparr-1",
             "url": "/icons/circle/whisparr-1.png"
         },
         {
-            "name": "willow-1-1",
+            "name": "willow-1",
             "url": "/icons/circle/willow-1.png"
         },
         {
-            "name": "wireguard-1-1",
+            "name": "wireguard-1",
             "url": "/icons/circle/wireguard-1.png"
         },
         {
-            "name": "wizarr-1-1",
+            "name": "wizarr-1",
             "url": "/icons/circle/wizarr-1.png"
         },
         {
-            "name": "wordpress-1-1",
+            "name": "wordpress-1",
             "url": "/icons/circle/wordpress-1.png"
         },
         {
-            "name": "xstrm-1-1",
+            "name": "xstrm-1",
             "url": "/icons/circle/xstrm-1.png"
         },
         {
-            "name": "youtube-dl-1-1",
+            "name": "youtube-dl-1",
             "url": "/icons/circle/youtube-dl-1.png"
         },
         {
-            "name": "youtube-dl-2-1",
+            "name": "youtube-dl-2",
             "url": "/icons/circle/youtube-dl-2.png"
         },
         {
-            "name": "youtube-dl-3-1",
+            "name": "youtube-dl-3",
             "url": "/icons/circle/youtube-dl-3.png"
         },
         {
-            "name": "9kuai-1-1",
+            "name": "acck",
+            "url": "/icons/cloud/acck.png"
+        },
+        {
+            "name": "akile",
+            "url": "/icons/cloud/akile.png"
+        },
+        {
+            "name": "alice",
+            "url": "/icons/cloud/alice.png"
+        },
+        {
+            "name": "Aliyun",
+            "url": "/icons/cloud/Aliyun.png"
+        },
+        {
+            "name": "Alphavps",
+            "url": "/icons/cloud/Alphavps.png"
+        },
+        {
+            "name": "AWS-2",
+            "url": "/icons/cloud/AWS-2.png"
+        },
+        {
+            "name": "AWS",
+            "url": "/icons/cloud/AWS.png"
+        },
+        {
+            "name": "Bandwagon",
+            "url": "/icons/cloud/Bandwagon.png"
+        },
+        {
+            "name": "Bero-host",
+            "url": "/icons/cloud/Bero-host.png"
+        },
+        {
+            "name": "BuyVM",
+            "url": "/icons/cloud/BuyVM.png"
+        },
+        {
+            "name": "ByteVirt",
+            "url": "/icons/cloud/ByteVirt.png"
+        },
+        {
+            "name": "Claw",
+            "url": "/icons/cloud/Claw.png"
+        },
+        {
+            "name": "CloudCone",
+            "url": "/icons/cloud/CloudCone.png"
+        },
+        {
+            "name": "coalcloud",
+            "url": "/icons/cloud/coalcloud.png"
+        },
+        {
+            "name": "ColoCrosSing",
+            "url": "/icons/cloud/ColoCrosSing.png"
+        },
+        {
+            "name": "Crunchbits",
+            "url": "/icons/cloud/Crunchbits.png"
+        },
+        {
+            "name": "CTyun",
+            "url": "/icons/cloud/CTyun.png"
+        },
+        {
+            "name": "DMIT",
+            "url": "/icons/cloud/DMIT.png"
+        },
+        {
+            "name": "EdgeOne",
+            "url": "/icons/cloud/EdgeOne.png"
+        },
+        {
+            "name": "Evoxt",
+            "url": "/icons/cloud/Evoxt.png"
+        },
+        {
+            "name": "ggy",
+            "url": "/icons/cloud/ggy.png"
+        },
+        {
+            "name": "GoMAMi",
+            "url": "/icons/cloud/GoMAMi.png"
+        },
+        {
+            "name": "GoogleCloud",
+            "url": "/icons/cloud/GoogleCloud.png"
+        },
+        {
+            "name": "Greencloud",
+            "url": "/icons/cloud/Greencloud.png"
+        },
+        {
+            "name": "Henghost",
+            "url": "/icons/cloud/Henghost.png"
+        },
+        {
+            "name": "herzner",
+            "url": "/icons/cloud/herzner.png"
+        },
+        {
+            "name": "Host-C",
+            "url": "/icons/cloud/Host-C.png"
+        },
+        {
+            "name": "HostDare",
+            "url": "/icons/cloud/HostDare.png"
+        },
+        {
+            "name": "Hosthatch",
+            "url": "/icons/cloud/Hosthatch.png"
+        },
+        {
+            "name": "Huawei",
+            "url": "/icons/cloud/Huawei.png"
+        },
+        {
+            "name": "ISIF",
+            "url": "/icons/cloud/ISIF.png"
+        },
+        {
+            "name": "Justhost",
+            "url": "/icons/cloud/Justhost.png"
+        },
+        {
+            "name": "kkidc",
+            "url": "/icons/cloud/kkidc.png"
+        },
+        {
+            "name": "Kurun",
+            "url": "/icons/cloud/Kurun.png"
+        },
+        {
+            "name": "Layer",
+            "url": "/icons/cloud/Layer.png"
+        },
+        {
+            "name": "Lightlayer",
+            "url": "/icons/cloud/Lightlayer.png"
+        },
+        {
+            "name": "Lisa",
+            "url": "/icons/cloud/Lisa.png"
+        },
+        {
+            "name": "Locvps",
+            "url": "/icons/cloud/Locvps.png"
+        },
+        {
+            "name": "NameCrane",
+            "url": "/icons/cloud/NameCrane.png"
+        },
+        {
+            "name": "Neburst",
+            "url": "/icons/cloud/Neburst.png"
+        },
+        {
+            "name": "netcup",
+            "url": "/icons/cloud/netcup.png"
+        },
+        {
+            "name": "nomao",
+            "url": "/icons/cloud/nomao.png"
+        },
+        {
+            "name": "Online",
+            "url": "/icons/cloud/Online.png"
+        },
+        {
+            "name": "Oracle",
+            "url": "/icons/cloud/Oracle.png"
+        },
+        {
+            "name": "OVH",
+            "url": "/icons/cloud/OVH.png"
+        },
+        {
+            "name": "Peekabo",
+            "url": "/icons/cloud/Peekabo.png"
+        },
+        {
+            "name": "Qcloud",
+            "url": "/icons/cloud/Qcloud.png"
+        },
+        {
+            "name": "RackNerd",
+            "url": "/icons/cloud/RackNerd.png"
+        },
+        {
+            "name": "RFCHOST",
+            "url": "/icons/cloud/RFCHOST.png"
+        },
+        {
+            "name": "Saltyfish",
+            "url": "/icons/cloud/Saltyfish.png"
+        },
+        {
+            "name": "serv00",
+            "url": "/icons/cloud/serv00.png"
+        },
+        {
+            "name": "Sharon",
+            "url": "/icons/cloud/Sharon.png"
+        },
+        {
+            "name": "Spartan",
+            "url": "/icons/cloud/Spartan.png"
+        },
+        {
+            "name": "V-PS",
+            "url": "/icons/cloud/V-PS.png"
+        },
+        {
+            "name": "vkvm",
+            "url": "/icons/cloud/vkvm.png"
+        },
+        {
+            "name": "Vmiss",
+            "url": "/icons/cloud/Vmiss.png"
+        },
+        {
+            "name": "WAP",
+            "url": "/icons/cloud/WAP.png"
+        },
+        {
+            "name": "Wawo",
+            "url": "/icons/cloud/Wawo.png"
+        },
+        {
+            "name": "WePC",
+            "url": "/icons/cloud/WePC.png"
+        },
+        {
+            "name": "YeCaoyun",
+            "url": "/icons/cloud/YeCaoyun.png"
+        },
+        {
+            "name": "YXVM",
+            "url": "/icons/cloud/YXVM.png"
+        },
+        {
+            "name": "1panel-2",
+            "url": "/icons/docker/1panel-2.png"
+        },
+        {
+            "name": "1panel-Pro",
+            "url": "/icons/docker/1panel-Pro.png"
+        },
+        {
+            "name": "1panel",
+            "url": "/icons/docker/1panel.png"
+        },
+        {
+            "name": "AdguardHome",
+            "url": "/icons/docker/AdguardHome.png"
+        },
+        {
+            "name": "Alist",
+            "url": "/icons/docker/Alist.png"
+        },
+        {
+            "name": "Apache",
+            "url": "/icons/docker/Apache.png"
+        },
+        {
+            "name": "Aria2",
+            "url": "/icons/docker/Aria2.png"
+        },
+        {
+            "name": "Bitwarden",
+            "url": "/icons/docker/Bitwarden.png"
+        },
+        {
+            "name": "Chrome",
+            "url": "/icons/docker/Chrome.png"
+        },
+        {
+            "name": "CloudDrive",
+            "url": "/icons/docker/CloudDrive.png"
+        },
+        {
+            "name": "cookiecloud",
+            "url": "/icons/docker/cookiecloud.png"
+        },
+        {
+            "name": "ddnsgo",
+            "url": "/icons/docker/ddnsgo.png"
+        },
+        {
+            "name": "DDNSTO",
+            "url": "/icons/docker/DDNSTO.png"
+        },
+        {
+            "name": "dnsmgr",
+            "url": "/icons/docker/dnsmgr.png"
+        },
+        {
+            "name": "DockerCopilot-2",
+            "url": "/icons/docker/DockerCopilot-2.png"
+        },
+        {
+            "name": "DockerCopilot-3",
+            "url": "/icons/docker/DockerCopilot-3.png"
+        },
+        {
+            "name": "DockerCopilot",
+            "url": "/icons/docker/DockerCopilot.png"
+        },
+        {
+            "name": "Dockge",
+            "url": "/icons/docker/Dockge.png"
+        },
+        {
+            "name": "dos-lol",
+            "url": "/icons/docker/dos-lol.png"
+        },
+        {
+            "name": "DPanel",
+            "url": "/icons/docker/DPanel.png"
+        },
+        {
+            "name": "Draw",
+            "url": "/icons/docker/Draw.png"
+        },
+        {
+            "name": "Duplicati",
+            "url": "/icons/docker/Duplicati.png"
+        },
+        {
+            "name": "Emby",
+            "url": "/icons/docker/Emby.png"
+        },
+        {
+            "name": "Excalidraw",
+            "url": "/icons/docker/Excalidraw.png"
+        },
+        {
+            "name": "FileBrowser",
+            "url": "/icons/docker/FileBrowser.png"
+        },
+        {
+            "name": "flare",
+            "url": "/icons/docker/flare.png"
+        },
+        {
+            "name": "Flarum",
+            "url": "/icons/docker/Flarum.png"
+        },
+        {
+            "name": "frpc",
+            "url": "/icons/docker/frpc.png"
+        },
+        {
+            "name": "ftps",
+            "url": "/icons/docker/ftps.png"
+        },
+        {
+            "name": "Gitea",
+            "url": "/icons/docker/Gitea.png"
+        },
+        {
+            "name": "Grafana",
+            "url": "/icons/docker/Grafana.png"
+        },
+        {
+            "name": "halo",
+            "url": "/icons/docker/halo.png"
+        },
+        {
+            "name": "heimdall",
+            "url": "/icons/docker/heimdall.png"
+        },
+        {
+            "name": "HivisionIDPhotos",
+            "url": "/icons/docker/HivisionIDPhotos.png"
+        },
+        {
+            "name": "HomeAssistant",
+            "url": "/icons/docker/HomeAssistant.png"
+        },
+        {
+            "name": "HomePage",
+            "url": "/icons/docker/HomePage.png"
+        },
+        {
+            "name": "immich",
+            "url": "/icons/docker/immich.png"
+        },
+        {
+            "name": "IYUU-2",
+            "url": "/icons/docker/IYUU-2.png"
+        },
+        {
+            "name": "IYUU",
+            "url": "/icons/docker/IYUU.png"
+        },
+        {
+            "name": "Jackett",
+            "url": "/icons/docker/Jackett.png"
+        },
+        {
+            "name": "Jellyfin",
+            "url": "/icons/docker/Jellyfin.png"
+        },
+        {
+            "name": "KMS",
+            "url": "/icons/docker/KMS.png"
+        },
+        {
+            "name": "KodBox",
+            "url": "/icons/docker/KodBox.png"
+        },
+        {
+            "name": "Komari",
+            "url": "/icons/docker/Komari.png"
+        },
+        {
+            "name": "KSpeeder",
+            "url": "/icons/docker/KSpeeder.png"
+        },
+        {
+            "name": "Lucky",
+            "url": "/icons/docker/Lucky.png"
+        },
+        {
+            "name": "Lychee",
+            "url": "/icons/docker/Lychee.png"
+        },
+        {
+            "name": "maomao",
+            "url": "/icons/docker/maomao.png"
+        },
+        {
+            "name": "MariaDB",
+            "url": "/icons/docker/MariaDB.png"
+        },
+        {
+            "name": "MaxKB",
+            "url": "/icons/docker/MaxKB.png"
+        },
+        {
+            "name": "MediaSaber",
+            "url": "/icons/docker/MediaSaber.png"
+        },
+        {
+            "name": "Memos",
+            "url": "/icons/docker/Memos.png"
+        },
+        {
+            "name": "miaomiao",
+            "url": "/icons/docker/miaomiao.png"
+        },
+        {
+            "name": "MinIO",
+            "url": "/icons/docker/MinIO.png"
+        },
+        {
+            "name": "MongoDB-2",
+            "url": "/icons/docker/MongoDB-2.png"
+        },
+        {
+            "name": "MongoDB",
+            "url": "/icons/docker/MongoDB.png"
+        },
+        {
+            "name": "MoviePilot",
+            "url": "/icons/docker/MoviePilot.png"
+        },
+        {
+            "name": "MT-Photos",
+            "url": "/icons/docker/MT-Photos.png"
+        },
+        {
+            "name": "MySQL",
+            "url": "/icons/docker/MySQL.png"
+        },
+        {
+            "name": "NAStool-2",
+            "url": "/icons/docker/NAStool-2.png"
+        },
+        {
+            "name": "NAStool",
+            "url": "/icons/docker/NAStool.png"
+        },
+        {
+            "name": "Navidrome",
+            "url": "/icons/docker/Navidrome.png"
+        },
+        {
+            "name": "Nextcloud",
+            "url": "/icons/docker/Nextcloud.png"
+        },
+        {
+            "name": "Nginx-2",
+            "url": "/icons/docker/Nginx-2.png"
+        },
+        {
+            "name": "Nginx",
+            "url": "/icons/docker/Nginx.png"
+        },
+        {
+            "name": "Node.js",
+            "url": "/icons/docker/Node.js.png"
+        },
+        {
+            "name": "NPM",
+            "url": "/icons/docker/NPM.png"
+        },
+        {
+            "name": "OpenList",
+            "url": "/icons/docker/OpenList.png"
+        },
+        {
+            "name": "PHP",
+            "url": "/icons/docker/PHP.png"
+        },
+        {
+            "name": "phpMyAdmin-2",
+            "url": "/icons/docker/phpMyAdmin-2.png"
+        },
+        {
+            "name": "phpMyAdmin",
+            "url": "/icons/docker/phpMyAdmin.png"
+        },
+        {
+            "name": "Plex-2",
+            "url": "/icons/docker/Plex-2.png"
+        },
+        {
+            "name": "Plex",
+            "url": "/icons/docker/Plex.png"
+        },
+        {
+            "name": "PostgreSQL",
+            "url": "/icons/docker/PostgreSQL.png"
+        },
+        {
+            "name": "Python",
+            "url": "/icons/docker/Python.png"
+        },
+        {
+            "name": "qBittorrent",
+            "url": "/icons/docker/qBittorrent.png"
+        },
+        {
+            "name": "QD",
+            "url": "/icons/docker/QD.png"
+        },
+        {
+            "name": "QingLong",
+            "url": "/icons/docker/QingLong.png"
+        },
+        {
+            "name": "RustDesk",
+            "url": "/icons/docker/RustDesk.png"
+        },
+        {
+            "name": "SiYuan",
+            "url": "/icons/docker/SiYuan.png"
+        },
+        {
+            "name": "Sorayomi",
+            "url": "/icons/docker/Sorayomi.png"
+        },
+        {
+            "name": "Stirling-PDF",
+            "url": "/icons/docker/Stirling-PDF.png"
+        },
+        {
+            "name": "Sun-Panel",
+            "url": "/icons/docker/Sun-Panel.png"
+        },
+        {
+            "name": "Syncthing",
+            "url": "/icons/docker/Syncthing.png"
+        },
+        {
+            "name": "tachidesk",
+            "url": "/icons/docker/tachidesk.png"
+        },
+        {
+            "name": "Tailscale",
+            "url": "/icons/docker/Tailscale.png"
+        },
+        {
+            "name": "Transmission",
+            "url": "/icons/docker/Transmission.png"
+        },
+        {
+            "name": "Typecho",
+            "url": "/icons/docker/Typecho.png"
+        },
+        {
+            "name": "UPage",
+            "url": "/icons/docker/UPage.png"
+        },
+        {
+            "name": "UpSnap",
+            "url": "/icons/docker/UpSnap.png"
+        },
+        {
+            "name": "UptimeKuma",
+            "url": "/icons/docker/UptimeKuma.png"
+        },
+        {
+            "name": "Vaultwarden",
+            "url": "/icons/docker/Vaultwarden.png"
+        },
+        {
+            "name": "Vertex",
+            "url": "/icons/docker/Vertex.png"
+        },
+        {
+            "name": "Wallos",
+            "url": "/icons/docker/Wallos.png"
+        },
+        {
+            "name": "Wiki",
+            "url": "/icons/docker/Wiki.png"
+        },
+        {
+            "name": "Wol",
+            "url": "/icons/docker/Wol.png"
+        },
+        {
+            "name": "WordPress-2",
+            "url": "/icons/docker/WordPress-2.png"
+        },
+        {
+            "name": "WordPress-3",
+            "url": "/icons/docker/WordPress-3.png"
+        },
+        {
+            "name": "WordPress",
+            "url": "/icons/docker/WordPress.png"
+        },
+        {
+            "name": "wxchat",
+            "url": "/icons/docker/wxchat.png"
+        },
+        {
+            "name": "XunLei",
+            "url": "/icons/docker/XunLei.png"
+        },
+        {
+            "name": "Alpine",
+            "url": "/icons/nas/Alpine.png"
+        },
+        {
+            "name": "ArchLinux",
+            "url": "/icons/nas/ArchLinux.png"
+        },
+        {
+            "name": "Asustor",
+            "url": "/icons/nas/Asustor.png"
+        },
+        {
+            "name": "CasaOS",
+            "url": "/icons/nas/CasaOS.png"
+        },
+        {
+            "name": "CentOS",
+            "url": "/icons/nas/CentOS.png"
+        },
+        {
+            "name": "Debian-2",
+            "url": "/icons/nas/Debian-2.png"
+        },
+        {
+            "name": "Debian",
+            "url": "/icons/nas/Debian.png"
+        },
+        {
+            "name": "ESXI",
+            "url": "/icons/nas/ESXI.png"
+        },
+        {
+            "name": "fnOS",
+            "url": "/icons/nas/fnOS.png"
+        },
+        {
+            "name": "iKuai",
+            "url": "/icons/nas/iKuai.png"
+        },
+        {
+            "name": "iStoreOS",
+            "url": "/icons/nas/iStoreOS.png"
+        },
+        {
+            "name": "Linkease",
+            "url": "/icons/nas/Linkease.png"
+        },
+        {
+            "name": "Linux",
+            "url": "/icons/nas/Linux.png"
+        },
+        {
+            "name": "MacOS",
+            "url": "/icons/nas/MacOS.png"
+        },
+        {
+            "name": "OMV",
+            "url": "/icons/nas/OMV.png"
+        },
+        {
+            "name": "OpenWrt",
+            "url": "/icons/nas/OpenWrt.png"
+        },
+        {
+            "name": "PVE",
+            "url": "/icons/nas/PVE.png"
+        },
+        {
+            "name": "QTS",
+            "url": "/icons/nas/QTS.png"
+        },
+        {
+            "name": "Synology",
+            "url": "/icons/nas/Synology.png"
+        },
+        {
+            "name": "TOS",
+            "url": "/icons/nas/TOS.png"
+        },
+        {
+            "name": "TrueNAS",
+            "url": "/icons/nas/TrueNAS.png"
+        },
+        {
+            "name": "Ubuntu",
+            "url": "/icons/nas/Ubuntu.png"
+        },
+        {
+            "name": "UGOS-PRO",
+            "url": "/icons/nas/UGOS-PRO.png"
+        },
+        {
+            "name": "UGOS",
+            "url": "/icons/nas/UGOS.png"
+        },
+        {
+            "name": "UNRAID-2",
+            "url": "/icons/nas/UNRAID-2.png"
+        },
+        {
+            "name": "UNRAID-3",
+            "url": "/icons/nas/UNRAID-3.png"
+        },
+        {
+            "name": "UNRAID",
+            "url": "/icons/nas/UNRAID.png"
+        },
+        {
+            "name": "Vmware",
+            "url": "/icons/nas/Vmware.png"
+        },
+        {
+            "name": "VNC",
+            "url": "/icons/nas/VNC.png"
+        },
+        {
+            "name": "Windows10",
+            "url": "/icons/nas/Windows10.png"
+        },
+        {
+            "name": "Windows11",
+            "url": "/icons/nas/Windows11.png"
+        },
+        {
+            "name": "Windows7",
+            "url": "/icons/nas/Windows7.png"
+        },
+        {
+            "name": "WinServer",
+            "url": "/icons/nas/WinServer.png"
+        },
+        {
+            "name": "ZimaOS",
+            "url": "/icons/nas/ZimaOS.png"
+        },
+        {
+            "name": "Zspace",
+            "url": "/icons/nas/Zspace.png"
+        },
+        {
+            "name": "agsv",
+            "url": "/icons/pt/agsv.png"
+        },
+        {
+            "name": "Audiences",
+            "url": "/icons/pt/Audiences.png"
+        },
+        {
+            "name": "btschool",
+            "url": "/icons/pt/btschool.png"
+        },
+        {
+            "name": "carpt",
+            "url": "/icons/pt/carpt.png"
+        },
+        {
+            "name": "CHDbits",
+            "url": "/icons/pt/CHDbits.png"
+        },
+        {
+            "name": "cyanbug",
+            "url": "/icons/pt/cyanbug.png"
+        },
+        {
+            "name": "dajiao",
+            "url": "/icons/pt/dajiao.png"
+        },
+        {
+            "name": "dicmusic",
+            "url": "/icons/pt/dicmusic.png"
+        },
+        {
+            "name": "discfan",
+            "url": "/icons/pt/discfan.png"
+        },
+        {
+            "name": "FRDS",
+            "url": "/icons/pt/FRDS.png"
+        },
+        {
+            "name": "FSM",
+            "url": "/icons/pt/FSM.png"
+        },
+        {
+            "name": "gpw",
+            "url": "/icons/pt/gpw.png"
+        },
+        {
+            "name": "haidan",
+            "url": "/icons/pt/haidan.png"
+        },
+        {
+            "name": "hdarea",
+            "url": "/icons/pt/hdarea.png"
+        },
+        {
+            "name": "HDChina",
+            "url": "/icons/pt/HDChina.png"
+        },
+        {
+            "name": "hddolby",
+            "url": "/icons/pt/hddolby.png"
+        },
+        {
+            "name": "hdfans",
+            "url": "/icons/pt/hdfans.png"
+        },
+        {
+            "name": "HDHome",
+            "url": "/icons/pt/HDHome.png"
+        },
+        {
+            "name": "hdkyl",
+            "url": "/icons/pt/hdkyl.png"
+        },
+        {
+            "name": "HDsky",
+            "url": "/icons/pt/HDsky.png"
+        },
+        {
+            "name": "hdvideo",
+            "url": "/icons/pt/hdvideo.png"
+        },
+        {
+            "name": "HHCLUB",
+            "url": "/icons/pt/HHCLUB.png"
+        },
+        {
+            "name": "icc2022",
+            "url": "/icons/pt/icc2022.png"
+        },
+        {
+            "name": "leaves",
+            "url": "/icons/pt/leaves.png"
+        },
+        {
+            "name": "lemonhd",
+            "url": "/icons/pt/lemonhd.png"
+        },
+        {
+            "name": "M-Team",
+            "url": "/icons/pt/M-Team.png"
+        },
+        {
+            "name": "nicept",
+            "url": "/icons/pt/nicept.png"
+        },
+        {
+            "name": "Nvme",
+            "url": "/icons/pt/Nvme.png"
+        },
+        {
+            "name": "OpenCD",
+            "url": "/icons/pt/OpenCD.png"
+        },
+        {
+            "name": "OurBits",
+            "url": "/icons/pt/OurBits.png"
+        },
+        {
+            "name": "panda",
+            "url": "/icons/pt/panda.png"
+        },
+        {
+            "name": "Pter",
+            "url": "/icons/pt/Pter.png"
+        },
+        {
+            "name": "PTHOME",
+            "url": "/icons/pt/PTHOME.png"
+        },
+        {
+            "name": "ptsbao",
+            "url": "/icons/pt/ptsbao.png"
+        },
+        {
+            "name": "PTTime",
+            "url": "/icons/pt/PTTime.png"
+        },
+        {
+            "name": "ptvicomo",
+            "url": "/icons/pt/ptvicomo.png"
+        },
+        {
+            "name": "qingwapt",
+            "url": "/icons/pt/qingwapt.png"
+        },
+        {
+            "name": "rousi",
+            "url": "/icons/pt/rousi.png"
+        },
+        {
+            "name": "soulvoice",
+            "url": "/icons/pt/soulvoice.png"
+        },
+        {
+            "name": "tjupt",
+            "url": "/icons/pt/tjupt.png"
+        },
+        {
+            "name": "TTG",
+            "url": "/icons/pt/TTG.png"
+        },
+        {
+            "name": "UBits",
+            "url": "/icons/pt/UBits.png"
+        },
+        {
+            "name": "xingtan",
+            "url": "/icons/pt/xingtan.png"
+        },
+        {
+            "name": "ying",
+            "url": "/icons/pt/ying.png"
+        },
+        {
+            "name": "zhuque",
+            "url": "/icons/pt/zhuque.png"
+        },
+        {
+            "name": "zmpt",
+            "url": "/icons/pt/zmpt.png"
+        },
+        {
+            "name": "9kuai-1",
             "url": "/icons/svg/9kuai-1.svg"
         },
         {
-            "name": "actual-1-2",
+            "name": "actual-1",
             "url": "/icons/svg/actual-1.svg"
         },
         {
-            "name": "acunetix-1-1",
+            "name": "acunetix-1",
             "url": "/icons/svg/acunetix-1.svg"
         },
         {
@@ -4849,71 +6077,71 @@
             "url": "/icons/svg/adguard-home-1.svg"
         },
         {
-            "name": "adminer-1-1",
+            "name": "adminer-1",
             "url": "/icons/svg/adminer-1.svg"
         },
         {
-            "name": "airflow-1-1",
+            "name": "airflow-1",
             "url": "/icons/svg/airflow-1.svg"
         },
         {
-            "name": "airflow-2-1",
+            "name": "airflow-2",
             "url": "/icons/svg/airflow-2.svg"
         },
         {
-            "name": "airflow-3-1",
+            "name": "airflow-3",
             "url": "/icons/svg/airflow-3.svg"
         },
         {
-            "name": "ali-cloud-1-1",
+            "name": "ali-cloud-1",
             "url": "/icons/svg/ali-cloud-1.svg"
         },
         {
-            "name": "alist-1-1",
+            "name": "alist-1",
             "url": "/icons/svg/alist-1.svg"
         },
         {
-            "name": "amule-1-1",
+            "name": "amule-1",
             "url": "/icons/svg/amule-1.svg"
         },
         {
-            "name": "anaconda-1-1",
+            "name": "anaconda-1",
             "url": "/icons/svg/anaconda-1.svg"
         },
         {
-            "name": "ani-rss-1-1",
+            "name": "ani-rss-1",
             "url": "/icons/svg/ani-rss-1.svg"
         },
         {
-            "name": "apache-1-1",
+            "name": "apache-1",
             "url": "/icons/svg/apache-1.svg"
         },
         {
-            "name": "apache-2-1",
+            "name": "apache-2",
             "url": "/icons/svg/apache-2.svg"
         },
         {
-            "name": "apache-3-1",
+            "name": "apache-3",
             "url": "/icons/svg/apache-3.svg"
         },
         {
-            "name": "apple-tv-plus-1-1",
+            "name": "apple-tv-plus-1",
             "url": "/icons/svg/apple-tv-plus-1.svg"
         },
         {
-            "name": "aqua-1-1",
+            "name": "aqua-1",
             "url": "/icons/svg/aqua-1.svg"
         },
         {
-            "name": "arcane-1-1",
+            "name": "arcane-1",
             "url": "/icons/svg/arcane-1.svg"
         },
         {
-            "name": "arch-1-1",
+            "name": "arch-1",
             "url": "/icons/svg/arch-1.svg"
         },
         {
-            "name": "atuin-1-1",
+            "name": "atuin-1",
             "url": "/icons/svg/atuin-1.svg"
         },
         {
@@ -4941,23 +6169,23 @@
             "url": "/icons/svg/audio-bookshelf-1.svg"
         },
         {
-            "name": "authelia-1-1",
+            "name": "authelia-1",
             "url": "/icons/svg/authelia-1.svg"
         },
         {
-            "name": "authelia-2-1",
+            "name": "authelia-2",
             "url": "/icons/svg/authelia-2.svg"
         },
         {
-            "name": "authentik-1-1",
+            "name": "authentik-1",
             "url": "/icons/svg/authentik-1.svg"
         },
         {
-            "name": "autobrr-1-1",
+            "name": "autobrr-1",
             "url": "/icons/svg/autobrr-1.svg"
         },
         {
-            "name": "backrest-1-1",
+            "name": "backrest-1",
             "url": "/icons/svg/backrest-1.svg"
         },
         {
@@ -4965,19 +6193,19 @@
             "url": "/icons/svg/backrest-2.svg"
         },
         {
-            "name": "baidu-1-1",
+            "name": "baidu-1",
             "url": "/icons/svg/baidu-1.svg"
         },
         {
-            "name": "bard-1-1",
+            "name": "bard-1",
             "url": "/icons/svg/bard-1.svg"
         },
         {
-            "name": "baserow-1-1",
+            "name": "baserow-1",
             "url": "/icons/svg/baserow-1.svg"
         },
         {
-            "name": "bazarr-1-2",
+            "name": "bazarr-1",
             "url": "/icons/svg/bazarr-1.svg"
         },
         {
@@ -5001,31 +6229,31 @@
             "url": "/icons/svg/bentley-2.svg"
         },
         {
-            "name": "bigdata-tools-1-1",
+            "name": "bigdata-tools-1",
             "url": "/icons/svg/bigdata-tools-1.svg"
         },
         {
-            "name": "bilibili-1-1",
+            "name": "bilibili-1",
             "url": "/icons/svg/bilibili-1.svg"
         },
         {
-            "name": "bililive-recorder-1-1",
+            "name": "bililive-recorder-1",
             "url": "/icons/svg/bililive-recorder-1.svg"
         },
         {
-            "name": "bitwarden-1-1",
+            "name": "bitwarden-1",
             "url": "/icons/svg/bitwarden-1.svg"
         },
         {
-            "name": "bitwarden-2-1",
+            "name": "bitwarden-2",
             "url": "/icons/svg/bitwarden-2.svg"
         },
         {
-            "name": "blinko-1-1",
+            "name": "blinko-1",
             "url": "/icons/svg/blinko-1.svg"
         },
         {
-            "name": "blossom-1-1",
+            "name": "blossom-1",
             "url": "/icons/svg/blossom-1.svg"
         },
         {
@@ -5057,7 +6285,7 @@
             "url": "/icons/svg/bmw-7.svg"
         },
         {
-            "name": "bracket-1-2",
+            "name": "bracket-1",
             "url": "/icons/svg/bracket-1.svg"
         },
         {
@@ -5105,7 +6333,7 @@
             "url": "/icons/svg/byd-3.svg"
         },
         {
-            "name": "byte-base-1-1",
+            "name": "byte-base-1",
             "url": "/icons/svg/byte-base-1.svg"
         },
         {
@@ -5121,15 +6349,15 @@
             "url": "/icons/svg/c-plus-plus-1.svg"
         },
         {
-            "name": "caddy-1-2",
+            "name": "caddy-1",
             "url": "/icons/svg/caddy-1.svg"
         },
         {
-            "name": "cal-com-1-1",
+            "name": "cal-com-1",
             "url": "/icons/svg/cal-com-1.svg"
         },
         {
-            "name": "calibre-web-1-1",
+            "name": "calibre-web-1",
             "url": "/icons/svg/calibre-web-1.svg"
         },
         {
@@ -5149,23 +6377,23 @@
             "url": "/icons/svg/canon-4.svg"
         },
         {
-            "name": "casaos-1-1",
+            "name": "casaos-1",
             "url": "/icons/svg/casaos-1.svg"
         },
         {
-            "name": "centos-1-1",
+            "name": "centos-1",
             "url": "/icons/svg/centos-1.svg"
         },
         {
-            "name": "centos-2-1",
+            "name": "centos-2",
             "url": "/icons/svg/centos-2.svg"
         },
         {
-            "name": "certimate-1-2",
+            "name": "certimate-1",
             "url": "/icons/svg/certimate-1.svg"
         },
         {
-            "name": "chatgpt-1-1",
+            "name": "chatgpt-1",
             "url": "/icons/svg/chatgpt-1.svg"
         },
         {
@@ -5173,7 +6401,7 @@
             "url": "/icons/svg/chatgpt-2.svg"
         },
         {
-            "name": "chevereto-1-1",
+            "name": "chevereto-1",
             "url": "/icons/svg/chevereto-1.svg"
         },
         {
@@ -5197,55 +6425,55 @@
             "url": "/icons/svg/chevrolet-5.svg"
         },
         {
-            "name": "chrome-1-1",
+            "name": "chrome-1",
             "url": "/icons/svg/chrome-1.svg"
         },
         {
-            "name": "cisco-1-1",
+            "name": "cisco-1",
             "url": "/icons/svg/cisco-1.svg"
         },
         {
-            "name": "claper-1-1",
+            "name": "claper-1",
             "url": "/icons/svg/claper-1.svg"
         },
         {
-            "name": "clion-1-1",
+            "name": "clion-1",
             "url": "/icons/svg/clion-1.svg"
         },
         {
-            "name": "cloud-beaver-1-1",
+            "name": "cloud-beaver-1",
             "url": "/icons/svg/cloud-beaver-1.svg"
         },
         {
-            "name": "cloud-beaver-2-1",
+            "name": "cloud-beaver-2",
             "url": "/icons/svg/cloud-beaver-2.svg"
         },
         {
-            "name": "cloudflare-1-2",
+            "name": "cloudflare-1",
             "url": "/icons/svg/cloudflare-1.svg"
         },
         {
-            "name": "cloudflare-2-2",
+            "name": "cloudflare-2",
             "url": "/icons/svg/cloudflare-2.svg"
         },
         {
-            "name": "cloudreve-1-2",
+            "name": "cloudreve-1",
             "url": "/icons/svg/cloudreve-1.svg"
         },
         {
-            "name": "code-server-1-1",
+            "name": "code-server-1",
             "url": "/icons/svg/code-server-1.svg"
         },
         {
-            "name": "code-with-me-1-1",
+            "name": "code-with-me-1",
             "url": "/icons/svg/code-with-me-1.svg"
         },
         {
-            "name": "codex-docs-1-1",
+            "name": "codex-docs-1",
             "url": "/icons/svg/codex-docs-1.svg"
         },
         {
-            "name": "cooler-control-1-1",
+            "name": "cooler-control-1",
             "url": "/icons/svg/cooler-control-1.svg"
         },
         {
@@ -5269,7 +6497,7 @@
             "url": "/icons/svg/css-3.svg"
         },
         {
-            "name": "cyberchef-1-1",
+            "name": "cyberchef-1",
             "url": "/icons/svg/cyberchef-1.svg"
         },
         {
@@ -5277,51 +6505,51 @@
             "url": "/icons/svg/cyberchef-2.svg"
         },
         {
-            "name": "databasus-1-1",
+            "name": "databasus-1",
             "url": "/icons/svg/databasus-1.svg"
         },
         {
-            "name": "datagrip-1-1",
+            "name": "datagrip-1",
             "url": "/icons/svg/datagrip-1.svg"
         },
         {
-            "name": "datalore-1-1",
+            "name": "datalore-1",
             "url": "/icons/svg/datalore-1.svg"
         },
         {
-            "name": "dataspell-1-1",
+            "name": "dataspell-1",
             "url": "/icons/svg/dataspell-1.svg"
         },
         {
-            "name": "dawarich-1-1",
+            "name": "dawarich-1",
             "url": "/icons/svg/dawarich-1.svg"
         },
         {
-            "name": "debian-1-1",
+            "name": "debian-1",
             "url": "/icons/svg/debian-1.svg"
         },
         {
-            "name": "debian-2-1",
+            "name": "debian-2",
             "url": "/icons/svg/debian-2.svg"
         },
         {
-            "name": "deepin-1-1",
+            "name": "deepin-1",
             "url": "/icons/svg/deepin-1.svg"
         },
         {
-            "name": "deepseek-1-1",
+            "name": "deepseek-1",
             "url": "/icons/svg/deepseek-1.svg"
         },
         {
-            "name": "dell-1-2",
+            "name": "dell-1",
             "url": "/icons/svg/dell-1.svg"
         },
         {
-            "name": "deluge-1-1",
+            "name": "deluge-1",
             "url": "/icons/svg/deluge-1.svg"
         },
         {
-            "name": "directus-1-1",
+            "name": "directus-1",
             "url": "/icons/svg/directus-1.svg"
         },
         {
@@ -5329,7 +6557,7 @@
             "url": "/icons/svg/directus-2.svg"
         },
         {
-            "name": "discord-1-1",
+            "name": "discord-1",
             "url": "/icons/svg/discord-1.svg"
         },
         {
@@ -5341,79 +6569,79 @@
             "url": "/icons/svg/django-2.svg"
         },
         {
-            "name": "docker-1-2",
+            "name": "docker-1",
             "url": "/icons/svg/docker-1.svg"
         },
         {
-            "name": "docker-2-1",
+            "name": "docker-2",
             "url": "/icons/svg/docker-2.svg"
         },
         {
-            "name": "docker-3-1",
+            "name": "docker-3",
             "url": "/icons/svg/docker-3.svg"
         },
         {
-            "name": "docker-4-1",
+            "name": "docker-4",
             "url": "/icons/svg/docker-4.svg"
         },
         {
-            "name": "docker-registry-1-1",
+            "name": "docker-registry-1",
             "url": "/icons/svg/docker-registry-1.svg"
         },
         {
-            "name": "docspell-1-2",
+            "name": "docspell-1",
             "url": "/icons/svg/docspell-1.svg"
         },
         {
-            "name": "dootask-1-1",
+            "name": "dootask-1",
             "url": "/icons/svg/dootask-1.svg"
         },
         {
-            "name": "doris-1-1",
+            "name": "doris-1",
             "url": "/icons/svg/doris-1.svg"
         },
         {
-            "name": "dotcover-1-1",
+            "name": "dotcover-1",
             "url": "/icons/svg/dotcover-1.svg"
         },
         {
-            "name": "dotmemory-1-1",
+            "name": "dotmemory-1",
             "url": "/icons/svg/dotmemory-1.svg"
         },
         {
-            "name": "dotpeek-1-1",
+            "name": "dotpeek-1",
             "url": "/icons/svg/dotpeek-1.svg"
         },
         {
-            "name": "dottrace-1-1",
+            "name": "dottrace-1",
             "url": "/icons/svg/dottrace-1.svg"
         },
         {
-            "name": "dozzle-1-1",
+            "name": "dozzle-1",
             "url": "/icons/svg/dozzle-1.svg"
         },
         {
-            "name": "drawio-1-1",
+            "name": "drawio-1",
             "url": "/icons/svg/drawio-1.svg"
         },
         {
-            "name": "dumb-assets-1-1",
+            "name": "dumb-assets-1",
             "url": "/icons/svg/dumb-assets-1.svg"
         },
         {
-            "name": "duplicati-1-1",
+            "name": "duplicati-1",
             "url": "/icons/svg/duplicati-1.svg"
         },
         {
-            "name": "elastic-search-1-1",
+            "name": "elastic-search-1",
             "url": "/icons/svg/elastic-search-1.svg"
         },
         {
-            "name": "elastic-search-2-1",
+            "name": "elastic-search-2",
             "url": "/icons/svg/elastic-search-2.svg"
         },
         {
-            "name": "element-1-1",
+            "name": "element-1",
             "url": "/icons/svg/element-1.svg"
         },
         {
@@ -5429,7 +6657,7 @@
             "url": "/icons/svg/epson-3.svg"
         },
         {
-            "name": "etherpad-1-1",
+            "name": "etherpad-1",
             "url": "/icons/svg/etherpad-1.svg"
         },
         {
@@ -5457,11 +6685,11 @@
             "url": "/icons/svg/fanta-6.svg"
         },
         {
-            "name": "feather-wiki-1-1",
+            "name": "feather-wiki-1",
             "url": "/icons/svg/feather-wiki-1.svg"
         },
         {
-            "name": "fenrus-1-2",
+            "name": "fenrus-1",
             "url": "/icons/svg/fenrus-1.svg"
         },
         {
@@ -5477,7 +6705,7 @@
             "url": "/icons/svg/fiat-3.svg"
         },
         {
-            "name": "filerise-1-1",
+            "name": "filerise-1",
             "url": "/icons/svg/filerise-1.svg"
         },
         {
@@ -5489,75 +6717,75 @@
             "url": "/icons/svg/filerise-3.svg"
         },
         {
-            "name": "flaresolverr-1-1",
+            "name": "flaresolverr-1",
             "url": "/icons/svg/flaresolverr-1.svg"
         },
         {
-            "name": "fleet-1-1",
+            "name": "fleet-1",
             "url": "/icons/svg/fleet-1.svg"
         },
         {
-            "name": "flink-1-1",
+            "name": "flink-1",
             "url": "/icons/svg/flink-1.svg"
         },
         {
-            "name": "flink-2-1",
+            "name": "flink-2",
             "url": "/icons/svg/flink-2.svg"
         },
         {
-            "name": "fmd-server-1-1",
+            "name": "fmd-server-1",
             "url": "/icons/svg/fmd-server-1.svg"
         },
         {
-            "name": "focal-board-1-1",
+            "name": "focal-board-1",
             "url": "/icons/svg/focal-board-1.svg"
         },
         {
-            "name": "folder-1-1",
+            "name": "folder-1",
             "url": "/icons/svg/folder-1.svg"
         },
         {
-            "name": "forgejo-1-1",
+            "name": "forgejo-1",
             "url": "/icons/svg/forgejo-1.svg"
         },
         {
-            "name": "gcore-1-1",
+            "name": "gcore-1",
             "url": "/icons/svg/gcore-1.svg"
         },
         {
-            "name": "git-1-1",
+            "name": "git-1",
             "url": "/icons/svg/git-1.svg"
         },
         {
-            "name": "git-2-1",
+            "name": "git-2",
             "url": "/icons/svg/git-2.svg"
         },
         {
-            "name": "gitee-1-2",
+            "name": "gitee-1",
             "url": "/icons/svg/gitee-1.svg"
         },
         {
-            "name": "gitlab-1-1",
+            "name": "gitlab-1",
             "url": "/icons/svg/gitlab-1.svg"
         },
         {
-            "name": "glances-1-1",
+            "name": "glances-1",
             "url": "/icons/svg/glances-1.svg"
         },
         {
-            "name": "glances-2-1",
+            "name": "glances-2",
             "url": "/icons/svg/glances-2.svg"
         },
         {
-            "name": "glances-3-1",
+            "name": "glances-3",
             "url": "/icons/svg/glances-3.svg"
         },
         {
-            "name": "glances-4-1",
+            "name": "glances-4",
             "url": "/icons/svg/glances-4.svg"
         },
         {
-            "name": "goland-1-1",
+            "name": "goland-1",
             "url": "/icons/svg/goland-1.svg"
         },
         {
@@ -5569,7 +6797,7 @@
             "url": "/icons/svg/golang-2.svg"
         },
         {
-            "name": "gopeed-1-2",
+            "name": "gopeed-1",
             "url": "/icons/svg/gopeed-1.svg"
         },
         {
@@ -5581,23 +6809,23 @@
             "url": "/icons/svg/gree-2.svg"
         },
         {
-            "name": "grimoire-1-1",
+            "name": "grimoire-1",
             "url": "/icons/svg/grimoire-1.svg"
         },
         {
-            "name": "hadoop-1-1",
+            "name": "hadoop-1",
             "url": "/icons/svg/hadoop-1.svg"
         },
         {
-            "name": "hadoop-2-1",
+            "name": "hadoop-2",
             "url": "/icons/svg/hadoop-2.svg"
         },
         {
-            "name": "hd-icons-1-1",
+            "name": "hd-icons-1",
             "url": "/icons/svg/hd-icons-1.svg"
         },
         {
-            "name": "hedgedoc-1-1",
+            "name": "hedgedoc-1",
             "url": "/icons/svg/hedgedoc-1.svg"
         },
         {
@@ -5605,7 +6833,7 @@
             "url": "/icons/svg/hetzner-1.svg"
         },
         {
-            "name": "heyform-1-1",
+            "name": "heyform-1",
             "url": "/icons/svg/heyform-1.svg"
         },
         {
@@ -5617,23 +6845,23 @@
             "url": "/icons/svg/hisense-2.svg"
         },
         {
-            "name": "hive-1-1",
+            "name": "hive-1",
             "url": "/icons/svg/hive-1.svg"
         },
         {
-            "name": "hoarder-1-1",
+            "name": "hoarder-1",
             "url": "/icons/svg/hoarder-1.svg"
         },
         {
-            "name": "home-gallery-1-1",
+            "name": "home-gallery-1",
             "url": "/icons/svg/home-gallery-1.svg"
         },
         {
-            "name": "homebox-1-1",
+            "name": "homebox-1",
             "url": "/icons/svg/homebox-1.svg"
         },
         {
-            "name": "homer-1-2",
+            "name": "homer-1",
             "url": "/icons/svg/homer-1.svg"
         },
         {
@@ -5673,11 +6901,11 @@
             "url": "/icons/svg/huawei-3.svg"
         },
         {
-            "name": "huntarr-1-2",
+            "name": "huntarr-1",
             "url": "/icons/svg/huntarr-1.svg"
         },
         {
-            "name": "hypermind-1-1",
+            "name": "hypermind-1",
             "url": "/icons/svg/hypermind-1.svg"
         },
         {
@@ -5697,11 +6925,11 @@
             "url": "/icons/svg/hyundai-4.svg"
         },
         {
-            "name": "intellij-idea-1-1",
+            "name": "intellij-idea-1",
             "url": "/icons/svg/intellij-idea-1.svg"
         },
         {
-            "name": "ipw-cn-1-2",
+            "name": "ipw-cn-1",
             "url": "/icons/svg/ipw-cn-1.svg"
         },
         {
@@ -5721,7 +6949,7 @@
             "url": "/icons/svg/iqoo-1.svg"
         },
         {
-            "name": "it-tools-1-1",
+            "name": "it-tools-1",
             "url": "/icons/svg/it-tools-1.svg"
         },
         {
@@ -5745,19 +6973,19 @@
             "url": "/icons/svg/javascript-2.svg"
         },
         {
-            "name": "jfa-go-1-1",
+            "name": "jfa-go-1",
             "url": "/icons/svg/jfa-go-1.svg"
         },
         {
-            "name": "jfa-go-2-1",
+            "name": "jfa-go-2",
             "url": "/icons/svg/jfa-go-2.svg"
         },
         {
-            "name": "jiedian-xiaobao-1-1",
+            "name": "jiedian-xiaobao-1",
             "url": "/icons/svg/jiedian-xiaobao-1.svg"
         },
         {
-            "name": "jmalcloud-1-1",
+            "name": "jmalcloud-1",
             "url": "/icons/svg/jmalcloud-1.svg"
         },
         {
@@ -5781,7 +7009,7 @@
             "url": "/icons/svg/jsr-1.svg"
         },
         {
-            "name": "jupyter-2-1",
+            "name": "jupyter-2",
             "url": "/icons/svg/jupyter-2.svg"
         },
         {
@@ -5801,23 +7029,23 @@
             "url": "/icons/svg/kfc-4.svg"
         },
         {
-            "name": "koel-1-1",
+            "name": "koel-1",
             "url": "/icons/svg/koel-1.svg"
         },
         {
-            "name": "kopia-1-1",
+            "name": "kopia-1",
             "url": "/icons/svg/kopia-1.svg"
         },
         {
-            "name": "kotlin-1-1",
+            "name": "kotlin-1",
             "url": "/icons/svg/kotlin-1.svg"
         },
         {
-            "name": "kotlin-2-1",
+            "name": "kotlin-2",
             "url": "/icons/svg/kotlin-2.svg"
         },
         {
-            "name": "ktor-1-1",
+            "name": "ktor-1",
             "url": "/icons/svg/ktor-1.svg"
         },
         {
@@ -5861,7 +7089,7 @@
             "url": "/icons/svg/leica-4.svg"
         },
         {
-            "name": "leichi-1-1",
+            "name": "leichi-1",
             "url": "/icons/svg/leichi-1.svg"
         },
         {
@@ -5889,31 +7117,31 @@
             "url": "/icons/svg/li-2.svg"
         },
         {
-            "name": "librespeed-1-2",
+            "name": "librespeed-1",
             "url": "/icons/svg/librespeed-1.svg"
         },
         {
-            "name": "lime-survey-1-1",
+            "name": "lime-survey-1",
             "url": "/icons/svg/lime-survey-1.svg"
         },
         {
-            "name": "linkding-1-2",
+            "name": "linkding-1",
             "url": "/icons/svg/linkding-1.svg"
         },
         {
-            "name": "listmonk-1-2",
+            "name": "listmonk-1",
             "url": "/icons/svg/listmonk-1.svg"
         },
         {
-            "name": "loggit-1-2",
+            "name": "loggit-1",
             "url": "/icons/svg/loggit-1.svg"
         },
         {
-            "name": "lol-esports-1-1",
+            "name": "lol-esports-1",
             "url": "/icons/svg/lol-esports-1.svg"
         },
         {
-            "name": "lrc-api-1-1",
+            "name": "lrc-api-1",
             "url": "/icons/svg/lrc-api-1.svg"
         },
         {
@@ -5937,31 +7165,31 @@
             "url": "/icons/svg/luckin-coffee-5.svg"
         },
         {
-            "name": "lynx-1-1",
+            "name": "lynx-1",
             "url": "/icons/svg/lynx-1.svg"
         },
         {
-            "name": "mafl-1-1",
+            "name": "mafl-1",
             "url": "/icons/svg/mafl-1.svg"
         },
         {
-            "name": "manticore-search-1-1",
+            "name": "manticore-search-1",
             "url": "/icons/svg/manticore-search-1.svg"
         },
         {
-            "name": "mastodon-1-2",
+            "name": "mastodon-1",
             "url": "/icons/svg/mastodon-1.svg"
         },
         {
-            "name": "mastodon-2-1",
+            "name": "mastodon-2",
             "url": "/icons/svg/mastodon-2.svg"
         },
         {
-            "name": "mathesar-1-1",
+            "name": "mathesar-1",
             "url": "/icons/svg/mathesar-1.svg"
         },
         {
-            "name": "mautic-1-1",
+            "name": "mautic-1",
             "url": "/icons/svg/mautic-1.svg"
         },
         {
@@ -5985,19 +7213,19 @@
             "url": "/icons/svg/mcdonalds-3.svg"
         },
         {
-            "name": "mdc-ng-1-1",
+            "name": "mdc-ng-1",
             "url": "/icons/svg/mdc-ng-1.svg"
         },
         {
-            "name": "mdc-ng-2-1",
+            "name": "mdc-ng-2",
             "url": "/icons/svg/mdc-ng-2.svg"
         },
         {
-            "name": "mediawiki-1-1",
+            "name": "mediawiki-1",
             "url": "/icons/svg/mediawiki-1.svg"
         },
         {
-            "name": "meili-search-1-1",
+            "name": "meili-search-1",
             "url": "/icons/svg/meili-search-1.svg"
         },
         {
@@ -6017,7 +7245,7 @@
             "url": "/icons/svg/mercedes-benz-4.svg"
         },
         {
-            "name": "mere-medical-1-1",
+            "name": "mere-medical-1",
             "url": "/icons/svg/mere-medical-1.svg"
         },
         {
@@ -6025,15 +7253,15 @@
             "url": "/icons/svg/message-push-nest-1.svg"
         },
         {
-            "name": "metabase-1-1",
+            "name": "metabase-1",
             "url": "/icons/svg/metabase-1.svg"
         },
         {
-            "name": "metacube-xd-1-1",
+            "name": "metacube-xd-1",
             "url": "/icons/svg/metacube-xd-1.svg"
         },
         {
-            "name": "microsoft-sql-server-1-1",
+            "name": "microsoft-sql-server-1",
             "url": "/icons/svg/microsoft-sql-server-1.svg"
         },
         {
@@ -6041,23 +7269,23 @@
             "url": "/icons/svg/microsoft-sql-server-2.svg"
         },
         {
-            "name": "microtalk-p2p-1-1",
+            "name": "microtalk-p2p-1",
             "url": "/icons/svg/microtalk-p2p-1.svg"
         },
         {
-            "name": "microtalk-sfu-1-1",
+            "name": "microtalk-sfu-1",
             "url": "/icons/svg/microtalk-sfu-1.svg"
         },
         {
-            "name": "mind-wendel-1-1",
+            "name": "mind-wendel-1",
             "url": "/icons/svg/mind-wendel-1.svg"
         },
         {
-            "name": "mindsdb-1-1",
+            "name": "mindsdb-1",
             "url": "/icons/svg/mindsdb-1.svg"
         },
         {
-            "name": "mini-serve-1-1",
+            "name": "mini-serve-1",
             "url": "/icons/svg/mini-serve-1.svg"
         },
         {
@@ -6069,23 +7297,23 @@
             "url": "/icons/svg/mongotv-2.svg"
         },
         {
-            "name": "moodle-1-1",
+            "name": "moodle-1",
             "url": "/icons/svg/moodle-1.svg"
         },
         {
-            "name": "mps-1-1",
+            "name": "mps-1",
             "url": "/icons/svg/mps-1.svg"
         },
         {
-            "name": "msm-1-1",
+            "name": "msm-1",
             "url": "/icons/svg/msm-1.svg"
         },
         {
-            "name": "n8n-1-1",
+            "name": "n8n-1",
             "url": "/icons/svg/n8n-1.svg"
         },
         {
-            "name": "namecheap-ddns-updater-1-1",
+            "name": "namecheap-ddns-updater-1",
             "url": "/icons/svg/namecheap-ddns-updater-1.svg"
         },
         {
@@ -6093,15 +7321,15 @@
             "url": "/icons/svg/nestjs-1.svg"
         },
         {
-            "name": "new-api-1-1",
+            "name": "new-api-1",
             "url": "/icons/svg/new-api-1.svg"
         },
         {
-            "name": "news-now-1-1",
+            "name": "news-now-1",
             "url": "/icons/svg/news-now-1.svg"
         },
         {
-            "name": "nexterm-1-2",
+            "name": "nexterm-1",
             "url": "/icons/svg/nexterm-1.svg"
         },
         {
@@ -6117,19 +7345,19 @@
             "url": "/icons/svg/nextjs-3.svg"
         },
         {
-            "name": "nezha-1-1",
+            "name": "nezha-1",
             "url": "/icons/svg/nezha-1.svg"
         },
         {
-            "name": "nginx-1-1",
+            "name": "nginx-1",
             "url": "/icons/svg/nginx-1.svg"
         },
         {
-            "name": "nginx-2-1",
+            "name": "nginx-2",
             "url": "/icons/svg/nginx-2.svg"
         },
         {
-            "name": "nginx-3-1",
+            "name": "nginx-3",
             "url": "/icons/svg/nginx-3.svg"
         },
         {
@@ -6193,51 +7421,51 @@
             "url": "/icons/svg/nodejs-4.svg"
         },
         {
-            "name": "notabase-1-1",
+            "name": "notabase-1",
             "url": "/icons/svg/notabase-1.svg"
         },
         {
-            "name": "notemark-1-2",
+            "name": "notemark-1",
             "url": "/icons/svg/notemark-1.svg"
         },
         {
-            "name": "nut-1-1",
+            "name": "nut-1",
             "url": "/icons/svg/nut-1.svg"
         },
         {
-            "name": "nvidia-1-1",
+            "name": "nvidia-1",
             "url": "/icons/svg/nvidia-1.svg"
         },
         {
-            "name": "oauth2proxy-1-1",
+            "name": "oauth2proxy-1",
             "url": "/icons/svg/oauth2proxy-1.svg"
         },
         {
-            "name": "ollama-1-1",
+            "name": "ollama-1",
             "url": "/icons/svg/ollama-1.svg"
         },
         {
-            "name": "one-kvm-1-1",
+            "name": "one-kvm-1",
             "url": "/icons/svg/one-kvm-1.svg"
         },
         {
-            "name": "onestrm-1-1",
+            "name": "onestrm-1",
             "url": "/icons/svg/onestrm-1.svg"
         },
         {
-            "name": "open-metadata-1-1",
+            "name": "open-metadata-1",
             "url": "/icons/svg/open-metadata-1.svg"
         },
         {
-            "name": "open-webui-1-2",
+            "name": "open-webui-1",
             "url": "/icons/svg/open-webui-1.svg"
         },
         {
-            "name": "openlist-1-1",
+            "name": "openlist-1",
             "url": "/icons/svg/openlist-1.svg"
         },
         {
-            "name": "opentofu-1-1",
+            "name": "opentofu-1",
             "url": "/icons/svg/opentofu-1.svg"
         },
         {
@@ -6257,7 +7485,7 @@
             "url": "/icons/svg/oracle-corporation-1.svg"
         },
         {
-            "name": "orb-net-1-2",
+            "name": "orb-net-1",
             "url": "/icons/svg/orb-net-1.svg"
         },
         {
@@ -6269,19 +7497,19 @@
             "url": "/icons/svg/origin-2.svg"
         },
         {
-            "name": "orion-visor-1-1",
+            "name": "orion-visor-1",
             "url": "/icons/svg/orion-visor-1.svg"
         },
         {
-            "name": "outline-1-1",
+            "name": "outline-1",
             "url": "/icons/svg/outline-1.svg"
         },
         {
-            "name": "oxi-cloud-1-1",
+            "name": "oxi-cloud-1",
             "url": "/icons/svg/oxi-cloud-1.svg"
         },
         {
-            "name": "padloc-1-1",
+            "name": "padloc-1",
             "url": "/icons/svg/padloc-1.svg"
         },
         {
@@ -6289,11 +7517,11 @@
             "url": "/icons/svg/pandas-1.svg"
         },
         {
-            "name": "pangolin-1-1",
+            "name": "pangolin-1",
             "url": "/icons/svg/pangolin-1.svg"
         },
         {
-            "name": "paperless-1-1",
+            "name": "paperless-1",
             "url": "/icons/svg/paperless-1.svg"
         },
         {
@@ -6309,7 +7537,7 @@
             "url": "/icons/svg/paramount-3.svg"
         },
         {
-            "name": "paramount-plus-1-1",
+            "name": "paramount-plus-1",
             "url": "/icons/svg/paramount-plus-1.svg"
         },
         {
@@ -6325,11 +7553,11 @@
             "url": "/icons/svg/perl-3.svg"
         },
         {
-            "name": "perlite-1-1",
+            "name": "perlite-1",
             "url": "/icons/svg/perlite-1.svg"
         },
         {
-            "name": "photopea-1-1",
+            "name": "photopea-1",
             "url": "/icons/svg/photopea-1.svg"
         },
         {
@@ -6341,19 +7569,19 @@
             "url": "/icons/svg/php-2.svg"
         },
         {
-            "name": "phpstorm-1-1",
+            "name": "phpstorm-1",
             "url": "/icons/svg/phpstorm-1.svg"
         },
         {
-            "name": "plex-1-1",
+            "name": "plex-1",
             "url": "/icons/svg/plex-1.svg"
         },
         {
-            "name": "plex-2-1",
+            "name": "plex-2",
             "url": "/icons/svg/plex-2.svg"
         },
         {
-            "name": "plex-3-1",
+            "name": "plex-3",
             "url": "/icons/svg/plex-3.svg"
         },
         {
@@ -6381,19 +7609,19 @@
             "url": "/icons/svg/porsche-6.svg"
         },
         {
-            "name": "ptools-1-1",
+            "name": "ptools-1",
             "url": "/icons/svg/ptools-1.svg"
         },
         {
-            "name": "pulsarr-1-2",
+            "name": "pulsarr-1",
             "url": "/icons/svg/pulsarr-1.svg"
         },
         {
-            "name": "pycharm-1-1",
+            "name": "pycharm-1",
             "url": "/icons/svg/pycharm-1.svg"
         },
         {
-            "name": "python-1-1",
+            "name": "python-1",
             "url": "/icons/svg/python-1.svg"
         },
         {
@@ -6405,19 +7633,19 @@
             "url": "/icons/svg/python-3.svg"
         },
         {
-            "name": "qi-reader-1-1",
+            "name": "qi-reader-1",
             "url": "/icons/svg/qi-reader-1.svg"
         },
         {
-            "name": "qnap-1-1",
+            "name": "qnap-1",
             "url": "/icons/svg/qnap-1.svg"
         },
         {
-            "name": "qnap-2-1",
+            "name": "qnap-2",
             "url": "/icons/svg/qnap-2.svg"
         },
         {
-            "name": "qodana-1-1",
+            "name": "qodana-1",
             "url": "/icons/svg/qodana-1.svg"
         },
         {
@@ -6425,23 +7653,23 @@
             "url": "/icons/svg/qqlive-1.svg"
         },
         {
-            "name": "quark-1-1",
+            "name": "quark-1",
             "url": "/icons/svg/quark-1.svg"
         },
         {
-            "name": "quill-1-1",
+            "name": "quill-1",
             "url": "/icons/svg/quill-1.svg"
         },
         {
-            "name": "radarr-1-1",
+            "name": "radarr-1",
             "url": "/icons/svg/radarr-1.svg"
         },
         {
-            "name": "read-the-docs-1-1",
+            "name": "read-the-docs-1",
             "url": "/icons/svg/read-the-docs-1.svg"
         },
         {
-            "name": "readeck-1-1",
+            "name": "readeck-1",
             "url": "/icons/svg/readeck-1.svg"
         },
         {
@@ -6461,43 +7689,43 @@
             "url": "/icons/svg/redmi-1.svg"
         },
         {
-            "name": "resharper-1-1",
+            "name": "resharper-1",
             "url": "/icons/svg/resharper-1.svg"
         },
         {
-            "name": "resharperc-plus-1-1",
+            "name": "resharperc-plus-1",
             "url": "/icons/svg/resharperc-plus-1.svg"
         },
         {
-            "name": "rider-1-1",
+            "name": "rider-1",
             "url": "/icons/svg/rider-1.svg"
         },
         {
-            "name": "riderflow-1-1",
+            "name": "riderflow-1",
             "url": "/icons/svg/riderflow-1.svg"
         },
         {
-            "name": "riot-games-1-1",
+            "name": "riot-games-1",
             "url": "/icons/svg/riot-games-1.svg"
         },
         {
-            "name": "rocky-1-2",
+            "name": "rocky-1",
             "url": "/icons/svg/rocky-1.svg"
         },
         {
-            "name": "rog-1-1",
+            "name": "rog-1",
             "url": "/icons/svg/rog-1.svg"
         },
         {
-            "name": "rubymine-1-1",
+            "name": "rubymine-1",
             "url": "/icons/svg/rubymine-1.svg"
         },
         {
-            "name": "rustrover-1-1",
+            "name": "rustrover-1",
             "url": "/icons/svg/rustrover-1.svg"
         },
         {
-            "name": "rxresume-1-1",
+            "name": "rxresume-1",
             "url": "/icons/svg/rxresume-1.svg"
         },
         {
@@ -6513,39 +7741,39 @@
             "url": "/icons/svg/samsung-3.svg"
         },
         {
-            "name": "scala-1-1",
+            "name": "scala-1",
             "url": "/icons/svg/scala-1.svg"
         },
         {
-            "name": "semaphore-1-2",
+            "name": "semaphore-1",
             "url": "/icons/svg/semaphore-1.svg"
         },
         {
-            "name": "servas-1-1",
+            "name": "servas-1",
             "url": "/icons/svg/servas-1.svg"
         },
         {
-            "name": "shadcn-ui-1-1",
+            "name": "shadcn-ui-1",
             "url": "/icons/svg/shadcn-ui-1.svg"
         },
         {
-            "name": "smart-strm-1-1",
+            "name": "smart-strm-1",
             "url": "/icons/svg/smart-strm-1.svg"
         },
         {
-            "name": "snapdrop-1-1",
+            "name": "snapdrop-1",
             "url": "/icons/svg/snapdrop-1.svg"
         },
         {
-            "name": "sonatype-1-1",
+            "name": "sonatype-1",
             "url": "/icons/svg/sonatype-1.svg"
         },
         {
-            "name": "sonatype-nexus-repository-1-1",
+            "name": "sonatype-nexus-repository-1",
             "url": "/icons/svg/sonatype-nexus-repository-1.svg"
         },
         {
-            "name": "sonatype-nexus-repository-2-1",
+            "name": "sonatype-nexus-repository-2",
             "url": "/icons/svg/sonatype-nexus-repository-2.svg"
         },
         {
@@ -6589,11 +7817,11 @@
             "url": "/icons/svg/sony-walkman-4.svg"
         },
         {
-            "name": "splayer-1-1",
+            "name": "splayer-1",
             "url": "/icons/svg/splayer-1.svg"
         },
         {
-            "name": "squoosh-1-2",
+            "name": "squoosh-1",
             "url": "/icons/svg/squoosh-1.svg"
         },
         {
@@ -6609,11 +7837,11 @@
             "url": "/icons/svg/starbucks-coffee-3.svg"
         },
         {
-            "name": "stash-1-1",
+            "name": "stash-1",
             "url": "/icons/svg/stash-1.svg"
         },
         {
-            "name": "steam-1-1",
+            "name": "steam-1",
             "url": "/icons/svg/steam-1.svg"
         },
         {
@@ -6629,23 +7857,23 @@
             "url": "/icons/svg/steam-4.svg"
         },
         {
-            "name": "sunpanel-1-1",
+            "name": "sunpanel-1",
             "url": "/icons/svg/sunpanel-1.svg"
         },
         {
-            "name": "superset-1-1",
+            "name": "superset-1",
             "url": "/icons/svg/superset-1.svg"
         },
         {
-            "name": "superset-2-1",
+            "name": "superset-2",
             "url": "/icons/svg/superset-2.svg"
         },
         {
-            "name": "superset-3-1",
+            "name": "superset-3",
             "url": "/icons/svg/superset-3.svg"
         },
         {
-            "name": "superset-4-1",
+            "name": "superset-4",
             "url": "/icons/svg/superset-4.svg"
         },
         {
@@ -6661,23 +7889,23 @@
             "url": "/icons/svg/superset-7.svg"
         },
         {
-            "name": "swing-music-1-2",
+            "name": "swing-music-1",
             "url": "/icons/svg/swing-music-1.svg"
         },
         {
-            "name": "synctv-1-1",
+            "name": "synctv-1",
             "url": "/icons/svg/synctv-1.svg"
         },
         {
-            "name": "synctv-2-1",
+            "name": "synctv-2",
             "url": "/icons/svg/synctv-2.svg"
         },
         {
-            "name": "tailchat-1-1",
+            "name": "tailchat-1",
             "url": "/icons/svg/tailchat-1.svg"
         },
         {
-            "name": "taosync-1-1",
+            "name": "taosync-1",
             "url": "/icons/svg/taosync-1.svg"
         },
         {
@@ -6689,23 +7917,23 @@
             "url": "/icons/svg/tcl-2.svg"
         },
         {
-            "name": "teable-1-1",
+            "name": "teable-1",
             "url": "/icons/svg/teable-1.svg"
         },
         {
-            "name": "team-mapper-1-1",
+            "name": "team-mapper-1",
             "url": "/icons/svg/team-mapper-1.svg"
         },
         {
-            "name": "team-pass-1-2",
+            "name": "team-pass-1",
             "url": "/icons/svg/team-pass-1.svg"
         },
         {
-            "name": "telegram-1-2",
+            "name": "telegram-1",
             "url": "/icons/svg/telegram-1.svg"
         },
         {
-            "name": "telegram-2-1",
+            "name": "telegram-2",
             "url": "/icons/svg/telegram-2.svg"
         },
         {
@@ -6713,7 +7941,7 @@
             "url": "/icons/svg/telegram-3.svg"
         },
         {
-            "name": "termix-1-2",
+            "name": "termix-1",
             "url": "/icons/svg/termix-1.svg"
         },
         {
@@ -6729,19 +7957,19 @@
             "url": "/icons/svg/tesla-3.svg"
         },
         {
-            "name": "the-lounge-1-1",
+            "name": "the-lounge-1",
             "url": "/icons/svg/the-lounge-1.svg"
         },
         {
-            "name": "thunderbird-1-1",
+            "name": "thunderbird-1",
             "url": "/icons/svg/thunderbird-1.svg"
         },
         {
-            "name": "tongyi-qianwen-1-1",
+            "name": "tongyi-qianwen-1",
             "url": "/icons/svg/tongyi-qianwen-1.svg"
         },
         {
-            "name": "toolbox-1-1",
+            "name": "toolbox-1",
             "url": "/icons/svg/toolbox-1.svg"
         },
         {
@@ -6765,19 +7993,19 @@
             "url": "/icons/svg/typescript-1.svg"
         },
         {
-            "name": "ubuntu-1-1",
+            "name": "ubuntu-1",
             "url": "/icons/svg/ubuntu-1.svg"
         },
         {
-            "name": "ubuntu-2-1",
+            "name": "ubuntu-2",
             "url": "/icons/svg/ubuntu-2.svg"
         },
         {
-            "name": "ubuntu-3-1",
+            "name": "ubuntu-3",
             "url": "/icons/svg/ubuntu-3.svg"
         },
         {
-            "name": "unbalance-1-1",
+            "name": "unbalance-1",
             "url": "/icons/svg/unbalance-1.svg"
         },
         {
@@ -6785,35 +8013,35 @@
             "url": "/icons/svg/uniqlo-1.svg"
         },
         {
-            "name": "unlock-music-1-2",
+            "name": "unlock-music-1",
             "url": "/icons/svg/unlock-music-1.svg"
         },
         {
-            "name": "unraid-1-1",
+            "name": "unraid-1",
             "url": "/icons/svg/unraid-1.svg"
         },
         {
-            "name": "uptime-kuma-1-1",
+            "name": "uptime-kuma-1",
             "url": "/icons/svg/uptime-kuma-1.svg"
         },
         {
-            "name": "v2raya-1-1",
+            "name": "v2raya-1",
             "url": "/icons/svg/v2raya-1.svg"
         },
         {
-            "name": "vagrant-1-1",
+            "name": "vagrant-1",
             "url": "/icons/svg/vagrant-1.svg"
         },
         {
-            "name": "vertex-1-1",
+            "name": "vertex-1",
             "url": "/icons/svg/vertex-1.svg"
         },
         {
-            "name": "vertex-2-1",
+            "name": "vertex-2",
             "url": "/icons/svg/vertex-2.svg"
         },
         {
-            "name": "virola-1-1",
+            "name": "virola-1",
             "url": "/icons/svg/virola-1.svg"
         },
         {
@@ -6833,123 +8061,123 @@
             "url": "/icons/svg/vivo-3.svg"
         },
         {
-            "name": "vmware-1-1",
+            "name": "vmware-1",
             "url": "/icons/svg/vmware-1.svg"
         },
         {
-            "name": "vscode-1-1",
+            "name": "vscode-1",
             "url": "/icons/svg/vscode-1.svg"
         },
         {
-            "name": "vscode-2-1",
+            "name": "vscode-2",
             "url": "/icons/svg/vscode-2.svg"
         },
         {
-            "name": "vscodium-1-2",
+            "name": "vscodium-1",
             "url": "/icons/svg/vscodium-1.svg"
         },
         {
-            "name": "vscodium-2-1",
+            "name": "vscodium-2",
             "url": "/icons/svg/vscodium-2.svg"
         },
         {
-            "name": "vuetify-1-1",
+            "name": "vuetify-1",
             "url": "/icons/svg/vuetify-1.svg"
         },
         {
-            "name": "wallabag-1-1",
+            "name": "wallabag-1",
             "url": "/icons/svg/wallabag-1.svg"
         },
         {
-            "name": "wallabag-2-1",
+            "name": "wallabag-2",
             "url": "/icons/svg/wallabag-2.svg"
         },
         {
-            "name": "wallabag-3-1",
+            "name": "wallabag-3",
             "url": "/icons/svg/wallabag-3.svg"
         },
         {
-            "name": "wallos-1-1",
+            "name": "wallos-1",
             "url": "/icons/svg/wallos-1.svg"
         },
         {
-            "name": "watchtower-1-2",
+            "name": "watchtower-1",
             "url": "/icons/svg/watchtower-1.svg"
         },
         {
-            "name": "wbo-1-1",
+            "name": "wbo-1",
             "url": "/icons/svg/wbo-1.svg"
         },
         {
-            "name": "webstorm-1-1",
+            "name": "webstorm-1",
             "url": "/icons/svg/webstorm-1.svg"
         },
         {
-            "name": "wechat-1-1",
+            "name": "wechat-1",
             "url": "/icons/svg/wechat-1.svg"
         },
         {
-            "name": "wechat-2-1",
+            "name": "wechat-2",
             "url": "/icons/svg/wechat-2.svg"
         },
         {
-            "name": "weclone-1-1",
+            "name": "weclone-1",
             "url": "/icons/svg/weclone-1.svg"
         },
         {
-            "name": "wekan-1-1",
+            "name": "wekan-1",
             "url": "/icons/svg/wekan-1.svg"
         },
         {
-            "name": "wekan-2-1",
+            "name": "wekan-2",
             "url": "/icons/svg/wekan-2.svg"
         },
         {
-            "name": "whisparr-1-2",
+            "name": "whisparr-1",
             "url": "/icons/svg/whisparr-1.svg"
         },
         {
-            "name": "wikijs-1-1",
+            "name": "wikijs-1",
             "url": "/icons/svg/wikijs-1.svg"
         },
         {
-            "name": "willow-1-2",
+            "name": "willow-1",
             "url": "/icons/svg/willow-1.svg"
         },
         {
-            "name": "windows-10-1-1",
+            "name": "windows-10-1",
             "url": "/icons/svg/windows-10-1.svg"
         },
         {
-            "name": "windows-7-1-1",
+            "name": "windows-7-1",
             "url": "/icons/svg/windows-7-1.svg"
         },
         {
-            "name": "windows-8-1-1",
+            "name": "windows-8-1",
             "url": "/icons/svg/windows-8-1.svg"
         },
         {
-            "name": "windows-95-1-1",
+            "name": "windows-95-1",
             "url": "/icons/svg/windows-95-1.svg"
         },
         {
-            "name": "windows-server-1-1",
+            "name": "windows-server-1",
             "url": "/icons/svg/windows-server-1.svg"
         },
         {
-            "name": "wireguard-1-2",
+            "name": "wireguard-1",
             "url": "/icons/svg/wireguard-1.svg"
         },
         {
-            "name": "wise-mapping-1-1",
+            "name": "wise-mapping-1",
             "url": "/icons/svg/wise-mapping-1.svg"
         },
         {
-            "name": "wordpress-1-2",
+            "name": "wordpress-1",
             "url": "/icons/svg/wordpress-1.svg"
         },
         {
-            "name": "writerside-1-1",
+            "name": "writerside-1",
             "url": "/icons/svg/writerside-1.svg"
         },
         {
@@ -6977,23 +8205,23 @@
             "url": "/icons/svg/youku-3.svg"
         },
         {
-            "name": "youtrack-1-1",
+            "name": "youtrack-1",
             "url": "/icons/svg/youtrack-1.svg"
         },
         {
-            "name": "youtube-1-1",
+            "name": "youtube-1",
             "url": "/icons/svg/youtube-1.svg"
         },
         {
-            "name": "youtube-2-1",
+            "name": "youtube-2",
             "url": "/icons/svg/youtube-2.svg"
         },
         {
-            "name": "youtube-3-1",
+            "name": "youtube-3",
             "url": "/icons/svg/youtube-3.svg"
         },
         {
-            "name": "youtube-4-1",
+            "name": "youtube-4",
             "url": "/icons/svg/youtube-4.svg"
         },
         {
@@ -7001,19 +8229,19 @@
             "url": "/icons/svg/youtube-5.svg"
         },
         {
-            "name": "zfile-1-1",
+            "name": "zfile-1",
             "url": "/icons/svg/zfile-1.svg"
         },
         {
-            "name": "zigbee-mqtt-1-1",
+            "name": "zigbee-mqtt-1",
             "url": "/icons/svg/zigbee-mqtt-1.svg"
         },
         {
-            "name": "zimaos-1-1",
+            "name": "zimaos-1",
             "url": "/icons/svg/zimaos-1.svg"
         },
         {
-            "name": "zulip-1-1",
+            "name": "zulip-1",
             "url": "/icons/svg/zulip-1.svg"
         },
         {

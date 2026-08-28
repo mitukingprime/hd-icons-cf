@@ -2,7 +2,7 @@ import { createStorage } from '../_lib/storage.js';
 
 const CATEGORIES_KEY = '_meta/categories.json';
 const UPLOADS_KEY = '_meta/uploads.json';
-const BUILTIN = ['border-radius', 'circle', 'svg'];
+const BUILTIN = ['border-radius', 'circle', 'svg', 'ai', 'cloud', 'docker', 'nas', 'pt'];
 
 function getBuiltinCategories() {
   return BUILTIN.map((name) => ({ name, builtin: true }));
